@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/activity_leads_edit"
+    android:background="@color/colorBackgroundGrey"
+    tools:context=".activity.leadsedit.LeadsEditActivity">
+
+    <include layout="@layout/toolbar_main"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="@dimen/space_20"
+            android:orientation="vertical">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_10"
+                />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                android:id="@+id/et_editLeads_firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/space_48"
+                android:layout_marginTop="@dimen/space_6"
+                android:background="@drawable/squarebordergrey_whitebackground"
+                android:hint="@string/first_name_placeholder"
+                android:inputType="text"
+                android:padding="@dimen/space_12"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_14" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_firstNameError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/last_name"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_10"
+                />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                android:id="@+id/et_editLeads_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/space_48"
+                android:layout_marginTop="@dimen/space_6"
+                android:background="@drawable/squarebordergrey_whitebackground"
+                android:hint="@string/last_name_placeholder"
+                android:inputType="text"
+                android:padding="@dimen/space_12"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_14" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_lastNameError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lead_source"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_10"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_editLeads_leadSourceClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_12"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:minHeight="@dimen/space_48"
+                android:layout_marginTop="@dimen/space_6"
+                android:background="@drawable/squarebordergrey_whitebackground">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_editLeads_leadSource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lead_source_placeholder"
+                    android:textColor="@color/colorText"
+                    android:drawableEnd="@drawable/ic_droparrow_black"
+                    android:drawableRight="@drawable/ic_droparrow_black"
+                    android:drawablePadding="@dimen/space_8"
+                    android:textSize="@dimen/text_14"
+                    />
+
+            </LinearLayout>
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_leadSourceError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+            <LinearLayout
+                android:id="@+id/ll_editLeads_otherDetailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/other_details"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_otherDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_84"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:gravity="top"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_editLeads_otherDetailsError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_editLeads_ReferralLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ReferralName"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_addLeads_referralName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/referral_name_placeholder"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_editLeads_ReferralNameError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorText"
+                android:layout_marginTop="@dimen/space_24"
+                android:text="@string/contact_info"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/facebook"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:textSize="@dimen/text_14" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/instagram"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_instagram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:textSize="@dimen/text_14" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/twitter"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_twitter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:textSize="@dimen/text_14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/Website"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_website"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:textSize="@dimen/text_14" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/email"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_editLeads_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:textSize="@dimen/text_14" />
+
+
+
+            </LinearLayout>
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_emailError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/phone"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_12"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:minHeight="@dimen/space_48"
+                    android:background="@drawable/squarebordergrey_whitebackground">
+
+                    <com.rilixtech.CountryCodePicker
+                        android:id="@+id/cpp_editLeads_phoneNumberPicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:ccp_enableHint="false"
+                        app:ccp_backgroundColor="@color/colorWhite"
+                        app:ccp_selectionDialogShowSearch="false"
+                        app:ccp_textColor="@color/colorText"
+                        app:ccp_textSize="@dimen/text_14" />
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_12"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:minHeight="@dimen/space_48"
+                    android:background="@drawable/squarebordergrey_whitebackground">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_editLeads_phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:hint="@string/phone_number_placeholder"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:inputType="number"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_phoneNumberError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/interest"
+                android:layout_marginTop="@dimen/space_24"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_16"
+                />
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/CategoriesandProducts"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_12"
+                />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/et_editLeads_interests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:textSize="@dimen/text_14"
+                android:padding="@dimen/space_12"
+                android:background="@drawable/squarebordergrey_whitebackground"
+                android:hint="@string/interests_placeholder"
+                android:textColor="@color/colorText" />
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_editLeads_interestsError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:text="@string/error"
+                android:textColor="@color/colorErrorRed"
+                android:textSize="@dimen/text_12" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

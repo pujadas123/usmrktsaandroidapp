@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_16"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_campaignProduct_parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
+
+        <ImageView
+            android:id="@+id/iv_campaignProduct_campaignThumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_356"
+            android:contentDescription="@string/campaign_thumbnail"
+            android:scaleType="centerCrop" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:orientation="vertical">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                android:id="@+id/tv_campaignProduct_campaignName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:text="@string/product_colon"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_10" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_campaignProduct_campaignProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:text="@string/category_colon"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_10" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_campaignProduct_campaignCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:text="@string/language_colon"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_10" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_campaignProduct_campaignLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:layout_marginLeft="@dimen/space_10"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_marginRight="@dimen/space_10"
+        android:background="@color/colorLightGrey"
+        android:padding="@dimen/space_16" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_16">
+
+        <LinearLayout
+            android:id="@+id/ll_campaignProduct_shareLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/iv_campaignProduct_facebookShareClick"
+                android:layout_width="@dimen/space_20"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/facebook_icon"
+                android:src="@drawable/ic_facebook_primary" />
+
+
+            <ImageView
+                android:id="@+id/iv_campaignProduct_instagramShareClick"
+                android:layout_width="@dimen/space_20"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/instagram_icon"
+                android:src="@drawable/ic_instagram_primary" />
+
+            <ImageView
+                android:id="@+id/iv_campaignProduct_twitterShareClick"
+                android:layout_width="@dimen/space_20"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/twitter_icon"
+                android:src="@drawable/ic_twitter_primary" />
+
+            <ImageView
+                android:id="@+id/iv_campaignProduct_whatsappShareClick"
+                android:layout_width="@dimen/space_20"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:contentDescription="@string/whatsapp_icon"
+                android:src="@drawable/ic_whatsapp_primary" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toStartOf="@+id/ll_campaignProduct_shareLayout"
+                android:layout_toLeftOf="@+id/ll_campaignProduct_shareLayout"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical"
+                android:text="@string/share_caps"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="@dimen/text_10" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

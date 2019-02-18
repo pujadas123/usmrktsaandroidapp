@@ -1,0 +1,321 @@
+<resources>
+    <string name="app_name">US MRKT</string>
+
+    <!--Content Description-->
+    <string name="splash_logo">SPLASH LOGO</string>
+    <string name="login_logo">LOGIN LOGO</string>
+
+    <string name="slider_image_one">SLIDER IMAGE ONE</string>
+
+    <!--Signup Login-->
+    <string name="login_signup_header">Welcome to US MRKT</string>
+    <string name="login_signup_subheader">GLOBAL DIGITAL SALES PLATFORM</string>
+
+    <!--Errors-->
+    <string name="error_password_empty">Please Enter Password</string>
+    <string name="error_email_empty">Please Enter Email</string>
+    <string name="error_email_invalid">Please Enter Valid Email</string>
+
+    <string name="error_internet">No Internet Connection</string>
+    <string name="error_response_code">Can\'t connect Server! Error:</string>
+    <string name="error_server">Something went wrong!</string>
+
+    <string name="error_role_login">You are not authorised to login.</string>
+    <string name="error_login">Email and password incorrect</string>
+
+
+    <!--Login-->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="email_placeholder">Enter Email</string>
+    <string name="password_placeholder">Enter Password</string>
+    <string name="signup_password_placeholder">Enter Password (6-10)</string>
+
+    <string name="log_in">LOGIN</string>
+    <string name="remember_me">Keep me logged in</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="login_signup">REGISTER HERE if you don’t have an account.</string>
+
+
+    <!--App Intro-->
+    <string name="slider_header_one">SELECT PRODUCTS</string>
+    <string name="slider_header_two">SHARE CAMPAIGNS</string>
+    <string name="slider_header_three">ADD LEADS</string>
+    <string name="slider_header_four">HELP CENTER</string>
+
+    <string name="slider_text_one">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
+    <string name="slider_text_two">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
+    <string name="slider_text_three">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
+    <string name="slider_text_four">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
+
+    <string name="get_started">I’m Ready!</string>
+    <string name="get_started_product">Get Started</string>
+    <string name="skip">Skip</string>
+
+
+    <string name="RoutingNumber">Routing Number</string>
+    <string name="AccountNumber">Account Number</string>
+    <string name="SWIFTCode">SWIFT Code</string>
+
+
+    <!--Signup-->
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="english">English</string>
+    <string name="ReferralName">Referral Name</string>
+    <string name="full_name">Full Name</string>
+
+    <string name="preferred_language">Preferred Language</string>
+    <string name="spanish">Spanish</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="first_name_placeholder">Enter First Name</string>
+    <string name="last_name_placeholder">Enter Last Name</string>
+    <string name="phone_number_placeholder">Enter Phone Number</string>
+    <string name="confirm_password_placeholder">Enter Confirm Password</string>
+    <string name="referral_name_placeholder">Enter Referral Name</string>
+    ////
+    <string name="address1_placeholder">Enter Street Address 1</string>
+    <string name="address2_placeholder">Enter Street Address 2</string>
+    <string name="apt_unit_placeholder">Enter Apt/Unit</string>
+    <string name="city_placeholder">Enter City</string>
+    <string name="state_placeholder">Enter State</string>
+    <string name="postal_code_placeholder">Enter Postal Code</string>
+
+
+    <string name="address_1">Street Address 1</string>
+    <string name="address">Address</string>
+    <string name="address_2">Street Address 2</string>
+    <string name="apt_unit">Apt/Unit</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="country_region">Country/Region</string>
+
+    <string name="register">REGISTER</string>
+
+
+    <string name="signup_agreement">Check here to indicate that you read and agree with the US MRKT Sales Associate Agreement.\n</string>
+    <string name="signup_terms">Check here to indicate that you read and agree with the Terms and Conditions of US MRKT.\n</string>
+    <string name="signup_citizen">Click here if you are a United States citizen/resident or if you reside in the United States.\n</string>
+
+    <string name="signup_login">LOGIN if you have an account.\n</string>
+
+
+    <!--Forgot password-->
+    <string name="forgot_password_header">Password Reset</string>
+    <string name="forgot_password_subheader">Enter your email address to reset your password.</string>
+
+
+    <!--Add Products Home-->
+    <string name="add_product_list">Categories</string>
+    <string name="add_product">Products</string>
+    <string name="showcase_header">One More Detail!</string>
+    <string name="showcase_sub_header">You can filter your view of available products by choosing a CATEGORY icon. Then, just tap the ON/OFF SWITCH to select your preferred product(s).</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="error">Error</string>
+
+
+    <string name="error_confirm_password_empty">Please Confirm Password</string>
+    <string name="error_confirm_password_mismatch">Entered Passwords Not Matching</string>
+    <string name="error_last_name_empty">Please Enter Last Name</string>
+    <string name="error_first_name_empty">Please Enter First Name</string>
+    <string name="error_pref_language_empty">Please Select Preferred Language</string>
+    <string name="error_phone_number_empty">Please Enter Phone Number</string>
+    <string name="error_phone_number_invalid">Please Enter Valid Phone Number</string>
+    <string name="error_address_empty">Please Enter Address</string>
+    <string name="error_apt_unit_empty">Please Enter Apt/Unit</string>
+    <string name="error_state_empty">Please Enter State</string>
+    <string name="error_postal_code_empty">Please Enter Postal Code</string>
+    <string name="error_routing_number_empty">Please Enter Routing Number</string>
+    <string name="error_account_number_empty">Please Enter Account Number</string>
+    <string name="error_SWIFT_code_empty">Please Enter SWIFT Code</string>
+    <string name="error_full_name_empty">Please Enter Full Name</string>
+
+
+    <string name="products">Product</string>
+    <string name="campaigns">Campaigns</string>
+    <string name="leads">Leads</string>
+    <string name="profile">Profile</string>
+    <string name="notification_icon">NOTIFICATION ICON</string>
+    <string name="shared">Shared</string>
+    <string name="campaigns_caps">CAMPAIGNS</string>
+    <string name="all_caps">ALL</string>
+    <string name="all_products">All products</string>
+    <string name="new_campaigns">New Campaigns</string>
+    <string name="all_campaigns">All Campaigns</string>
+    <string name="leads_caps">LEADS</string>
+    <string name="add_icon">ADD ICON</string>
+    <string name="converted">Converted</string>
+    <string name="edit">Edit</string>
+    <string name="inside_icon">INSIDE ICON</string>
+    <string name="username">Username</string>
+    <string name="lead_source">Lead Source: </string>
+    <string name="contact_info_caps">CONTACT INFO</string>
+    <string name="interest_caps">INTEREST</string>
+    <string name="shared_campaigns_caps">SHARED CAMPAIGNS</string>
+    <string name="edit_icon">EDIT ICON</string>
+    <string name="next_icon">NEXT ICON</string>
+    <string name="category_product_colon">Category Product:</string>
+    <string name="language_colon">Language:</string>
+    <string name="campaign_thumbnail">CAMPAIGN THUMBNAIL</string>
+    <string name="notifications_caps">NOTIFICATIONS</string>
+    <string name="share_icon">SHARE ICON</string>
+    <string name="shares">Shares</string>
+    <string name="date">Date</string>
+    <string name="social_media">Social Network</string>
+    <string name="share_logs">Social Network Log</string>
+    <string name="share">Share</string>
+    <string name="campaign_training">Campaign Training</string>
+    <string name="product_colon">Product:</string>
+    <string name="category_colon">Category:</string>
+    <string name="campaign_training_caps">CAMPAIGN TRAINING</string>
+    <string name="product_training_caps">PRODUCT TRAINING</string>
+    <string name="training_image">TRAINING IMAGE</string>
+    <string name="download_icon">DOWNLOAD ICON</string>
+    <string name="doc_icon">DOC ICON</string>
+    <string name="link_icon">LINK ICON</string>
+    <string name="lead_caps">LEAD</string>
+    <string name="save">Save</string>
+    <string name="user_name_placeholder">Enter username</string>
+    <string name="lead_source_placeholder">Select lead source</string>
+    <string name="add_contact">Add contact</string>
+    <string name="interest">Interests</string>
+    <string name="CategoriesandProducts">Categories</string>
+    <string name="interests_placeholder">Enter categories separated by commas (,).</string>
+    <string name="error_user_name_empty">Please enter username</string>
+    <string name="error_interests_empty">Please enter interests</string>
+    <string name="error_lead_source_empty">Please select lead source</string>
+    <string name="error_add_contact_empty">Please add atleast one contact</string>
+
+
+    <string name="icon_circle_full">&#xe869;</string>
+    <string name="icon_circle_empty">&#xe868;</string>
+
+
+    <string name="done">Done</string>
+
+    <string name="profile_caps">PROFILE</string>
+
+    <string name="error_city_empty">Please enter city</string>
+    <string name="agreements_caps">AGREEMENTS</string>
+    <string name="help_caps">HELP</string>
+    <string name="log_out_caps">LOG OUT</string>
+    <string name="my_leads">My Leads</string>
+    <string name="leads_converted">Converted Leads</string>
+    <string name="my_products">My Products</string>
+    <string name="campaigns_shared">Shared Campaigns</string>
+    <string name="update_profile_caps">UPDATE PROFILE</string>
+    <string name="real_estate_image">REAL ESTATE IMAGE</string>
+    <string name="real_estate">Real Estate</string>
+    <string name="investment">Investment</string>
+    <string name="investment_image">INVESTMENT IMAGE</string>
+    <string name="yatch">Yatch</string>
+    <string name="add_products_caps">SELECT PRODUCTS</string>
+    <string name="done_caps">Done</string>
+    <string name="search_placeholder">Search...</string>
+    <string name="products_caps">ADD PRODUCTS</string>
+
+    <string name="submit_caps">SUBMIT</string>
+    <string name="dummy_image">DUMMY IMAGE</string>
+    <string name="product_thumbnail">PRODUCT THUMBNAIL</string>
+    <string name="commission_colon">Commission:</string>
+    <string name="error_add_product_empty">Please select at least one product.</string>
+    <string name="email_icon">EMAIL ICON</string>
+    <string name="phone_icon">PHONE ICON</string>
+    <string name="pin_icon">PIN ICON</string>
+    <string name="active_caps">ACTIVE</string>
+    <string name="ready_caps">READY</string>
+    <string name="converted_caps">CONVERTED</string>
+    <string name="add_lead_caps">ADD LEAD</string>
+    <string name="other_details">Other Details</string>
+    <string name="error_details_empty">Please enter details</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="website">Website</string>
+    <string name="Website">Website</string>
+    <string name="instagram">Instagram</string>
+    <string name="edit_lead_caps">EDIT LEAD</string>
+    <string name="lead_details_caps">LEAD DETAILS</string>
+    <string name="phone">Phone</string>
+    <string name="close_icon">CLOSE ICON</string>
+    <string name="shared_campaigns">Shared Campaigns</string>
+    <string name="new_campaigns_caps">NEW CAMPAIGNS</string>
+    <string name="existing_campaigns_caps">EXISTING CAMPAIGNS</string>
+    <string name="world_icon">WORLD ICON</string>
+    <string name="all_categories">All Categories</string>
+    <string name="share_caps">SHARE</string>
+    <string name="facebook_icon">FACEBOOK ICON</string>
+    <string name="instagram_icon">INSTAGRAM ICON</string>
+    <string name="twitter_icon">TWITTER ICON</string>
+    <string name="whatsapp_icon">WHATSAPP ICON</string>
+    <string name="campaign_details_caps">CAMPAIGN DETAILS</string>
+    <string name="product_details_caps">PRODUCT DETAILS</string>
+    <string name="faq_caps">FAQs</string>
+    <string name="glossary_caps">GLOSSARY</string>
+    <string name="paid_commissions_caps">PAID COMMISSIONS</string>
+    <string name="product_training">Product Training</string>
+
+    <string name="campaign_loadmore">LOAD MORE</string>
+    <string name="campaign_showall">SHOW ALL</string>
+    <string name="loader_caption">Please Wait...</string>
+    <string name="error_no_data">No data available</string>
+    <string name="product_campaigns_caps">PRODUCT CAMPAIGNS</string>
+    <string name="play_video_icon">PLAY VIDEO ICON</string>
+    <string name="dollar_sign">$</string>
+    <string name="commission_tail">% of Sale Price</string>
+    <string name="glossary">Glossary</string>
+    <string name="edit_my_products">Edit My Products</string>
+    <string name="error_icon">ERROR ICON</string>
+    <string name="try_again">Try Again</string>
+    <string name="add_products_error">Add Product</string>
+    <string name="error_no_data_myproduct">You have not added any product</string>
+    <string name="error_no_data_active_leads">No active leads available</string>
+    <string name="error_no_data_ready_leads">No ready leads available</string>
+    <string name="error_no_data_converted_leads">No converted leads available</string>
+    <string name="error_no_data_new_campaigns">No new campaigns available</string>
+    <string name="error_no_data_existing_campaigns">No existing campaigns available</string>
+    <string name="error_no_data_shared_campaigns">No shared campaigns available</string>
+    <string name="error_no_data_new_campaigns_category">No new campaigns available in selected filter</string>
+    <string name="error_no_data_existing_campaigns_category">No existing campaigns available in selected filter</string>
+    <string name="error_no_data_shared_campaigns_category">No shared campaigns available in selected filter</string>
+    <string name="error_no_data_products">No products available</string>
+    <string name="error_no_data_campaigns">No campaigns available</string>
+    <string name="error_no_data_training">No training material available</string>
+    <string name="error_no_data_sharelog_campaign">You have not shared any campaign</string>
+    <string name="permission_request">Please allow permission in app settings</string>
+    <string name="go_settings">Go settings</string>
+    <string name="error_password_length">Please enter password in 6-12 characters</string>
+    <string name="error_email_exists">Entered email is already registered with us</string>
+    <string name="error_email_not_exists">Entered email is not registered with us</string>
+    <string name="lets_go">Let’s Go!</string>
+    <string name="welcome_header">Congratulations!</string>
+    <string name="welcome_subheader_one">You’ve joined the US MRKT team!</string>
+    <string name="welcome_sub_header_two">Check your email for more details.</string>
+    <string name="error_no_data_faq">No FAQs available</string>
+    <string name="tick_icon">TICK ICON</string>
+    <string name="close">Close</string>
+    <string name="message_forgotPass">Reset password link has sent to your email</string>
+    <string name="error_no_data_glossary">No glossary available</string>
+    <string name="account_holder_information">Account Holder Information</string>
+    <string name="enter_street_address_1">Enter Street Address 1</string>
+    <string name="enter_street_address_2">Enter Street Address 2</string>
+    <string name="bank_coordinates">Bank Coordinates</string>
+    <string name="routing_number_placeholder">Enter Routing Number</string>
+    <string name="swift_code_placeholder">Enter SWIFT Code</string>
+    <string name="account_number_placeholder">Enter Account Number</string>
+    <string name="paypal_information">PayPal Information</string>
+    <string name="full_name_placeholder">Enter Full Name</string>
+    <string name="payment_info_caps">PAYMENT INFO</string>
+    <string name="error_no_data_notification">No notifications available</string>
+    <string name="notification_header">Notification #</string>
+
+
+</resources>

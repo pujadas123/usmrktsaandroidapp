@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackgroundGrey"
+    android:id="@+id/activity_campaign_training"
+    tools:context=".activity.campaigntraining.CampaignTrainingActivity">
+
+    <include layout="@layout/toolbar_main"/>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_campaignTraining_pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_16"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_16"
+                    android:orientation="vertical"
+                    android:background="@color/colorWhite">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                        android:id="@+id/tv_campaignTraining_campaignName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_18"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+                        android:id="@+id/tv_campaignTraining_campaignDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_10"
+                        android:layout_marginTop="@dimen/space_24"
+                        android:textColor="@color/colorDarkText"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:orientation="horizontal">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:text="@string/product_colon"
+                            android:layout_marginRight="@dimen/space_5"
+                            android:layout_marginEnd="@dimen/space_5"
+                            android:textColor="@color/colorGrey" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_campaignTraining_campaignProduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:orientation="horizontal">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:text="@string/category_colon"
+                            android:layout_marginRight="@dimen/space_5"
+                            android:layout_marginEnd="@dimen/space_5"
+                            android:textColor="@color/colorGrey" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_campaignTraining_campaignCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:orientation="horizontal">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:text="@string/language_colon"
+                            android:layout_marginRight="@dimen/space_5"
+                            android:layout_marginEnd="@dimen/space_5"
+                            android:textColor="@color/colorGrey" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_campaignTraining_campaignLanguage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorText" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/space_1"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:background="@color/colorLightGrey"/>
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_campaignTraining_campaignDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:textSize="@dimen/text_12"
+                        android:textColor="@color/colorText"/>
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        layout="@layout/custom_dialog_progress_training"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/space_300" />
+
+                    <include
+                        layout="@layout/layout_error_training"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/space_300" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_campaignTraining_trainingList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

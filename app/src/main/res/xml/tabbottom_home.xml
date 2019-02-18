@@ -1,0 +1,32 @@
+<tabs>
+
+    <tab
+        id="@+id/tab_home_products"
+        icon="@drawable/ic_tab_one"
+        title="@string/products"
+        activeColor="@color/colorPrimary"
+        />
+
+    <tab
+        id="@+id/tab_home_campaigns"
+        icon="@drawable/ic_tab_three"
+        title="@string/campaigns"
+        activeColor="@color/colorPrimary"
+        />
+
+    <tab
+        id="@+id/tab_home_leads"
+        icon="@drawable/ic_tab_two"
+        title="@string/leads"
+        activeColor="@color/colorPrimary"
+        />
+
+    <tab
+        id="@+id/tab_home_profile"
+        icon="@drawable/ic_tab_four"
+        title="@string/profile"
+        activeColor="@color/colorPrimary"
+        />
+
+
+</tabs>

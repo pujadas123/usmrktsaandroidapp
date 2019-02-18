@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_home"
+    android:background="@color/colorBackgroundGrey"
+    tools:context=".activity.home.HomeActivity">
+
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bb_home_bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_56"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        app:bb_inActiveTabColor="@color/colorTint"
+        app:bb_activeTabColor="@color/colorPrimary"
+        app:bb_titleTextAppearance="@style/BottomBarText"
+        app:bb_titleTypeFace="fonts/Barlow-Regular.ttf"
+        app:bb_tabXmlResource="@xml/tabbottom_home"
+
+        />
+
+    <RelativeLayout
+        android:layout_above="@+id/bb_home_bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fl_home_frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/fab_home_fabIcon"
+            android:layout_width="@dimen/space_40"
+            android:layout_height="@dimen/space_40"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_information"
+            android:layout_margin="@dimen/space_16" />
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_8"
+    android:padding="@dimen/space_24"
+    android:id="@+id/rl_leadsConvertedListAdapter_parentLayout"
+    android:background="@color/colorWhite">
+
+
+    <ImageView
+        android:id="@+id/iv_leadsConvertedListAdapter_next"
+        android:layout_width="@dimen/space_24"
+        android:layout_height="@dimen/space_24"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/next_icon"
+        android:src="@drawable/ic_next_arrow_primary_64" />
+
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/iv_leadsConvertedListAdapter_next"
+        android:layout_toStartOf="@+id/iv_leadsConvertedListAdapter_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/space_8"
+        android:layout_marginEnd="@dimen/space_8"
+        android:orientation="vertical">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+            android:id="@+id/tv_leadsConvertedListAdapter_leadName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/ll_leadsConvertedListAdapter_leadSourceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_5"
+            android:orientation="horizontal">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/iv_leadsConvertedListAdapter_leadSourceIcon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/icon_facebook"
+                android:textSize="@dimen/text_12"
+                android:visibility="gone"
+                android:textColor="@color/colorGrey" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_leadsConvertedListAdapter_leadSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_marginStart="@dimen/space_8"
+                android:textSize="@dimen/text_14"
+                android:textColor="@color/colorText" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

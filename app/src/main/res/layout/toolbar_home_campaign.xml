@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/homeCampaign_toolBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
+    android:background="@color/colorWhite"
+    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    local:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_12">
+
+        <RelativeLayout
+            android:id="@+id/rl_homeCampaign_toolBar_notificationLayout"
+            android:layout_width="@dimen/space_24"
+            android:layout_height="@dimen/space_24"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            >
+
+            <ImageView
+                android:id="@+id/iv_homeCampaign_toolBar_notification"
+                android:layout_width="@dimen/space_24"
+                android:layout_height="@dimen/space_24"
+                android:src="@drawable/ic_notification_primary"
+                android:contentDescription="@string/notification_icon"
+                />
+
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_homeCampaign_toolBar_sharedClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shared_campaigns"
+                android:layout_margin="@dimen/space_8"
+                android:textSize="@dimen/text_18"
+                android:textColor="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+            android:id="@+id/tv_homeProduct_toolBar_headerText"
+            android:layout_toLeftOf="@+id/ll_homeCampaign_toolBar_sharedClick"
+            android:layout_toStartOf="@+id/ll_homeCampaign_toolBar_sharedClick"
+            android:layout_toRightOf="@+id/rl_homeCampaign_toolBar_notificationLayout"
+            android:layout_toEndOf="@+id/rl_homeCampaign_toolBar_notificationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_18"
+            android:gravity="center"
+            android:maxLines="1"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorText"/>
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_home_add_products"
+    android:background="@color/colorBackgroundGrey"
+    tools:context=".activity.homeaddproducts.HomeAddProductsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_home_add_product"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_homeAddProducts_pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    layout="@layout/custom_dialog_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include
+                    layout="@layout/layout_error_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nsv_homeAddProducts_parentlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/space_16"
+                        android:padding="@dimen/space_16"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:orientation="vertical">
+
+                        <SearchView
+                            android:id="@+id/et_homeAddProducts_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/space_48"
+                            android:layout_marginTop="@dimen/space_6"
+                            android:background="@drawable/squareborderwhite_whitebackground"
+                            android:queryBackground="@color/colorWhite"
+                            android:queryHint="@string/search_placeholder"
+                            android:inputType="text"
+                            android:iconifiedByDefault="false"
+                            android:searchIcon="@drawable/ic_search_primary"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/text_14" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_product_list"
+                            android:textSize="@dimen/text_16"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:layout_marginBottom="@dimen/space_10"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_homeAddProducts_realEstateClick"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorLightGrey"
+                                android:padding="@dimen/space_12"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/space_84"
+                                    android:src="@drawable/img_real_estate"
+                                    android:contentDescription="@string/real_estate_image"/>
+
+                                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:textSize="@dimen/text_12"
+                                    android:gravity="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="@string/real_estate"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_homeAddProducts_investmentClick"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorLightGrey"
+                                android:padding="@dimen/space_12"
+                                android:layout_marginLeft="@dimen/space_5"
+                                android:layout_marginRight="@dimen/space_5"
+                                android:layout_marginStart="@dimen/space_5"
+                                android:layout_marginEnd="@dimen/space_5"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/space_84"
+                                    android:src="@drawable/img_investments"
+                                    android:contentDescription="@string/investment_image"/>
+
+                                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:textSize="@dimen/text_12"
+                                    android:gravity="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="@string/investment"/>
+
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_product"
+                            android:textSize="@dimen/text_16"
+                            android:layout_marginTop="@dimen/space_12"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_homeAddProducts_productList"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:layout_height="match_parent"
+                            android:scrollbars="none" />
+
+                    </LinearLayout>
+
+
+
+                </android.support.v4.widget.NestedScrollView>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_homeAddProducts_showCaseView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/space_32"
+        android:visibility="gone"
+        android:background="@color/colorBlackTransparent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/space_16"
+            android:background="@color/colorWhite">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_32"
+                android:gravity="center"
+                android:textColor="@color/colorText"
+                android:text="@string/showcase_header"
+                android:textSize="@dimen/text_26"/>
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorText"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/showcase_sub_header"
+                android:textSize="@dimen/text_14"/>
+
+            <LinearLayout
+                android:id="@+id/ll_homeAddProducts_getStartedClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="@dimen/space_32"
+                android:padding="@dimen/space_12">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:layout_margin="@dimen/space_8"
+                    android:text="@string/get_started_product"
+                    android:textSize="@dimen/text_16"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

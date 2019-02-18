@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:id="@+id/fragment_leads_home"
+    tools:context=".fragment.leads.LeadsHomeFragment">
+
+
+    <include layout="@layout/toolbar_home_leads"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/leads"
+            android:padding="@dimen/space_8"
+            android:textSize="@dimen/text_34"
+           />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_leadsHomeFragment_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/colorDarkGrey"
+            app:tabIndicatorHeight="@dimen/space_2"
+            app:tabGravity="fill" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_leadsHomeFragment_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

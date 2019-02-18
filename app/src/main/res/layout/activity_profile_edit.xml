@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_profile_edit"
+    android:background="@color/colorBackgroundGrey"
+    android:orientation="vertical"
+    tools:context=".activity.profileedit.ProfileEditActivity">
+
+    <include layout="@layout/toolbar_main"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_24"
+                android:gravity="center"
+                android:background="@color/colorWhite">
+
+                <RelativeLayout
+                    android:id="@+id/rl_profileEdit_userImageClick"
+                    android:layout_width="@dimen/space_120"
+                    android:layout_height="@dimen/space_120">
+
+                    <in.exuber.usmarket.libraries.circularimageview.CircleImageView
+                        android:id="@+id/iv_profileEdit_userImage"
+                        android:layout_width="@dimen/space_120"
+                        android:layout_height="@dimen/space_120"
+                        android:src="@drawable/demo_user"/>
+
+                    <in.exuber.usmarket.libraries.circularimageview.CircleImageView
+                        android:layout_width="@dimen/space_120"
+                        android:layout_height="@dimen/space_120"
+                        android:src="@drawable/ic_change_image_place_holder"
+                        />
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_20"
+                android:orientation="vertical">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_name"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/first_name_placeholder"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_firstNameError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_name"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/last_name_placeholder"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_lastNameError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/email_placeholder"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/space_12"
+                    android:focusable="false"
+                    android:enabled="true"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_emailError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_number"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_12"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:minHeight="@dimen/space_48"
+                        android:background="@drawable/squarebordergrey_whitebackground">
+
+                        <com.rilixtech.CountryCodePicker
+                            android:id="@+id/cpp_profileEdit_phoneNumberPicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:ccp_enableHint="false"
+                            app:ccp_backgroundColor="@color/colorWhite"
+                            app:ccp_selectionDialogShowSearch="false"
+                            app:ccp_textColor="@color/colorText"
+                            app:ccp_textSize="@dimen/text_14" />
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_12"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:minHeight="@dimen/space_48"
+                        android:background="@drawable/squarebordergrey_whitebackground">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                            android:id="@+id/et_profileEdit_phoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:hint="@string/phone_number_placeholder"
+                            android:layout_marginStart="@dimen/space_8"
+                            android:layout_marginLeft="@dimen/space_8"
+                            android:inputType="number"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/text_14" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_phoneNumberError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/preferred_language"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:orientation="horizontal">
+
+                    <!--<LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/space_8"
+                        android:layout_marginEnd="@dimen/space_8"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/cb_profileEdit_languageEnglish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_12"
+                            android:textColor="@color/colorText"
+                            android:buttonTint="@color/colorLightGrey"
+                            android:text="@string/english" />
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/space_8"
+                        android:layout_marginEnd="@dimen/space_8"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/cb_profileEdit_languageSpanish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_12"
+                            android:textColor="@color/colorText"
+                            android:buttonTint="@color/colorLightGrey"
+                            android:text="@string/spanish" />
+
+
+
+                    </LinearLayout>-->
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radiogrp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cb_profileEdit_languageEnglish"
+                            android:textSize="@dimen/text_12"
+                            android:textColor="@color/colorText"
+                            android:buttonTint="@color/colorPrimary"
+                            android:text="@string/english"
+                            />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/cb_profileEdit_languageSpanish"
+                            android:checked="false"
+                            android:textSize="@dimen/text_12"
+                            android:textColor="@color/colorText"
+                            android:buttonTint="@color/colorPrimary"
+                            android:text="@string/spanish"
+                            />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_prefLanguageError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/password_placeholder"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_passwordError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm_password"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:hint="@string/confirm_password_placeholder"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_confirmPasswordError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_32"
+                    android:textSize="@dimen/text_16"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address_1"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_addressOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_addressOneError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address_2"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_addressTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_addressTwoError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apt_unit"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_aptUnit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_aptUnitError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/city"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_cityError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/state"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="text"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_stateError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postal_code"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                    android:id="@+id/et_profileEdit_postalCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:inputType="textPostalAddress"
+                    android:padding="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_postalCodeError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country_region"
+                    android:textColor="@color/colorText"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textSize="@dimen/text_10"
+                    />
+
+                <com.rilixtech.CountryCodePicker
+                    android:id="@+id/cpp_profileEdit_countryRegion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_48"
+                    android:layout_marginTop="@dimen/space_6"
+                    app:ccp_selectionDialogShowSearch="false"
+                    app:ccp_hidePhoneCode="true"
+                    app:ccp_showFullName="true"
+                    android:clipChildren="false"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    app:ccp_textColor="@color/colorText"
+                    android:padding="@dimen/space_12"
+                    app:ccp_textSize="@dimen/text_14"
+                    />
+
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_profileEdit_countryRegionError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:text="@string/error"
+                    android:textColor="@color/colorErrorRed"
+                    android:textSize="@dimen/text_12" />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

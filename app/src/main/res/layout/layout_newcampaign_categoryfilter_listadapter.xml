@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space_12"
+    android:id="@+id/ll_newCampaign_categoryFilterListAdapter_parentLayout"
+    android:background="@color/colorPrimary">
+
+    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+        android:id="@+id/tv_newCampaign_categoryFilterListAdapter_filterName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_8"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        />
+
+</LinearLayout>

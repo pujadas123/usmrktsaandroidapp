@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/space_16"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+            android:id="@+id/tv_glossaryDialog_termsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_24"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_16"
+            android:gravity="center"/>
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_glossaryDialog_descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_12"
+            android:textSize="@dimen/text_14" />
+
+        <LinearLayout
+            android:id="@+id/ll_glossaryDialog_closeClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_32"
+            android:layout_marginBottom="@dimen/space_24"
+            android:paddingEnd="@dimen/space_16"
+            android:paddingRight="@dimen/space_16"
+            android:paddingLeft="@dimen/space_16"
+            android:paddingStart="@dimen/space_16"
+            android:background="@color/colorWhite">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="@dimen/space_12"
+                android:text="@string/close"
+                android:textSize="@dimen/text_14"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

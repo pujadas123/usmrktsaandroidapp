@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_custom_dialog"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:padding="@dimen/space_32"
+    android:orientation="vertical">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        />
+
+    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loader_caption"
+        android:layout_marginTop="@dimen/space_8"
+        android:textSize="@dimen/text_16"
+        android:gravity="center"
+        android:textColor="@color/colorText"
+        android:layout_centerHorizontal="true"/>
+
+</LinearLayout>

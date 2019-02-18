@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_payment_info"
+    android:background="@color/colorBackgroundGrey"
+    android:orientation="vertical"
+    tools:context=".activity.paymentinfo.Payment_Info_Activity">
+
+    <include layout="@layout/toolbar_main"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/custom_dialog_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/layout_error_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ScrollView
+            android:id="@+id/sv_paymentInfo_paymentInfoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/space_20"
+                    android:orientation="vertical">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_holder_information"
+                        android:textSize="@dimen/text_16"/>
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/first_name"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_firstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/first_name_placeholder"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_firstNameError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_name"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_lastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/last_name_placeholder"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_lastNameError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address_1"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_addressOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="text"
+                        android:hint="@string/address1_placeholder"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_addressOneError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address_2"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_addressTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="text"
+                        android:hint="@string/address2_placeholder"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_addressTwoError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apt_unit"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_aptUnit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="text"
+                        android:hint="@string/apt_unit_placeholder"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_aptUnitError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="text"
+                        android:hint="Enter City"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_cityError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/state"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="text"
+                        android:hint="Enter State"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_stateError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/postal_code"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_postalCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:inputType="textPostalAddress"
+                        android:hint="@string/postal_code_placeholder"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_postalCodeError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country_region"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <com.rilixtech.CountryCodePicker
+                        android:id="@+id/cpp_paymentInfo_countryRegion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        app:ccp_selectionDialogShowSearch="false"
+                        app:ccp_hidePhoneCode="true"
+                        app:ccp_showFullName="true"
+                        android:clipChildren="false"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        app:ccp_textColor="@color/colorText"
+                        android:padding="@dimen/space_12"
+                        app:ccp_textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_countryRegionError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/email_placeholder"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_emailError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/bank_coordinates"
+                        android:textSize="@dimen/text_16"/>
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/RoutingNumber"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_routingNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/routing_number_placeholder"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        app:passwordToggleEnabled="true"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_routingNumberError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AccountNumber"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_accountNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/account_number_placeholder"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        app:passwordToggleEnabled="true"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_accountNumberError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/SWIFTCode"
+                        android:textColor="@color/colorText"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textSize="@dimen/text_10"
+                        />
+
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_SWIFTCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/swift_code_placeholder"
+                        app:passwordToggleEnabled="true"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_SWIFTCodeError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/paypal_information"
+                        android:textSize="@dimen/text_16"/>
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/full_name"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_fullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/full_name_placeholder"
+                        android:inputType="text"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_fullNameError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_10"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularEditText
+                        android:id="@+id/et_paymentInfo_paypalEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/space_48"
+                        android:layout_marginTop="@dimen/space_6"
+                        android:background="@drawable/squarebordergrey_whitebackground"
+                        android:hint="@string/email_placeholder"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/space_12"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_paymentInfo_paypalEmailError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_3"
+                        android:text="@string/error"
+                        android:textColor="@color/colorErrorRed"
+                        android:textSize="@dimen/text_12" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/space_12"
+    android:orientation="horizontal"
+    android:id="@+id/ll_productHomeListAdapter_parentLayout"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/iv_productHomeListAdapter_productThumbnail"
+        android:layout_width="@dimen/space_96"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/product_thumbnail"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/space_12">
+
+        <ImageView
+            android:id="@+id/iv_productHomeListAdapter_next"
+            android:layout_width="@dimen/space_24"
+            android:layout_height="@dimen/space_24"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/next_icon"
+            android:src="@drawable/ic_next_arrow_primary_64" />
+
+
+
+
+        <LinearLayout
+            android:layout_toLeftOf="@+id/iv_productHomeListAdapter_next"
+            android:layout_toStartOf="@+id/iv_productHomeListAdapter_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_8"
+            android:layout_marginLeft="@dimen/space_8"
+            android:orientation="vertical">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                android:id="@+id/tv_productHomeListAdapter_productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14"
+                android:textColor="@color/colorPrimary" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_productHomeListAdapter_productCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_10"
+                android:textColor="@color/colorGrey" />
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowLightTextView
+                android:id="@+id/tv_productHomeListAdapter_productPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/colorText" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_10"
+                    android:text="@string/commission_colon"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginEnd="@dimen/space_5"
+                    android:textColor="@color/colorGrey" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_productHomeListAdapter_productCommision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_10"
+                    android:textColor="@color/colorText" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

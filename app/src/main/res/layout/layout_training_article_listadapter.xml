@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_16"
+    android:padding="@dimen/space_20"
+    android:orientation="vertical"
+    android:id="@+id/ll_trainingListAdapter_article_parentLayout"
+    android:background="@color/colorWhite">
+
+
+    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+        android:id="@+id/tv_campaignTrainingListAdapter_article_articleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"
+        android:textColor="@color/colorText" />
+
+</LinearLayout>

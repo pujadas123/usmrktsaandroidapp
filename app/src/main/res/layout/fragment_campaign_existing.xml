@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGrey"
+    android:id="@+id/srl_campaignExistingFragment_pullToRefresh"
+    tools:context=".fragment.campaign.CampaignExistingFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include
+            layout="@layout/custom_dialog_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/layout_error_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/fragment_campaign_existing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/colorWhite"
+                    android:padding="@dimen/space_16"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_campaignExistingFragment_languageClick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_campaignExistingFragment_languageIcon"
+                            android:layout_width="@dimen/space_24"
+                            android:layout_height="@dimen/space_24"
+                            android:contentDescription="@string/world_icon"
+                            android:src="@drawable/ic_world_black"/>
+
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_campaignExistingFragment_languageText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorText"
+                            android:layout_marginLeft="@dimen/space_8"
+                            android:layout_marginStart="@dimen/space_8"
+                            android:layout_centerInParent="true"
+                            android:drawablePadding="@dimen/space_8"
+                            android:textSize="@dimen/text_14"
+                            />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_toLeftOf="@+id/ll_campaignExistingFragment_languageClick"
+                        android:layout_toStartOf="@+id/ll_campaignExistingFragment_languageClick"
+                        android:layout_width="match_parent"
+                        android:layout_marginRight="@dimen/space_8"
+                        android:layout_marginEnd="@dimen/space_8"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_campaignExistingFragment_categoryClick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorText"
+                            android:drawableEnd="@drawable/ic_droparrow_black"
+                            android:drawableRight="@drawable/ic_droparrow_black"
+                            android:drawablePadding="@dimen/space_8"
+                            android:textSize="@dimen/text_14"
+                            />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_campaignExistingFragment_campaignsList"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/space_12"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none" />
+
+                <LinearLayout
+                    android:id="@+id/ll_campaignExistingFragment_loadMoreClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:padding="@dimen/space_20"
+                    android:layout_marginRight="@dimen/space_20"
+                    android:layout_marginLeft="@dimen/space_20"
+                    android:background="@color/colorPrimary">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/campaign_showall"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

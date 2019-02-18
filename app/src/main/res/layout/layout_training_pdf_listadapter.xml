@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_16"
+    android:padding="@dimen/space_20"
+    android:orientation="vertical"
+    android:id="@+id/rl_trainingListAdapter_pdf_parentLayout"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/iv_trainingListAdapter_pdf_downloadIcon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/space_24"
+        android:layout_height="@dimen/space_24"
+        android:src="@drawable/ic_download_primary"
+        android:contentDescription="@string/download_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_trainingListAdapter_pdf_docIcon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/space_24"
+        android:layout_height="@dimen/space_24"
+        android:src="@drawable/ic_doc_grey"
+        android:contentDescription="@string/doc_icon"/>
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/iv_trainingListAdapter_pdf_downloadIcon"
+        android:layout_toStartOf="@+id/iv_trainingListAdapter_pdf_downloadIcon"
+        android:layout_toRightOf="@+id/iv_trainingListAdapter_pdf_docIcon"
+        android:layout_toEndOf="@+id/iv_trainingListAdapter_pdf_docIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/space_12"
+        android:layout_marginLeft="@dimen/space_12"
+        android:layout_marginEnd="@dimen/space_12"
+        android:layout_marginRight="@dimen/space_12"
+        android:orientation="vertical">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_trainingListAdapter_pdf_docName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_14"
+            android:textColor="@color/colorText" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

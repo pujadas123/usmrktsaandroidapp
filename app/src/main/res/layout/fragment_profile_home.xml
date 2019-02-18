@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGrey"
+    android:id="@+id/fragment_profile_home"
+    android:orientation="vertical"
+    tools:context=".fragment.ProfileHomeFragment">
+
+    <include layout="@layout/toolbar_home_profile"/>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_24"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/colorWhite">
+
+                <in.exuber.usmarket.libraries.circularimageview.CircleImageView
+                    android:id="@+id/iv_profileHomeFragment_userImage"
+                    android:layout_width="@dimen/space_105"
+                    android:layout_height="@dimen/space_105"
+                    android:src="@drawable/demo_user"/>
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+                    android:id="@+id/tv_profileHomeFragment_profileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_22"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorText" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/space_12"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_profileHomeFragment_myLeadsCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_20"
+                            android:gravity="center"
+                            android:textColor="@color/colorText" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/my_leads"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/space_12"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_profileHomeFragment_convertedLeadsCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_20"
+                            android:gravity="center"
+                            android:textColor="@color/colorText" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/leads_converted"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/space_12"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_profileHomeFragment_myProductsCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_20"
+                            android:gravity="center"
+                            android:textColor="@color/colorText" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/my_products"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/space_12"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:id="@+id/tv_profileHomeFragment_campaignsSharedCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_20"
+                            android:gravity="center"
+                            android:textColor="@color/colorText" />
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/campaigns_shared"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_12"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_emailLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_24"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/space_16"
+                        android:layout_height="@dimen/space_16"
+                        android:src="@drawable/ic_email_grey"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/email_icon"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_profileHomeFragment_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_12"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:textColor="@color/colorText" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_phoneNumberLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_24"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/space_16"
+                        android:layout_height="@dimen/space_16"
+                        android:src="@drawable/ic_phone_grey"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/phone_icon"
+                        />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_profileHomeFragment_phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_12"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:textColor="@color/colorText" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_addressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_24"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/space_16"
+                        android:layout_height="@dimen/space_16"
+                        android:src="@drawable/ic_pin_grey"
+                        android:contentDescription="@string/pin_icon"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                android:id="@+id/tv_profileHomeFragment_addressOne"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_12"
+                                android:textColor="@color/colorText" />
+                            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                android:id="@+id/tv_profileHomeFragment_addressTwo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_12"
+                                android:textColor="@color/colorText" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                android:id="@+id/tv_profileHomeFragment_cityState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_12"
+                                android:textColor="@color/colorText" />
+
+                            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                android:id="@+id/tv_profileHomeFragment_postalCode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_12"
+                                android:textColor="@color/colorText" />
+
+                            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                                android:id="@+id/tv_profileHomeFragment_countryRegion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_12"
+                                android:textColor="@color/colorText" />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_paidCommissionClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:layout_marginLeft="90dp"
+                        android:text="PAID COMMISSIONS"
+                        android:drawablePadding="@dimen/space_8"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/space_24"
+                        android:layout_height="@dimen/space_24"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50dp"
+                        android:contentDescription="@string/next_icon"
+                        android:src="@drawable/ic_next_arrow_primary_64" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_paymentinfoClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:layout_marginLeft="90dp"
+                        android:text="PAYMENT INFO"
+                        android:drawablePadding="@dimen/space_8"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/space_24"
+                        android:layout_height="@dimen/space_24"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50dp"
+                        android:contentDescription="@string/next_icon"
+                        android:src="@drawable/ic_next_arrow_primary_64" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_glossaryClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:layout_marginLeft="90dp"
+                        android:text="GLOSSARY"
+                        android:drawablePadding="@dimen/space_8"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/space_24"
+                        android:layout_height="@dimen/space_24"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50dp"
+                        android:contentDescription="@string/next_icon"
+                        android:src="@drawable/ic_next_arrow_primary_64" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_faqClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:text="FAQs"
+                        android:layout_marginLeft="130dp"
+                        android:drawablePadding="@dimen/space_8"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="@dimen/space_24"
+                        android:layout_height="@dimen/space_24"
+                        android:layout_marginLeft="120dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/next_icon"
+                        android:src="@drawable/ic_next_arrow_primary_64"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_helpClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:text="@string/help_caps"
+                        android:layout_marginLeft="130dp"
+                        android:drawablePadding="@dimen/space_8"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="@dimen/space_24"
+                        android:layout_height="@dimen/space_24"
+                        android:layout_marginLeft="120dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/next_icon"
+                        android:src="@drawable/ic_next_arrow_primary_64"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_profileHomeFragment_logoutClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/space_64"
+                    android:padding="@dimen/space_12"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_14"
+                        android:gravity="center"
+                        android:text="@string/log_out_caps"
+                        android:textColor="@color/colorPrimary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

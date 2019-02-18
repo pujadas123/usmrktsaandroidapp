@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_login_signup"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ap_loginSignUp_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ct_loginSignUp_collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_300"
+            app:statusBarScrim="@color/colorWhite"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="@dimen/space_16"
+                app:layout_collapseMode="pin">
+
+                <ImageView
+                    android:id="@+id/iv_loginSignUp_loginImage"
+                    android:layout_width="@dimen/space_72"
+                    android:layout_height="@dimen/space_72"
+                    android:src="@drawable/login_logo"
+                    android:contentDescription="@string/login_logo" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/login_signup_header"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_26"/>
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/login_signup_subheader"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:textSize="@dimen/text_12"/>
+
+
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_loginSignUp_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:tabMode="fixed"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextColor="@color/colorDarkGrey"
+                app:tabIndicatorHeight="@dimen/space_2"
+                app:tabGravity="fill" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tl_loginSignUp_parallaxToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorWhite"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="parallax" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_loginSignUp_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+
+</android.support.design.widget.CoordinatorLayout>

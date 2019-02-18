@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_16"
+    android:padding="@dimen/space_20"
+    android:orientation="vertical"
+    android:id="@+id/ll_trainingListAdapter_video_parentLayout"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:id="@+id/ll_trainingListAdapter_video_playVideoClick"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_180"
+        android:background="@color/colorBlack"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/space_48"
+            android:layout_height="@dimen/space_48"
+            android:src="@drawable/ic_play_video_white"
+            android:contentDescription="@string/play_video_icon"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

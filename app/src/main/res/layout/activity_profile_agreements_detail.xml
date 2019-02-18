@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_profile_agreements_detail"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".activity.profileagreementsdetail.ProfileAgreementsDetailActivity">
+
+    <include layout="@layout/toolbar_main"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_profileAgreementsDetail_agreementDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText"
+            android:padding="@dimen/space_16"
+            android:textSize="@dimen/text_12"/>
+    </ScrollView>
+
+</LinearLayout>

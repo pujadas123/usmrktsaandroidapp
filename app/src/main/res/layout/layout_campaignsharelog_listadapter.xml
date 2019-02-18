@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/space_8"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/ll_campaignShareLogListAdapter_socialMedia"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="@dimen/space_72"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_campaignShareLogListAdapter_socialMedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_12"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_toStartOf="@+id/ll_campaignShareLogListAdapter_socialMedia"
+        android:layout_toLeftOf="@+id/ll_campaignShareLogListAdapter_socialMedia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_campaignShareLogListAdapter_shareDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_12"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+

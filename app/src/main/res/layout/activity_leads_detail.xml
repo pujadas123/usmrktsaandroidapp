@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_leads_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGrey"
+    android:orientation="vertical"
+    tools:context=".activity.activeleadsdetails.LeadsDetailActivity">
+
+    <include layout="@layout/toolbar_main" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_userNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+                    android:id="@+id/tv_leadsDetail_leadName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_22" />
+
+                <LinearLayout
+                    android:id="@+id/ll_leadsDetail_leadSourceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lead_source"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_leadsDetail_leadSource"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:layout_marginLeft="@dimen/space_8"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_14" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_24"
+                android:text="@string/contact_info"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_16" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactFacebookLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_facebook_grey"
+                    android:gravity="center" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactInstagramLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_instagram_grey"
+                    android:gravity="center" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactInstagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactTwitterLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_twitter_grey"
+                    android:gravity="center" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactTwitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactWebsiteLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_website_grey"
+                    android:gravity="center" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactWebsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactEmailLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_email_grey" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leadsDetail_contactPhoneLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/space_5"
+                    android:background="@drawable/ic_phone_grey"
+                    android:gravity="center" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_contactPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+            </LinearLayout>
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_24"
+                android:text="@string/interest"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_16" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/CategoriesandProducts"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_12" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_interest_realEstate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:layout_margin="@dimen/space_10"
+                    android:textColor="@color/colorText"
+                    android:text="@string/real_estate"
+                    android:padding="@dimen/space_20"
+                    android:textSize="@dimen/text_14"
+
+                    />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_leadsDetail_interest_investment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/squarebordergrey_whitebackground"
+                    android:layout_margin="@dimen/space_10"
+                    android:textColor="@color/colorText"
+                    android:text="@string/investment"
+                    android:padding="@dimen/space_20"
+                    android:textSize="@dimen/text_14"
+
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

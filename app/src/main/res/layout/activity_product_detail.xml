@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_product_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGrey"
+    android:orientation="vertical"
+    tools:context=".activity.productdetail.ProductDetailActivity">
+
+    <include layout="@layout/toolbar_main" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="@dimen/space_16">
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+                    android:id="@+id/tv_productDetail_productName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_26" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+                    android:id="@+id/tv_productDetail_productCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_12" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowLightTextView
+                    android:id="@+id/tv_productDetail_productPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_16" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_1"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/colorLightGrey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:orientation="horizontal">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/space_5"
+                        android:layout_marginRight="@dimen/space_5"
+                        android:text="@string/commission_colon"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="@dimen/text_12" />
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                        android:id="@+id/tv_productDetail_productCommision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/text_12" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_1"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/colorLightGrey" />
+
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_productDetail_productDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_12" />
+
+
+            </LinearLayout>
+
+            <!--Product Image 1-->
+
+            <LinearLayout
+                android:id="@+id/ll_product_detailsThumbnail_oneLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_product_detailsThumbnail_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_356"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/product_thumbnail"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/space_16"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_product_detailsThumbnail_shareLayoutOne"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_facebookShareClickOne"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_facebook_primary"
+                            android:contentDescription="@string/facebook_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_instagramShareClickOne"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_instagram_primary"
+                            android:contentDescription="@string/instagram_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_twitterShareClickOne"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_twitter_primary"
+                            android:contentDescription="@string/twitter_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_whatsappShareClickOne"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_whatsapp_primary"
+                            android:contentDescription="@string/whatsapp_icon"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/share_caps"
+                            android:gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <!--Product Image 2-->
+
+            <LinearLayout
+                android:id="@+id/ll_product_detailsThumbnail_twoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_product_detailsThumbnail_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_356"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/product_thumbnail"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/space_16"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_product_detailsThumbnail_shareLayoutTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_facebookShareClickTwo"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_facebook_primary"
+                            android:contentDescription="@string/facebook_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_instagramShareClickTwo"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_instagram_primary"
+                            android:contentDescription="@string/instagram_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_twitterShareClickTwo"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_twitter_primary"
+                            android:contentDescription="@string/twitter_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_whatsappShareClickTwo"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_whatsapp_primary"
+                            android:contentDescription="@string/whatsapp_icon"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/share_caps"
+                            android:gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <!--Product Image 3-->
+
+            <LinearLayout
+                android:id="@+id/ll_product_detailsThumbnail_threeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_product_detailsThumbnail_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_356"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/product_thumbnail"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/space_16"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_product_detailsThumbnail_shareLayoutThree"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_facebookShareClickThree"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_facebook_primary"
+                            android:contentDescription="@string/facebook_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_instagramShareClickThree"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_instagram_primary"
+                            android:contentDescription="@string/instagram_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_twitterShareClickThree"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_twitter_primary"
+                            android:contentDescription="@string/twitter_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_whatsappShareClickThree"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_whatsapp_primary"
+                            android:contentDescription="@string/whatsapp_icon"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/share_caps"
+                            android:gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+            <!--Product Image 4-->
+
+            <LinearLayout
+                android:id="@+id/ll_product_detailsThumbnail_fourLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_product_detailsThumbnail_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_356"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/product_thumbnail"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/space_16"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_product_detailsThumbnail_shareLayoutFour"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_facebookShareClickFour"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_facebook_primary"
+                            android:contentDescription="@string/facebook_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_instagramShareClickFour"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_instagram_primary"
+                            android:contentDescription="@string/instagram_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_twitterShareClickFour"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_twitter_primary"
+                            android:contentDescription="@string/twitter_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_product_detailsThumbnail_whatsappShareClickFour"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_whatsapp_primary"
+                            android:contentDescription="@string/whatsapp_icon"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/share_caps"
+                            android:gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <!--Product Video 1-->
+
+
+        <LinearLayout
+            android:id="@+id/ll_product_detailsVideo_videoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_product_detailsVideo_playVideoClick"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_180"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@color/colorBlack"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/space_48"
+                    android:layout_height="@dimen/space_48"
+                    android:src="@drawable/ic_play_video_white"
+                    android:contentDescription="@string/play_video_icon"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_16"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                >
+
+                <LinearLayout
+                    android:id="@+id/ll_product_detailsVideo_shareLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:id="@+id/iv_product_detailsVideo_facebookShareClick"
+                        android:layout_width="@dimen/space_20"
+                        android:layout_height="@dimen/space_20"
+                        android:src="@drawable/ic_facebook_primary"
+                        android:contentDescription="@string/facebook_icon"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="30dp"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/iv_product_detailsVideo_instagramShareClick"
+                        android:layout_width="@dimen/space_20"
+                        android:layout_height="@dimen/space_20"
+                        android:src="@drawable/ic_instagram_primary"
+                        android:contentDescription="@string/instagram_icon"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="30dp"/>
+
+                    <ImageView
+                        android:id="@+id/iv_product_detailsVideo_twitterShareClick"
+                        android:layout_width="@dimen/space_20"
+                        android:layout_height="@dimen/space_20"
+                        android:src="@drawable/ic_twitter_primary"
+                        android:contentDescription="@string/twitter_icon"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="30dp"/>
+
+                    <ImageView
+                        android:id="@+id/iv_product_detailsVideo_whatsappShareClick"
+                        android:layout_width="@dimen/space_20"
+                        android:layout_height="@dimen/space_20"
+                        android:src="@drawable/ic_whatsapp_primary"
+                        android:contentDescription="@string/whatsapp_icon"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginEnd="20dp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:weightSum="1">
+
+                    <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_10"
+                        android:textColor="@color/colorDarkGrey"
+                        android:text="@string/share_caps"
+                        android:gravity="center|center_vertical"
+                        android:layout_weight="1"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_productDetail_campaignsClick"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/space_8"
+                    android:layout_marginRight="@dimen/space_8"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/colorWhite">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/space_16"
+                            android:text="@string/campaigns"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_16" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_productDetail_productTrainingClick"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/colorWhite">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/product_training"
+                            android:layout_margin="@dimen/space_16"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_16" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

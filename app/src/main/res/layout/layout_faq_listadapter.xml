@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/space_16"
+    android:background="@color/colorBackgroundGrey">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+            android:id="@+id/tv_faqListAdapter_faqCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText"/>
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+            android:id="@+id/tv_faqListAdapter_faqQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_5"
+            android:layout_marginStart="@dimen/space_5"
+            android:textColor="@color/colorText"/>
+
+    </LinearLayout>
+
+    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+        android:id="@+id/tv_faqListAdapter_faqAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorDarkGrey"
+        android:layout_marginTop="@dimen/space_12"
+        android:layout_marginLeft="@dimen/space_8"
+        android:layout_marginStart="@dimen/space_8"
+        android:layout_marginRight="@dimen/space_8"
+        android:layout_marginEnd="@dimen/space_8"
+        />
+
+</LinearLayout>

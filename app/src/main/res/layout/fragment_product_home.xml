@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackgroundGrey"
+    android:id="@+id/fragment_product_home"
+    tools:context=".fragment.product.ProductHomeFragment">
+
+    <include layout="@layout/toolbar_home_products"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_homeProduct_pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorWhite">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/my_products"
+                    android:padding="@dimen/space_8"
+                    android:textSize="@dimen/text_34"
+                    />
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    layout="@layout/custom_dialog_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include
+                    layout="@layout/layout_error_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include
+                    layout="@layout/layout_error_myproduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nsv_homeProduct_parentlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <SearchView
+                            android:id="@+id/et_homeProduct_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/space_48"
+                            android:layout_marginTop="@dimen/space_6"
+                            android:background="@drawable/squareborderwhite_whitebackground"
+                            android:queryBackground="@color/colorWhite"
+                            android:queryHint="@string/search_placeholder"
+                            android:inputType="text"
+                            android:iconifiedByDefault="false"
+                            android:searchIcon="@drawable/ic_search_primary"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/text_14" />
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_homeProduct_productList"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/space_24"
+                            android:layout_height="match_parent"
+                            android:scrollbars="none" />
+
+                    </LinearLayout>
+
+                </android.support.v4.widget.NestedScrollView>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>

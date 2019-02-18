@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:padding="@dimen/space_32"
+    tools:context=".fragment.appintro.AppIntroThreeFragment">
+
+
+    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+        android:id="@+id/tv_appIntroThreeFragment_skipClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_16"
+        android:layout_gravity="end"
+        android:text="@string/skip"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/space_32"
+        android:layout_height="match_parent">
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
+            android:id="@+id/tv_appIntroThreeFragment_sliderHeader"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_26"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/slider_header_three"/>
+
+        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+            android:id="@+id/tv_appIntroThreeFragment_sliderText"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/colorText"
+            android:text="@string/slider_text_one"/>
+
+        <ImageView
+            android:layout_below="@+id/tv_appIntroThreeFragment_sliderHeader"
+            android:layout_above="@+id/tv_appIntroThreeFragment_sliderText"
+            android:layout_width="230dp"
+            android:layout_height="280dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/app_intro_triangle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/slider_image_one"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

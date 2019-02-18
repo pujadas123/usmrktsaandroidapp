@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/space_12"
+    android:orientation="horizontal"
+    android:id="@+id/ll_addProductHomeListAdapter_parentLayout"
+    android:background="@color/colorWhite">
+
+
+
+    <ImageView
+        android:id="@+id/iv_addProductHomeListAdapter_productThumbnail"
+        android:layout_width="@dimen/space_96"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/product_thumbnail"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/space_12">
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_addProductHomeListAdapter_addSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:button="@drawable/selector_switch"
+            android:thumb="@null"
+            app:track="@null"/>
+
+
+
+        <LinearLayout
+            android:layout_toLeftOf="@+id/switch_addProductHomeListAdapter_addSwitch"
+            android:layout_toStartOf="@+id/switch_addProductHomeListAdapter_addSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_8"
+            android:layout_marginLeft="@dimen/space_8"
+            android:orientation="vertical">
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                android:id="@+id/tv_addProductHomeListAdapter_productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14"
+                android:textColor="@color/colorPrimary" />
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:id="@+id/tv_addProductHomeListAdapter_productCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_10"
+                android:textColor="@color/colorGrey" />
+
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowLightTextView
+                android:id="@+id/tv_addProductHomeListAdapter_productPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14"
+                android:layout_marginTop="@dimen/space_16"
+                android:textColor="@color/colorText" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5"
+                android:orientation="horizontal">
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_10"
+                    android:text="@string/commission_colon"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginEnd="@dimen/space_5"
+                    android:textColor="@color/colorGrey" />
+
+                <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                    android:id="@+id/tv_addProductHomeListAdapter_productCommision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_10"
+                    android:textColor="@color/colorText" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

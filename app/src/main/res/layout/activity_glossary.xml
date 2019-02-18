@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_glossary"
+    android:background="@color/colorBackgroundGrey"
+    tools:context=".activity.glossary.GlossaryActivity">
+
+    <include layout="@layout/toolbar_main" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/custom_dialog_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/layout_error_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_glossary_glossaryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginRight="@dimen/space_10"
+                android:orientation="horizontal">
+
+                <SearchView
+                    android:id="@+id/et_glossary_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/squareborderwhite_whitebackground"
+                    android:gravity="center"
+                    android:iconifiedByDefault="false"
+                    android:inputType="text"
+                    android:minHeight="@dimen/space_48"
+                    android:queryBackground="@color/colorWhite"
+                    android:queryHint="@string/search_placeholder"
+                    android:searchIcon="@drawable/ic_search_primary"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/text_14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="horizontal">
+                <ListView
+                    android:id="@+id/lv_glossary_glossaryList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scrollbars="none"
+                    android:layout_margin="@dimen/space_10">
+
+                </ListView>
+
+                <com.alphabetik.Alphabetik
+                    android:id="@+id/ai_glossary_albhabetIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:padding="@dimen/space_3"
+                    app:fontSize="@dimen/space_16"
+                    app:itemsColor="@color/colorPrimary"
+                    android:layout_margin="@dimen/space_10" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
