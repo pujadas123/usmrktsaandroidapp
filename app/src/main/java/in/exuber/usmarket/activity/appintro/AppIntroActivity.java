@@ -39,9 +39,6 @@ public class AppIntroActivity extends AppCompatActivity {
     //Adapter
     private AppIntroPagerAdapter appIntroPagerAdapter;
 
-    ImageView img;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
