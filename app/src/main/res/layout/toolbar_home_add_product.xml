@@ -12,7 +12,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/text_12">
+        android:paddingRight="@dimen/text_12"
+        android:paddingTop="@dimen/space_12"
+        android:paddingBottom="@dimen/space_12">
 
         <RelativeLayout
             android:id="@+id/rl_homeProfile_toolBar_notificationLayout"
@@ -21,6 +23,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:layout_alignParentStart="true"
+            android:paddingTop="@dimen/space_5"
             >
 
             <ImageView

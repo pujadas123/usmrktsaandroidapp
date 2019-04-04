@@ -680,24 +680,6 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
 
         }
 
-        if (aptUnitText.isEmpty()) {
-
-            aptUnitError.setText(getString(R.string.error_apt_unit_empty));
-            aptUnitError.setVisibility(View.VISIBLE);
-            aptUnit.requestFocus();
-            validFlag = false;
-
-        }
-
-
-        if (addressTwoText.isEmpty()) {
-
-            addressTwoError.setText(getString(R.string.error_address_empty));
-            addressTwoError.setVisibility(View.VISIBLE);
-            addressTwo.requestFocus();
-            validFlag = false;
-
-        }
 
         if (addressOneText.isEmpty()) {
 

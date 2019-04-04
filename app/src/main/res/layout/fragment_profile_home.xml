@@ -6,7 +6,7 @@
     android:background="@color/colorBackgroundGrey"
     android:id="@+id/fragment_profile_home"
     android:orientation="vertical"
-    tools:context=".fragment.ProfileHomeFragment">
+    tools:context=".fragment.profile.ProfileHomeFragment">
 
     <include layout="@layout/toolbar_home_profile"/>
 
@@ -376,105 +376,6 @@
                         android:layout_marginLeft="50dp"
                         android:contentDescription="@string/next_icon"
                         android:src="@drawable/ic_next_arrow_primary_64" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_profileHomeFragment_glossaryClick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/space_64"
-                    android:padding="@dimen/space_12"
-                    android:layout_marginTop="@dimen/space_16"
-                    android:background="@color/colorWhite"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textSize="@dimen/text_14"
-                        android:gravity="center"
-                        android:layout_marginLeft="90dp"
-                        android:text="GLOSSARY"
-                        android:drawablePadding="@dimen/space_8"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_weight="1"/>
-
-                    <ImageView
-                        android:layout_width="@dimen/space_24"
-                        android:layout_height="@dimen/space_24"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="50dp"
-                        android:contentDescription="@string/next_icon"
-                        android:src="@drawable/ic_next_arrow_primary_64" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_profileHomeFragment_faqClick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/space_64"
-                    android:padding="@dimen/space_12"
-                    android:layout_marginTop="@dimen/space_16"
-                    android:background="@color/colorWhite"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_14"
-                        android:gravity="center"
-                        android:text="FAQs"
-                        android:layout_marginLeft="130dp"
-                        android:drawablePadding="@dimen/space_8"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_weight="1"/>
-                    <ImageView
-                        android:layout_width="@dimen/space_24"
-                        android:layout_height="@dimen/space_24"
-                        android:layout_marginLeft="120dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:contentDescription="@string/next_icon"
-                        android:src="@drawable/ic_next_arrow_primary_64"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_profileHomeFragment_helpClick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/space_64"
-                    android:padding="@dimen/space_12"
-                    android:layout_marginTop="@dimen/space_16"
-                    android:background="@color/colorWhite"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_14"
-                        android:gravity="center"
-                        android:text="@string/help_caps"
-                        android:layout_marginLeft="130dp"
-                        android:drawablePadding="@dimen/space_8"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_weight="1" />
-                    <ImageView
-                        android:layout_width="@dimen/space_24"
-                        android:layout_height="@dimen/space_24"
-                        android:layout_marginLeft="120dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:contentDescription="@string/next_icon"
-                        android:src="@drawable/ic_next_arrow_primary_64"/>
 
                 </LinearLayout>
 

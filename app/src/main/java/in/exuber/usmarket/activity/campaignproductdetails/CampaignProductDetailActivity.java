@@ -55,6 +55,8 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
     private LinearLayout campaignProductDetailContainer;
     private TextView toolbarHeader;
 
+    LinearLayout ll_commission;
+    View ll_view;
     private TextView productName, productCategory, productPrice, productCommission, productDescription;
 
     private LinearLayout thumbnailOneLayout, thumbnailTwoLayout, thumbnailThreeLayout, thumbnailFourLayout;
@@ -126,6 +128,8 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         campaignProductDetailContainer = findViewById(R.id.activity_campaign_product_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
+        ll_commission=findViewById(R.id.ll_commission);
+        ll_view=findViewById(R.id.ll_view);
 
         productName = findViewById(R.id.tv_campaignProductDetail_productName);
         productCategory = findViewById(R.id.tv_campaignProductDetail_productCategory);
@@ -448,8 +452,28 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
             productCategory.setVisibility(View.VISIBLE);
         }
 
-        productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice());
-        productCommission.setText(campaignOutput.getProduct().getCommission()+" "+getString(R.string.commission_tail));
+        /*productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice()+".00");
+        productCommission.setText(campaignOutput.getProduct().getCommission()+getString(R.string.commission_tail));*/
+
+        if (campaignOutput.getProduct().getPrice() == null){
+            productPrice.setVisibility(View.GONE);
+        }
+        else
+        {
+            productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice()+".00");
+            productPrice.setVisibility(View.VISIBLE);
+        }
+
+        if (campaignOutput.getProduct().getCommission() == null){
+            ll_commission.setVisibility(View.GONE);
+            ll_view.setVisibility(View.GONE);
+        }
+        else
+        {
+            productCommission.setText(campaignOutput.getProduct().getCommission()+getString(R.string.commission_tail));
+            ll_commission.setVisibility(View.VISIBLE);
+            ll_view.setVisibility(View.VISIBLE);
+        }
 
         if (campaignOutput.getProduct().getDesc() == null)
         {

@@ -59,6 +59,8 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private LinearLayout productDetailActivityContainer;
     private TextView toolbarHeader;
 
+    LinearLayout ll_commission;
+    View ll_view;
     private TextView productName, productCategory, productPrice, productCommission, productDescription;
 
     private LinearLayout thumbnailOneLayout, thumbnailTwoLayout, thumbnailThreeLayout, thumbnailFourLayout;
@@ -135,6 +137,8 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         productDetailActivityContainer = findViewById(R.id.activity_product_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
+        ll_commission=findViewById(R.id.ll_commission);
+        ll_view=findViewById(R.id.ll_view);
 
         productName = findViewById(R.id.tv_productDetail_productName);
         productCategory = findViewById(R.id.tv_productDetail_productCategory);
@@ -559,8 +563,29 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             productCategory.setVisibility(View.VISIBLE);
         }
 
-        productPrice.setText(getString(R.string.dollar_sign)+productUserOutput.getProductId().getPrice());
-        productCommission.setText(productUserOutput.getProductId().getCommission()+" "+getString(R.string.commission_tail));
+        /*productPrice.setText(getString(R.string.dollar_sign)+productUserOutput.getProductId().getPrice()+".00");
+        productCommission.setText(productUserOutput.getProductId().getCommission()+getString(R.string.commission_tail));*/
+
+        if (productUserOutput.getProductId().getPrice() == null){
+            productPrice.setVisibility(View.GONE);
+        }
+        else
+        {
+            productPrice.setText(getString(R.string.dollar_sign)+productUserOutput.getProductId().getPrice()+".00");
+            productPrice.setVisibility(View.VISIBLE);
+        }
+
+        if (productUserOutput.getProductId().getCommission() == null){
+            ll_commission.setVisibility(View.GONE);
+            ll_view.setVisibility(View.GONE);
+        }
+        else
+        {
+            productCommission.setText(productUserOutput.getProductId().getCommission()+getString(R.string.commission_tail));
+            ll_commission.setVisibility(View.VISIBLE);
+            ll_view.setVisibility(View.VISIBLE);
+        }
+
 
         if (productUserOutput.getProductId().getDesc() == null)
         {
@@ -726,8 +751,25 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             productCategory.setVisibility(View.VISIBLE);
         }
 
-        productPrice.setText(getString(R.string.dollar_sign)+productOutput.getPrice());
-        productCommission.setText(productOutput.getCommission()+" "+getString(R.string.commission_tail));
+        if (productOutput.getPrice() == null){
+            productPrice.setVisibility(View.GONE);
+        }
+        else
+        {
+            productPrice.setText(getString(R.string.dollar_sign)+productOutput.getPrice()+".00");
+            productPrice.setVisibility(View.VISIBLE);
+        }
+
+        if (productOutput.getCommission() == null){
+            ll_commission.setVisibility(View.GONE);
+            ll_view.setVisibility(View.GONE);
+        }
+        else
+        {
+            productCommission.setText(productOutput.getCommission()+getString(R.string.commission_tail));
+            ll_commission.setVisibility(View.VISIBLE);
+            ll_view.setVisibility(View.VISIBLE);
+        }
 
         if (productOutput.getDesc() == null)
         {

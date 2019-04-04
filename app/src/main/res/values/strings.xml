@@ -9,7 +9,7 @@
 
     <!--Signup Login-->
     <string name="login_signup_header">Welcome to US MRKT</string>
-    <string name="login_signup_subheader">GLOBAL DIGITAL SALES PLATFORM</string>
+    <string name="login_signup_subheader">A GLOBAL DIGITAL SALES PLATFORM</string>
 
     <!--Errors-->
     <string name="error_password_empty">Please Enter Password</string>
@@ -29,9 +29,9 @@
     <string name="password">Password</string>
     <string name="email_placeholder">Enter Email</string>
     <string name="password_placeholder">Enter Password</string>
-    <string name="signup_password_placeholder">Enter Password (6-10)</string>
+    <string name="signup_password_placeholder">Enter Password (6-12 Characters)</string>
 
-    <string name="log_in">LOGIN</string>
+    <string name="log_in">LOG IN</string>
     <string name="remember_me">Keep me logged in</string>
     <string name="forgot_password">Forgot your password?</string>
     <string name="login_signup">REGISTER HERE if you don’t have an account.</string>
@@ -73,7 +73,7 @@
     <string name="first_name_placeholder">Enter First Name</string>
     <string name="last_name_placeholder">Enter Last Name</string>
     <string name="phone_number_placeholder">Enter Phone Number</string>
-    <string name="confirm_password_placeholder">Enter Confirm Password</string>
+    <string name="confirm_password_placeholder">Confirm Password</string>
     <string name="referral_name_placeholder">Enter Referral Name</string>
     ////
     <string name="address1_placeholder">Enter Street Address 1</string>
@@ -85,7 +85,7 @@
 
 
     <string name="address_1">Street Address 1</string>
-    <string name="address">Address</string>
+    <string name="address">ADDRESS</string>
     <string name="address_2">Street Address 2</string>
     <string name="apt_unit">Apt/Unit</string>
     <string name="state">State</string>
@@ -100,7 +100,7 @@
     <string name="signup_terms">Check here to indicate that you read and agree with the Terms and Conditions of US MRKT.\n</string>
     <string name="signup_citizen">Click here if you are a United States citizen/resident or if you reside in the United States.\n</string>
 
-    <string name="signup_login">LOGIN if you have an account.\n</string>
+    <string name="signup_login">LOG IN if you have an account.\n</string>
 
 
     <!--Forgot password-->
@@ -258,7 +258,7 @@
     <string name="whatsapp_icon">WHATSAPP ICON</string>
     <string name="campaign_details_caps">CAMPAIGN DETAILS</string>
     <string name="product_details_caps">PRODUCT DETAILS</string>
-    <string name="faq_caps">FAQs</string>
+    <string name="faq_caps">FAQ</string>
     <string name="glossary_caps">GLOSSARY</string>
     <string name="paid_commissions_caps">PAID COMMISSIONS</string>
     <string name="product_training">Product Training</string>
@@ -287,12 +287,12 @@
     <string name="error_no_data_existing_campaigns_category">No existing campaigns available in selected filter</string>
     <string name="error_no_data_shared_campaigns_category">No shared campaigns available in selected filter</string>
     <string name="error_no_data_products">No products available</string>
-    <string name="error_no_data_campaigns">No campaigns available</string>
-    <string name="error_no_data_training">No training material available</string>
+    <string name="error_no_data_campaigns">Product Campaigns Coming Soon!</string>
+    <string name="error_no_data_training">Product Training Material Coming Soon!</string>
     <string name="error_no_data_sharelog_campaign">Your Social Network Log is empty. Share campaigns now with your leads!</string>
     <string name="permission_request">Please allow permission in app settings</string>
     <string name="go_settings">Go settings</string>
-    <string name="error_password_length">Please enter password in 6-12 characters</string>
+    <string name="error_password_length">Please enter password in 6-12 characters.</string>
     <string name="error_email_exists">Entered email is already registered with us</string>
     <string name="error_email_not_exists">Entered email is not registered with us</string>
     <string name="lets_go">Let’s Go!</string>
@@ -302,7 +302,7 @@
     <string name="error_no_data_faq">No FAQs available</string>
     <string name="tick_icon">TICK ICON</string>
     <string name="close">Close</string>
-    <string name="message_forgotPass">Reset password link has sent to your email</string>
+    <string name="message_forgotPass">A link to reset your password has been sent to the email address on file.</string>
     <string name="error_no_data_glossary">No glossary available</string>
     <string name="account_holder_information">Account Holder Information</string>
     <string name="enter_street_address_1">Enter Street Address 1</string>

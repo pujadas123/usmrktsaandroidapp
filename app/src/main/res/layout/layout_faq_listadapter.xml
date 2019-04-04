@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorDarkGrey"
         android:layout_marginTop="@dimen/space_12"
-        android:layout_marginLeft="@dimen/space_8"
-        android:layout_marginStart="@dimen/space_8"
+        android:layout_marginLeft="@dimen/space_14"
+        android:layout_marginStart="@dimen/space_14"
         android:layout_marginRight="@dimen/space_8"
         android:layout_marginEnd="@dimen/space_8"
         />

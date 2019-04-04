@@ -430,7 +430,7 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         );
 
         makeLinks(loginClickText,
-                new String[]{"LOGIN"},
+                new String[]{"LOG IN"},
                 new ClickableSpan[]{loginLinkClickSpan}
         );
 

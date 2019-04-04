@@ -1,4 +1,4 @@
-package in.exuber.usmarket.fragment;
+package in.exuber.usmarket.fragment.profile;
 
 
 import android.Manifest;
@@ -188,11 +188,8 @@ public class ProfileHomeFragment extends Fragment implements View.OnClickListene
         postalCode = profileView.findViewById(R.id.tv_profileHomeFragment_postalCode);
         countryRegion = profileView.findViewById(R.id.tv_profileHomeFragment_countryRegion);
 
-        helpClick = profileView.findViewById(R.id.ll_profileHomeFragment_helpClick);
         paidcommissionClick = profileView.findViewById(R.id.ll_profileHomeFragment_paidCommissionClick);
         paymentinfoClick=profileView.findViewById(R.id.ll_profileHomeFragment_paymentinfoClick);
-        glossaryClick=profileView.findViewById(R.id.ll_profileHomeFragment_glossaryClick);
-        faqClick = profileView.findViewById(R.id.ll_profileHomeFragment_faqClick);
         logoutClick = profileView.findViewById(R.id.ll_profileHomeFragment_logoutClick);
 
         Log.e("Country profile edit",marketPreference.getString("Country", ""));
@@ -203,7 +200,15 @@ public class ProfileHomeFragment extends Fragment implements View.OnClickListene
         email.setText(marketPreference.getString("email", ""));
         phoneNumber.setText(marketPreference.getString("phoneNoCode", "") + " " + marketPreference.getString("phoneNo", ""));
         addressOne.setText(marketPreference.getString("streetaddress1", ""));
-        addressTwo.setText(marketPreference.getString("streetaddress2", ""));
+
+        if (marketPreference.getString("streetaddress2", "").equals("null") || marketPreference.getString("streetaddress2", "").equals("")){
+            addressTwo.setVisibility(View.GONE);
+        }
+        else {
+            addressTwo.setVisibility(View.VISIBLE);
+            addressTwo.setText(marketPreference.getString("streetaddress2", ""));
+        }
+
         cityState.setText(marketPreference.getString("City", "") + ", " + marketPreference.getString("State", ""));
         postalCode.setText(marketPreference.getString("PostalCode", "") + " - " + loc.getDisplayCountry());
 
@@ -218,11 +223,8 @@ public class ProfileHomeFragment extends Fragment implements View.OnClickListene
         toolbarNotificationClick.setOnClickListener(this);
         toolbarEditClick.setOnClickListener(this);
 
-        helpClick.setOnClickListener(this);
         paidcommissionClick.setOnClickListener(this);
         paymentinfoClick.setOnClickListener(this);
-        glossaryClick.setOnClickListener(this);
-        faqClick.setOnClickListener(this);
         logoutClick.setOnClickListener(this);
 
 
@@ -290,36 +292,6 @@ public class ProfileHomeFragment extends Fragment implements View.OnClickListene
                 hideKeyBoard(getActivity());
                 Intent intentpaymentinfo=new Intent(getActivity(), Payment_Info_Activity.class);
                 startActivity(intentpaymentinfo);
-
-                break;
-
-            case R.id.ll_profileHomeFragment_glossaryClick:
-
-                //Hiding Keyboard
-                hideKeyBoard(getActivity());
-                Intent intentglossary=new Intent(getActivity(), GlossaryActivity.class);
-                startActivity(intentglossary);
-
-                break;
-
-
-            case R.id.ll_profileHomeFragment_faqClick:
-
-                //Hiding Keyboard
-                hideKeyBoard(getActivity());
-                Intent intent=new Intent(getActivity(), FaqActivity.class);
-                startActivity(intent);
-
-                break;
-
-            case R.id.ll_profileHomeFragment_helpClick:
-
-                //Hiding Keyboard
-                hideKeyBoard(getActivity());
-               /* Intent intenthelp=new Intent(getActivity(), FaqActivity.class);
-                startActivity(intenthelp);*/
-
-                Toast.makeText(getActivity(), "Need Document", Toast.LENGTH_SHORT).show();
 
                 break;
 

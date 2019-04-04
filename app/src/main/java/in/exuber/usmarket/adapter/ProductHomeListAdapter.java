@@ -65,8 +65,8 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
             holder.productCategory.setVisibility(View.VISIBLE);
         }
 
-        holder.productPrice.setText(context.getString(R.string.dollar_sign)+filteredProductOutputList.get(position).getProductId().getPrice());
-        holder.productCommission.setText(filteredProductOutputList.get(position).getProductId().getCommission()+" "+context.getString(R.string.commission_tail));
+        holder.productPrice.setText(context.getString(R.string.dollar_sign)+filteredProductOutputList.get(position).getProductId().getPrice()+".00");
+        holder.productCommission.setText(filteredProductOutputList.get(position).getProductId().getCommission()+context.getString(R.string.commission_tail));
 
 
         if (filteredProductOutputList.get(position).getProductId().getImage1() == null)

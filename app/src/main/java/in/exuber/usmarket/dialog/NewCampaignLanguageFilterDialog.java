@@ -107,7 +107,7 @@ public class NewCampaignLanguageFilterDialog extends DialogFragment implements V
 
 		filterDataList.add("ALL");
 		filterDataList.add("English");
-		filterDataList.add("Spanish");
+		filterDataList.add("Español");
 		filterDataList.add("French");
 
 	}
