@@ -32,13 +32,22 @@
                 android:id="@+id/nsv_productEdit_productLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/space_16"
-                    android:padding="@dimen/space_16"
                     android:focusable="true"
+                    android:paddingRight="@dimen/space_8"
+                    android:paddingBottom="@dimen/space_8"
+                    android:paddingTop="@dimen/space_8"
+                    android:paddingLeft="@dimen/space_18"
+                    android:background="@color/colorWhite"
                     android:focusableInTouchMode="true"
                     android:orientation="vertical">
 
@@ -47,9 +56,16 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorBlack"
                         android:text="@string/edit_my_products"
-                        android:textSize="@dimen/text_34"
-                        android:padding="@dimen/space_8"/>
-
+                        android:textSize="@dimen/text_34"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/space_16"
+                    android:padding="@dimen/space_16"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
                     <SearchView
                         android:id="@+id/et_productEdit_search"
                         android:layout_width="match_parent"
@@ -74,6 +90,7 @@
                         android:layout_height="match_parent"
                         android:scrollbars="none" />
 
+                </LinearLayout>
                 </LinearLayout>
 
 

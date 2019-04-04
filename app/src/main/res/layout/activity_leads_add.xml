@@ -491,7 +491,7 @@
                 android:layout_below="@+id/textView1"
                 android:layout_marginTop="10dp"
                 android:gravity="top"
-                android:textSize="@dimen/text_14"
+                android:textSize="@dimen/text_12"
                 android:padding="@dimen/space_12"
                 android:background="@drawable/squarebordergrey_whitebackground"
                 android:hint="@string/interests_placeholder"

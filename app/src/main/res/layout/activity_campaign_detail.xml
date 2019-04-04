@@ -37,7 +37,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorWhite"
                     android:orientation="vertical"
-                    android:padding="@dimen/space_16">
+                    android:paddingLeft="@dimen/space_16"
+                    android:paddingRight="@dimen/space_16"
+                    android:paddingTop="@dimen/space_16">
 
                     <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
                         android:id="@+id/tv_campaignDetail_campaignName"
@@ -51,7 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/text_10"
-                        android:layout_marginTop="@dimen/space_24"
+                        android:layout_marginTop="@dimen/space_20"
                         android:textColor="@color/colorDarkText"/>
 
                     <LinearLayout
@@ -146,90 +148,90 @@
                         android:padding="@dimen/space_16"
                         android:layout_marginTop="@dimen/space_10"
                         android:background="@color/colorLightGrey"/>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:padding="@dimen/space_16"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <LinearLayout
-                            android:id="@+id/ll_newCampaignList_shareLayout"
-                            android:layout_width="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
-
-                            <ImageView
-                                android:id="@+id/iv_campaignDetails_facebookShareClick"
-                                android:layout_width="@dimen/space_20"
-                                android:layout_height="@dimen/space_20"
-                                android:src="@drawable/ic_facebook_primary"
-                                android:contentDescription="@string/facebook_icon"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginEnd="30dp"
-                                />
-
-
-                            <ImageView
-                                android:id="@+id/iv_campaignDetails_instagramShareClick"
-                                android:layout_width="@dimen/space_20"
-                                android:layout_height="@dimen/space_20"
-                                android:src="@drawable/ic_instagram_primary"
-                                android:contentDescription="@string/instagram_icon"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginEnd="30dp"/>
-
-                            <ImageView
-                                android:id="@+id/iv_campaignDetails_twitterShareClick"
-                                android:layout_width="@dimen/space_20"
-                                android:layout_height="@dimen/space_20"
-                                android:src="@drawable/ic_twitter_primary"
-                                android:contentDescription="@string/twitter_icon"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginEnd="30dp"/>
-
-                            <ImageView
-                                android:id="@+id/iv_campaignDetails_whatsappShareClick"
-                                android:layout_width="@dimen/space_20"
-                                android:layout_height="@dimen/space_20"
-                                android:src="@drawable/ic_whatsapp_primary"
-                                android:contentDescription="@string/whatsapp_icon"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginEnd="20dp"/>
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:weightSum="1">
-
-                            <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
-                                android:layout_toLeftOf="@+id/ll_newCampaignList_shareLayout"
-                                android:layout_toStartOf="@+id/ll_newCampaignList_shareLayout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/text_10"
-                                android:layout_centerInParent="true"
-                                android:textColor="@color/colorDarkGrey"
-                                android:text="@string/share_caps"
-                                android:gravity="center|center_vertical"
-                                android:layout_weight="1"
-                                />
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/colorWhite"
+                    android:paddingLeft="@dimen/space_16"
+                    android:paddingTop="@dimen/space_12"
+                    android:paddingBottom="@dimen/space_12"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_newCampaignList_shareLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/iv_campaignDetails_facebookShareClick"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_facebook_primary"
+                            android:contentDescription="@string/facebook_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/iv_campaignDetails_instagramShareClick"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_instagram_primary"
+                            android:contentDescription="@string/instagram_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_campaignDetails_twitterShareClick"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_twitter_primary"
+                            android:contentDescription="@string/twitter_icon"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginEnd="30dp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_campaignDetails_whatsappShareClick"
+                            android:layout_width="@dimen/space_20"
+                            android:layout_height="@dimen/space_20"
+                            android:src="@drawable/ic_whatsapp_primary"
+                            android:contentDescription="@string/whatsapp_icon"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowSemiBoldTextView
+                            android:layout_toLeftOf="@+id/ll_newCampaignList_shareLayout"
+                            android:layout_toStartOf="@+id/ll_newCampaignList_shareLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_10"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/colorDarkGrey"
+                            android:text="@string/share_caps"
+                            android:gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
 
 
                 <LinearLayout

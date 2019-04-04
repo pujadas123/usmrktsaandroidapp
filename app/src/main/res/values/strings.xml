@@ -184,11 +184,11 @@
     <string name="lead_caps">LEAD</string>
     <string name="save">Save</string>
     <string name="user_name_placeholder">Enter username</string>
-    <string name="lead_source_placeholder">Select lead source</string>
+    <string name="lead_source_placeholder">Select Lead Source</string>
     <string name="add_contact">Add contact</string>
     <string name="interest">Interests</string>
-    <string name="CategoriesandProducts">Categories</string>
-    <string name="interests_placeholder">Enter categories separated by commas (,).</string>
+    <string name="CategoriesandProducts">Categories and Products</string>
+    <string name="interests_placeholder">Enter Categories and Product Names separated by commas (,).</string>
     <string name="error_user_name_empty">Please enter username</string>
     <string name="error_interests_empty">Please enter interests</string>
     <string name="error_lead_source_empty">Please select lead source</string>
@@ -289,7 +289,7 @@
     <string name="error_no_data_products">No products available</string>
     <string name="error_no_data_campaigns">No campaigns available</string>
     <string name="error_no_data_training">No training material available</string>
-    <string name="error_no_data_sharelog_campaign">You have not shared any campaign</string>
+    <string name="error_no_data_sharelog_campaign">Your Social Network Log is empty. Share campaigns now with your leads!</string>
     <string name="permission_request">Please allow permission in app settings</string>
     <string name="go_settings">Go settings</string>
     <string name="error_password_length">Please enter password in 6-12 characters</string>

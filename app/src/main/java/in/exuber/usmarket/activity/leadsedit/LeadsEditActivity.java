@@ -60,7 +60,9 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
     //Declaring views
     private LinearLayout leadsEditActivityContainer;
-    private TextView toolbarHeader;
+    private TextView toolbarHeader, toolbarHeaderDone;
+
+    LinearLayout ll_toolbarHeaderDone;
 
 
     private EditText firstName, lastName, otherDetails, referralName;
@@ -126,6 +128,10 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         //Initialising views
         leadsEditActivityContainer = findViewById(R.id.activity_leads_edit);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
+
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_done);
+        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone.setOnClickListener(this);
 
 
         firstName = findViewById(R.id.et_editLeads_firstName);
@@ -193,6 +199,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.edit_lead_caps));
+        toolbarHeaderDone.setText(getResources().getString(R.string.done));
 
         //Setting values
         firstName.setText(allLeadsOutput.getName());
@@ -340,9 +347,34 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             case android.R.id.home:
                 finish();
                 break;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
 
-            case R.id.action_done_menu_done:
 
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId())
+        {
+            case R.id.ll_editLeads_leadSourceClick:
+
+                //Calling dialog
+                FragmentManager filterManager = getFragmentManager();
+                EditLeadsLeadSourceFilterDialog filterDialog = new EditLeadsLeadSourceFilterDialog(selectedLeadSourcePosition);
+                filterDialog.show(filterManager, "FILTER_DIALOG");
+
+                break;
+
+            case R.id.ll_editLeads_toolBar_done:
                 //Hiding Keyboard
                 hideKeyBoard(LeadsEditActivity.this);
 
@@ -371,35 +403,6 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
                     editLeads(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
 
                 }
-
-
-
-                break;
-
-        }
-        return (super.onOptionsItemSelected(menuItem));
-    }
-
-
-
-    @Override
-    public void onBackPressed() {
-
-        finish();
-
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId())
-        {
-            case R.id.ll_editLeads_leadSourceClick:
-
-                //Calling dialog
-                FragmentManager filterManager = getFragmentManager();
-                EditLeadsLeadSourceFilterDialog filterDialog = new EditLeadsLeadSourceFilterDialog(selectedLeadSourcePosition);
-                filterDialog.show(filterManager, "FILTER_DIALOG");
 
                 break;
         }
