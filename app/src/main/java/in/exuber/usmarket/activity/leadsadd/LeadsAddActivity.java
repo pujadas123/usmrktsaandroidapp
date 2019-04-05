@@ -295,7 +295,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
             referralLayout.setVisibility(View.VISIBLE);
             referralError.setVisibility(View.GONE);
 
-            referralName.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
+            //referralName.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
         }
         else
         {
@@ -308,7 +308,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
             otherDetailsLayout.setVisibility(View.VISIBLE);
             otherDetailsError.setVisibility(View.GONE);
 
-            otherDetails.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
+            //otherDetails.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
         }
 
 
@@ -460,6 +460,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         addLeadInput.setName(firstNameText);
         addLeadInput.setLastName(lastNameText);
 
+
         addLeadInput.setFacebook(contactFacebookText);
         addLeadInput.setInstagram(contactInstagramText);
         addLeadInput.setTwitter(contactTwitterText);
@@ -510,14 +511,14 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
             case 4:
 
                 leadSourceObject.setId(Constants.LEADSOURCE_REFEREL_ID);
-                addLeadInput.setUserName(referralText);
+                addLeadInput.setUserName(referralName.getText().toString());
 
                 break;
 
             case 5:
 
                 leadSourceObject.setId(Constants.LEADSOURCE_OTHER_ID);
-                addLeadInput.setUserName(otherDetailsText);
+                addLeadInput.setUserName(otherDetails.getText().toString());
 
                 break;
         }

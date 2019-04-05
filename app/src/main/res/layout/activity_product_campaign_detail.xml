@@ -34,7 +34,10 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_productCampaignDetail_productCampaignLIst"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_16"
+                android:scrollbars="none"
+                >
 
             </android.support.v7.widget.RecyclerView>
 

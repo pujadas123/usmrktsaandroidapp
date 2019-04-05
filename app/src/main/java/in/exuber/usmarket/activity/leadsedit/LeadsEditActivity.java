@@ -433,7 +433,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             referralLayout.setVisibility(View.VISIBLE);
             referralError.setVisibility(View.GONE);
 
-            referralName.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
+            //referralName.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
         }
         else
         {
@@ -446,7 +446,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             otherDetailsLayout.setVisibility(View.VISIBLE);
             otherDetailsError.setVisibility(View.GONE);
 
-            otherDetails.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
+            //otherDetails.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
         }
 
 
@@ -649,14 +649,14 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             case 4:
 
                 leadSourceObject.setId(Constants.LEADSOURCE_REFEREL_ID);
-                editLeadInput.setUserName(referralText);
+                editLeadInput.setUserName(referralName.getText().toString());
 
                 break;
 
             case 5:
 
                 leadSourceObject.setId(Constants.LEADSOURCE_OTHER_ID);
-                editLeadInput.setUserName(otherDetailsText);
+                editLeadInput.setUserName(otherDetails.getText().toString());
 
                 break;
         }

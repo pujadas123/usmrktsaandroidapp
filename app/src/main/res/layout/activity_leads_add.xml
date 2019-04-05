@@ -40,7 +40,7 @@
                 android:layout_marginTop="@dimen/space_6"
                 android:background="@drawable/squarebordergrey_whitebackground"
                 android:hint="@string/first_name_placeholder"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:padding="@dimen/space_12"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/text_14" />
@@ -71,7 +71,7 @@
                 android:layout_marginTop="@dimen/space_6"
                 android:background="@drawable/squarebordergrey_whitebackground"
                 android:hint="@string/last_name_placeholder"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:padding="@dimen/space_12"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/text_14" />
@@ -405,7 +405,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/space_12"
+                    android:paddingLeft="@dimen/space_5"
+                    android:paddingRight="@dimen/space_2"
+                    android:paddingBottom="@dimen/space_8"
+                    android:paddingTop="@dimen/space_8"
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:minHeight="@dimen/space_48"
@@ -429,7 +432,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/space_12"
+                    android:paddingLeft="@dimen/space_8"
+                    android:paddingRight="@dimen/space_2"
+                    android:paddingBottom="@dimen/space_8"
+                    android:paddingTop="@dimen/space_8"
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:layout_marginStart="@dimen/space_8"
@@ -443,8 +449,6 @@
                         android:layout_height="wrap_content"
                         android:background="@color/colorWhite"
                         android:hint="@string/phone_number_placeholder"
-                        android:layout_marginStart="@dimen/space_8"
-                        android:layout_marginLeft="@dimen/space_8"
                         android:inputType="number"
                         android:textColor="@color/colorText"
                         android:textSize="@dimen/text_14" />

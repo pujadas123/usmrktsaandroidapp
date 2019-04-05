@@ -41,7 +41,7 @@
     <string name="slider_header_one">SELECT PRODUCTS</string>
     <string name="slider_header_two">SHARE CAMPAIGNS</string>
     <string name="slider_header_three">ADD LEADS</string>
-    <string name="slider_header_four">HELP CENTER</string>
+    <string name="slider_header_four">GET COMMISSIONS</string>
 
     <string name="slider_text_one">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
     <string name="slider_text_two">Suspendisse potenti. Duis porta venenatis augue non interdum. Maecenas eu cursus eros.</string>
@@ -276,13 +276,13 @@
     <string name="error_icon">ERROR ICON</string>
     <string name="try_again">Try Again</string>
     <string name="add_products_error">Add Product</string>
-    <string name="error_no_data_myproduct">You have not added any product</string>
-    <string name="error_no_data_active_leads">No active leads available</string>
-    <string name="error_no_data_ready_leads">No ready leads available</string>
-    <string name="error_no_data_converted_leads">No converted leads available</string>
-    <string name="error_no_data_new_campaigns">No new campaigns available</string>
+    <string name="error_no_data_myproduct">Tap on \"Add Product\" to add your preferred products.</string>
+    <string name="error_no_data_active_leads">Tap on \"Add\" link above to enter new leads.</string>
+    <string name="error_no_data_ready_leads">Check back to learn when your lead is Ready for Conversion to "Customer" status.</string>
+    <string name="error_no_data_converted_leads">Check back to view the list of converted leads.</string>
+    <string name="error_no_data_new_campaigns">Product Campaigns Coming Soon!</string>
     <string name="error_no_data_existing_campaigns">No existing campaigns available</string>
-    <string name="error_no_data_shared_campaigns">No shared campaigns available</string>
+    <string name="error_no_data_shared_campaigns">Share campaigns with your leads now to increase your commission opportunities!</string>
     <string name="error_no_data_new_campaigns_category">No new campaigns available in selected filter</string>
     <string name="error_no_data_existing_campaigns_category">No existing campaigns available in selected filter</string>
     <string name="error_no_data_shared_campaigns_category">No shared campaigns available in selected filter</string>
