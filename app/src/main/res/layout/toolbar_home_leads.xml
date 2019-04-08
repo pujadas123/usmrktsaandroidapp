@@ -4,6 +4,7 @@
     android:id="@+id/homeLead_toolBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="@dimen/space_5"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/colorWhite"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -42,6 +43,7 @@
             android:textColor="@color/colorPrimary"
             android:layout_alignParentRight="true"
             android:textSize="17dp"
+            android:paddingTop="@dimen/space_5"
             android:text="Add"
             android:textFontWeight="1"
             />

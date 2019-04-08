@@ -23,6 +23,7 @@
             android:textColor="@color/colorBlack"
             android:text="@string/leads"
             android:padding="@dimen/space_8"
+            android:layout_marginLeft="@dimen/space_16"
             android:textSize="@dimen/text_34"
            />
 
