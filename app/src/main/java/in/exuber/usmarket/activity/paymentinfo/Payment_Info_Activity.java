@@ -68,7 +68,9 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
     //Declaring views
     private LinearLayout paymentInfoActivityContainer;
     private ScrollView paymentInfoLayout;
-    private TextView toolbarHeader;
+    private TextView toolbarHeader, toolbarHeaderDone;
+
+    LinearLayout ll_toolbarHeaderDone;
 
     private EditText firstName, lastName, email, addressOne, addressTwo, aptUnit, city, state, postalCode;
     private EditText routingNumber, accountNumber, SWIFTCode, fullName, paypalEmail;
@@ -142,6 +144,12 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
         paymentInfoLayout = findViewById(R.id.sv_paymentInfo_paymentInfoLayout);
 
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
+        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone.setOnClickListener(this);
+
+        toolbarHeaderDone.setText(getResources().getString(R.string.done));
+
         progressDialog =  findViewById(R.id.ll_custom_dialog);
         errorDisplay =  findViewById(R.id.ll_errorMain_layout);
 
@@ -214,11 +222,11 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_done, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -226,8 +234,28 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
             case android.R.id.home:
                 finish();
                 break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-            case R.id.action_done_menu_done:
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId())
+        {
+            case R.id.tv_errorMain_errorTryAgain:
+
+                //Hiding Keyboard
+                hideKeyBoard(Payment_Info_Activity.this);
+
+                //Get Payment Info
+                getPaymentInfo();
+
+                break;
+
+
+            case R.id.ll_editLeads_toolBar_action:
 
                 //Hiding Keyboard
                 hideKeyBoard(Payment_Info_Activity.this);
@@ -267,32 +295,14 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
                 String paypalEmailText = paypalEmail.getText().toString().trim();
 
                 boolean validFlag = validateTextFields(firstNameText,lastNameText,emailText,addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText,
-                                                        routingNumberText,accountNumberText,SWIFTCodeText,fullNameText,paypalEmailText);
+                        routingNumberText,accountNumberText,SWIFTCodeText,fullNameText,paypalEmailText);
 
                 if (validFlag)
                 {
                     editPaymentInfo(firstNameText,lastNameText,emailText,addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText,
-                                    routingNumberText,accountNumberText,SWIFTCodeText,fullNameText,paypalEmailText);
+                            routingNumberText,accountNumberText,SWIFTCodeText,fullNameText,paypalEmailText);
 
                 }
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId())
-        {
-            case R.id.tv_errorMain_errorTryAgain:
-
-                //Hiding Keyboard
-                hideKeyBoard(Payment_Info_Activity.this);
-
-                //Get Payment Info
-                getPaymentInfo();
 
                 break;
 
