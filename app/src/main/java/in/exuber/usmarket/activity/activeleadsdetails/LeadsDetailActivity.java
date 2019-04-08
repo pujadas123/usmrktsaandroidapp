@@ -22,11 +22,13 @@ import in.exuber.usmarket.adapter.LeadContactListAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.utils.Constants;
 
-public class LeadsDetailActivity extends AppCompatActivity {
+public class LeadsDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Declaring views
     private LinearLayout leadsDetailActivityContainer;
-    private TextView toolbarHeader;
+    private TextView toolbarHeader, toolbarHeaderDone;
+
+    LinearLayout ll_toolbarHeaderDone;
 
     private LinearLayout leadSourceLayout;
     private TextView leadName, leadSource;
@@ -72,6 +74,10 @@ public class LeadsDetailActivity extends AppCompatActivity {
         leadsDetailActivityContainer = findViewById(R.id.activity_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
+        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone.setOnClickListener(this);
+
         leadName = findViewById(R.id.tv_leadsDetail_leadName);
         leadSourceLayout = findViewById(R.id.ll_leadsDetail_leadSourceLayout);
         leadSource = findViewById(R.id.tv_leadsDetail_leadSource);
@@ -106,6 +112,7 @@ public class LeadsDetailActivity extends AppCompatActivity {
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.lead_details_caps));
+        toolbarHeaderDone.setText(getResources().getString(R.string.edit));
 
         leadName.setText(allLeadsOutput.getName()+" "+allLeadsOutput.getLastName());
 
@@ -286,11 +293,11 @@ public class LeadsDetailActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit, menu);
         return true;
-    }
+    }*/
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -299,8 +306,23 @@ public class LeadsDetailActivity extends AppCompatActivity {
                 finish();
 
                 break;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
 
-            case R.id.action_edit_menu_edit:
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ll_editLeads_toolBar_action:
 
                 Gson gson = new Gson();
 
@@ -322,19 +344,6 @@ public class LeadsDetailActivity extends AppCompatActivity {
                 startActivity(leadEditIntent);
 
                 break;
-
-
         }
-        return (super.onOptionsItemSelected(menuItem));
     }
-
-
-    @Override
-    public void onBackPressed() {
-
-        finish();
-
-
-    }
-
 }

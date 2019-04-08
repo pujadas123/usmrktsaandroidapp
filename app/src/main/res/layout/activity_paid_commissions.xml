@@ -55,7 +55,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_gravity="right|end"
-                            android:layout_marginLeft="120dp">
+                            android:layout_marginLeft="130dp">
                             <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                         android:layout_weight="1"
                         android:layout_marginTop="@dimen/space_10"
                         android:layout_marginBottom="@dimen/space_5"
-                        android:layout_marginLeft="@dimen/space_20"
+                        android:layout_marginLeft="@dimen/space_16"
                         android:orientation="horizontal">
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
@@ -132,12 +132,13 @@
                             android:textSize="@dimen/text_12"
                             android:gravity="center"
                             android:layout_marginLeft="@dimen/space_5"
-                            android:text="PD SL"
+                            android:text="ID SL"
                             android:textColor="#3B2B2A"/>
 
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/space_10"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingRight="40dp"

@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_errorTraining_errorIcon"
-        android:layout_width="@dimen/space_72"
-        android:layout_height="@dimen/space_72"
+        android:layout_width="@dimen/space_48"
+        android:layout_height="@dimen/space_48"
         android:contentDescription="@string/error_icon"
         android:layout_marginBottom="@dimen/space_12"
         android:src="@drawable/ic_error_internet"/>

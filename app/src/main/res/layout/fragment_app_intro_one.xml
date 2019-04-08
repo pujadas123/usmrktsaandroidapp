@@ -48,7 +48,7 @@
             android:layout_width="@dimen/space_230"
             android:layout_margin="@dimen/space_24"
             android:layout_height="wrap_content"
-            android:src="@drawable/app_intro_square"
+            android:src="@drawable/appintro_slider_product"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/slider_image_one"/>
 

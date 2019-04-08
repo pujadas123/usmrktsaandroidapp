@@ -49,7 +49,7 @@
             android:layout_width="230dp"
             android:layout_height="280dp"
             android:layout_marginBottom="50dp"
-            android:src="@drawable/app_intro_triangle"
+            android:src="@drawable/appintro_slider_lead"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/slider_image_one"/>
 

@@ -65,7 +65,7 @@
             android:layout_width="@dimen/space_230"
             android:layout_margin="@dimen/space_24"
             android:layout_height="wrap_content"
-            android:src="@drawable/app_intro_rhombus"
+            android:src="@drawable/appintro_slider_commission"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/slider_image_one"/>
 

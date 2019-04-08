@@ -50,7 +50,7 @@
             android:layout_width="270dp"
             android:layout_margin="@dimen/space_24"
             android:layout_height="wrap_content"
-            android:src="@drawable/app_intro_circle"
+            android:src="@drawable/appintro_slider_campaign"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/slider_image_one"/>
 

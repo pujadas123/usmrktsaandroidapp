@@ -129,7 +129,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         leadsEditActivityContainer = findViewById(R.id.activity_leads_edit);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
-        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_done);
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
         toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
         ll_toolbarHeaderDone.setOnClickListener(this);
 
@@ -336,11 +336,11 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_done, menu);
         return true;
-    }
+    }*/
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -374,7 +374,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
                 break;
 
-            case R.id.ll_editLeads_toolBar_done:
+            case R.id.ll_editLeads_toolBar_action:
                 //Hiding Keyboard
                 hideKeyBoard(LeadsEditActivity.this);
 

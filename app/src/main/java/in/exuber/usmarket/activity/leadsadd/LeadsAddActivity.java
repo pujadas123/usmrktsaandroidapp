@@ -57,7 +57,9 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
     //Declaring views
     private LinearLayout leadsAddActivityContainer;
-    private TextView toolbarHeader;
+    private TextView toolbarHeader, toolbarHeaderDone;
+
+    LinearLayout ll_toolbarHeaderDone;
 
 
     private EditText firstName, lastName, otherDetails, referralName;
@@ -120,6 +122,10 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         leadsAddActivityContainer = findViewById(R.id.activity_leads_add);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
+        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone.setOnClickListener(this);
+
         otherDetailsLayout = findViewById(R.id.ll_addLeads_otherDetailsLayout);
         referralLayout=findViewById(R.id.ll_addLeads_referralLayout);
 
@@ -158,6 +164,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.add_lead_caps));
+        toolbarHeaderDone.setText(getResources().getString(R.string.done));
 
         //Hiding views
         otherDetailsLayout.setVisibility(View.GONE);
@@ -189,19 +196,47 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_done, menu);
         return true;
-    }
+    }*/
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
 
-            case R.id.action_done_menu_done:
+
+
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId())
+        {
+            case R.id.ll_addLeads_leadSourceClick:
+
+                //Calling dialog
+                FragmentManager filterManager = getFragmentManager();
+                AddLeadsLeadSourceFilterDialog filterDialog = new AddLeadsLeadSourceFilterDialog(selectedLeadSourcePosition);
+                filterDialog.show(filterManager, "FILTER_DIALOG");
+
+                break;
+
+
+            case R.id.ll_editLeads_toolBar_action:
 
                 //Hiding Keyboard
                 hideKeyBoard(LeadsAddActivity.this);
@@ -230,36 +265,6 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
                     addLeads(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
 
                 }
-
-
-
-                break;
-
-        }
-        return (super.onOptionsItemSelected(menuItem));
-    }
-
-
-
-
-    @Override
-    public void onBackPressed() {
-
-        finish();
-
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId())
-        {
-            case R.id.ll_addLeads_leadSourceClick:
-
-                //Calling dialog
-                FragmentManager filterManager = getFragmentManager();
-                AddLeadsLeadSourceFilterDialog filterDialog = new AddLeadsLeadSourceFilterDialog(selectedLeadSourcePosition);
-                filterDialog.show(filterManager, "FILTER_DIALOG");
 
                 break;
         }
