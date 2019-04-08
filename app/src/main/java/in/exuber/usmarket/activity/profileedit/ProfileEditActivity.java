@@ -93,7 +93,9 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
 
     //Declaring views
     private LinearLayout profileEditActivityContainer;
-    private TextView toolbarHeader;
+    private TextView toolbarHeader, toolbarHeaderDone;
+
+    LinearLayout ll_toolbarHeaderDone;
 
     private CircleImageView userImage;
     private RelativeLayout userImageClick;
@@ -166,6 +168,12 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
         profileEditActivityContainer = findViewById(R.id.activity_profile_edit);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
         toolbarHeader.setText("PROFILE");
+
+        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
+        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone.setOnClickListener(this);
+
+        toolbarHeaderDone.setText(getResources().getString(R.string.done));
 
 
         userImage = findViewById(R.id.iv_profileEdit_userImage);
@@ -364,70 +372,17 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_done, menu);
         return true;
-    }
+    }*/
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;
-
-            case R.id.action_done_menu_done:
-
-                //Hiding Keyboard
-                hideKeyBoard(ProfileEditActivity.this);
-
-                //Hiding views
-                firstNameError.setVisibility(View.GONE);
-                lastNameError.setVisibility(View.GONE);
-                emailError.setVisibility(View.GONE);
-                phoneNumberError.setVisibility(View.GONE);
-                prefLanguangeError.setVisibility(View.GONE);
-                passwordError.setVisibility(View.GONE);
-                confirmPasswordError.setVisibility(View.GONE);
-
-                addressOneError.setVisibility(View.GONE);
-                addressTwoError.setVisibility(View.GONE);
-                aptUnitError.setVisibility(View.GONE);
-                cityError.setVisibility(View.GONE);
-                stateError.setVisibility(View.GONE);
-                postalCodeError.setVisibility(View.GONE);
-                countryRegionError.setVisibility(View.GONE);
-
-
-                String firstNameText = firstName.getText().toString().trim();
-                String lastNameText = lastName.getText().toString().trim();
-                String emailText = email.getText().toString().trim();
-                String phoneNumberText = phoneNumber.getText().toString().trim();
-                String passwordText = password.getText().toString().trim();
-                String confirmPasswordText = confirmPassword.getText().toString().trim();
-
-
-                String addressOneText = addressOne.getText().toString().trim();
-                String addressTwoText = addressTwo.getText().toString().trim();
-                String aptUnitText = aptUnit.getText().toString().trim();
-                String cityText = city.getText().toString().trim();
-                String stateText = state.getText().toString().trim();
-                String postalCodeText = postalCode.getText().toString().trim();
-
-
-                boolean validFlag = validateTextFields(firstNameText,lastNameText,emailText,phoneNumberText,passwordText,confirmPasswordText,
-                        addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText);
-
-                if (validFlag)
-                {
-                    updateProfile(firstNameText,lastNameText,emailText,phoneNumberText,passwordText,confirmPasswordText,
-                            addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText);
-                    MyProfileApiCall();
-                }
-
-
-                break;
-
         }
         return (super.onOptionsItemSelected(menuItem));
     }
@@ -958,6 +913,58 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
 
                     dialog.show();
 
+                }
+
+                break;
+
+
+            case R.id.ll_editLeads_toolBar_action:
+
+                //Hiding Keyboard
+                hideKeyBoard(ProfileEditActivity.this);
+
+                //Hiding views
+                firstNameError.setVisibility(View.GONE);
+                lastNameError.setVisibility(View.GONE);
+                emailError.setVisibility(View.GONE);
+                phoneNumberError.setVisibility(View.GONE);
+                prefLanguangeError.setVisibility(View.GONE);
+                passwordError.setVisibility(View.GONE);
+                confirmPasswordError.setVisibility(View.GONE);
+
+                addressOneError.setVisibility(View.GONE);
+                addressTwoError.setVisibility(View.GONE);
+                aptUnitError.setVisibility(View.GONE);
+                cityError.setVisibility(View.GONE);
+                stateError.setVisibility(View.GONE);
+                postalCodeError.setVisibility(View.GONE);
+                countryRegionError.setVisibility(View.GONE);
+
+
+                String firstNameText = firstName.getText().toString().trim();
+                String lastNameText = lastName.getText().toString().trim();
+                String emailText = email.getText().toString().trim();
+                String phoneNumberText = phoneNumber.getText().toString().trim();
+                String passwordText = password.getText().toString().trim();
+                String confirmPasswordText = confirmPassword.getText().toString().trim();
+
+
+                String addressOneText = addressOne.getText().toString().trim();
+                String addressTwoText = addressTwo.getText().toString().trim();
+                String aptUnitText = aptUnit.getText().toString().trim();
+                String cityText = city.getText().toString().trim();
+                String stateText = state.getText().toString().trim();
+                String postalCodeText = postalCode.getText().toString().trim();
+
+
+                boolean validFlag = validateTextFields(firstNameText,lastNameText,emailText,phoneNumberText,passwordText,confirmPasswordText,
+                        addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText);
+
+                if (validFlag)
+                {
+                    updateProfile(firstNameText,lastNameText,emailText,phoneNumberText,passwordText,confirmPasswordText,
+                            addressOneText,addressTwoText,aptUnitText,cityText,stateText,postalCodeText);
+                    MyProfileApiCall();
                 }
 
                 break;

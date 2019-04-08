@@ -42,7 +42,7 @@
             android:layout_toStartOf="@+id/switch_addProductHomeListAdapter_addSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_8"
+            android:layout_marginRight="@dimen/space_1"
             android:layout_marginLeft="@dimen/space_8"
             android:orientation="vertical">
 
@@ -81,8 +81,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_10"
                     android:text="@string/commission_colon"
-                    android:layout_marginRight="@dimen/space_5"
-                    android:layout_marginEnd="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_2"
+                    android:layout_marginEnd="@dimen/space_2"
                     android:textColor="@color/colorGrey" />
 
                 <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
