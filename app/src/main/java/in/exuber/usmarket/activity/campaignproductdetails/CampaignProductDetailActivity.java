@@ -23,6 +23,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -441,6 +442,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
 
         //Setting values
         productName.setText(campaignOutput.getProduct().getProductName());
+        Log.e("PName",campaignOutput.getProduct().getProductName());
 
         if (campaignOutput.getCategory() == null)
         {
@@ -450,6 +452,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         {
             productCategory.setText(campaignOutput.getCategory().getName());
             productCategory.setVisibility(View.VISIBLE);
+            Log.e("PCategory",campaignOutput.getCategory().getName());
         }
 
         /*productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice()+".00");
@@ -460,8 +463,11 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         }
         else
         {
-            productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice()+".00");
+            double amount = Double.parseDouble(campaignOutput.getProduct().getPrice());
+            DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+            productPrice.setText(formatter.format(amount));
             productPrice.setVisibility(View.VISIBLE);
+            Log.e("P_Price",campaignOutput.getProduct().getPrice());
         }
 
         if (campaignOutput.getProduct().getCommission() == null){
@@ -473,6 +479,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
             productCommission.setText(campaignOutput.getProduct().getCommission()+getString(R.string.commission_tail));
             ll_commission.setVisibility(View.VISIBLE);
             ll_view.setVisibility(View.VISIBLE);
+            Log.e("PCommission",campaignOutput.getProduct().getCommission());
         }
 
         if (campaignOutput.getProduct().getDesc() == null)
@@ -483,6 +490,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         {
             productDescription.setText(campaignOutput.getProduct().getDesc());
             productDescription.setVisibility(View.VISIBLE);
+            Log.e("PCommission",campaignOutput.getProduct().getDesc());
         }
 
 

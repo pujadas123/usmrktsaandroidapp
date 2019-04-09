@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +67,10 @@ public class AddProductHomeListAdapter extends RecyclerView.Adapter<AddProductHo
             holder.productCategory.setVisibility(View.VISIBLE);
         }
 
-        holder.productPrice.setText(context.getString(R.string.dollar_sign)+filteredProductOutputList.get(position).getPrice()+".00");
+        //holder.productPrice.setText(context.getString(R.string.dollar_sign)+filteredProductOutputList.get(position).getPrice()+".00");
+        double amount = Double.parseDouble(filteredProductOutputList.get(position).getPrice());
+        DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+        holder.productPrice.setText(formatter.format(amount));
         holder.productCommission.setText(filteredProductOutputList.get(position).getCommission()+context.getString(R.string.commission_tail));
 
 

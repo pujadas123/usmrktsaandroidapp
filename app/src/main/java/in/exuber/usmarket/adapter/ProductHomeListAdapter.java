@@ -66,8 +66,10 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
             holder.productCategory.setVisibility(View.VISIBLE);
         }
 
-        DecimalFormat formatter = new DecimalFormat("#,###,###");
-        holder.productPrice.setText(context.getString(R.string.dollar_sign)+filteredProductOutputList.get(position).getProductId().getPrice()+".00");
+
+        double amount = Double.parseDouble(filteredProductOutputList.get(position).getProductId().getPrice());
+        DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+        holder.productPrice.setText(formatter.format(amount));
         holder.productCommission.setText(filteredProductOutputList.get(position).getProductId().getCommission()+context.getString(R.string.commission_tail));
 
 
