@@ -38,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_10"
-                android:layout_marginLeft="@dimen/space_10"
-                android:layout_marginRight="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_16"
+                android:layout_marginRight="@dimen/space_16"
                 android:orientation="horizontal">
 
                 <SearchView

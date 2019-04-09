@@ -3,13 +3,21 @@ package in.exuber.usmarket.dialog;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -47,6 +55,8 @@ public class AddLeadsLeadSourceFilterDialog extends DialogFragment implements Vi
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		View filterDialog = inflater.inflate(R.layout.dialog_addleads_leadsourcefilter, null);
 
+
+
 		//Initialising variables
 		filterDataList = new ArrayList<>();
 
@@ -77,6 +87,24 @@ public class AddLeadsLeadSourceFilterDialog extends DialogFragment implements Vi
 		return builder.create();
 	}
 
+
+	public void onResume()
+	{
+		super.onResume();
+		Window window = getDialog().getWindow();
+		ViewGroup.LayoutParams params = window.getAttributes();
+		window.setLayout((int) (getWindowSize(getActivity()).x * 0.80), ViewGroup.LayoutParams.WRAP_CONTENT);
+		window.setGravity(Gravity.CENTER);
+		//TODO:
+	}
+
+	public Point getWindowSize(Context context) {
+		WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		Display display = windowManager.getDefaultDisplay();
+		Point size = new Point();
+		display.getSize(size);
+		return size;
+	}
 
 
 	@Override
