@@ -917,7 +917,7 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
         createdByObject.setUserId(userId);
 
         CampaignId campaignIdObject = new CampaignId();
-        campaignIdObject.setCompaignId(shareCampaignOutput.getProduct().getProductId());
+        campaignIdObject.setCompaignId(shareCampaignOutput.getCompaignId());
 
         Type typeObject = new Type();
         typeObject.setId(shareId);
