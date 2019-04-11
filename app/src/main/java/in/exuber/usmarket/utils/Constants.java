@@ -234,6 +234,9 @@ public class Constants {
     public static final String APP_NOTIFICATION_SEEN_SERVICE = "getNotify";
     public static final String APP_NOTIFICATION_SEEN = DOMAIN + "/POAdmin/Notifications/";
 
+    ////AppIntro PUT Service..................
+    public static final String APP_APPINTRO_SEEN = DOMAIN + "/SuperAdmin/AppIntro/";
+
 
 
 

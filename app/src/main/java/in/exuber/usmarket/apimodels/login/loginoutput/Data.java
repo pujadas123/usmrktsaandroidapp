@@ -345,6 +345,9 @@ public class Data {
     @SerializedName("camdec")
     @Expose
     private Integer camdec;
+    @SerializedName("appIntro")
+    @Expose
+    private String appIntro;
 
     public Integer getId() {
         return id;
@@ -434,19 +437,19 @@ public class Data {
         this.deviceId = deviceId;
     }
 
-    public Object getGLatitude() {
+    public Object getgLatitude() {
         return gLatitude;
     }
 
-    public void setGLatitude(Object gLatitude) {
+    public void setgLatitude(Object gLatitude) {
         this.gLatitude = gLatitude;
     }
 
-    public Object getGLongitude() {
+    public Object getgLongitude() {
         return gLongitude;
     }
 
-    public void setGLongitude(Object gLongitude) {
+    public void setgLongitude(Object gLongitude) {
         this.gLongitude = gLongitude;
     }
 
@@ -689,6 +692,7 @@ public class Data {
     public void setUserStatus(Object userStatus) {
         this.userStatus = userStatus;
     }
+
     public String getCode() {
         return code;
     }
@@ -1249,4 +1253,11 @@ public class Data {
         this.camdec = camdec;
     }
 
+    public String getAppIntro() {
+        return appIntro;
+    }
+
+    public void setAppIntro(String appIntro) {
+        this.appIntro = appIntro;
+    }
 }

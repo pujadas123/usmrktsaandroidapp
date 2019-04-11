@@ -58,6 +58,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.appintro.AppIntroActivity;
 import in.exuber.usmarket.activity.forgotpassword.ForgotPasswordActivity;
+import in.exuber.usmarket.activity.home.HomeActivity;
 import in.exuber.usmarket.activity.homeaddproducts.HomeAddProductsActivity;
 import in.exuber.usmarket.activity.loginsignup.LoginSignupActivity;
 import in.exuber.usmarket.apimodels.login.logininput.LoginInput;
@@ -598,17 +599,50 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                             preferenceEditor.putString("userProfilePic",loginOutput.getData().getPicId());
 
+                            preferenceEditor.putString("appIntroDone",loginOutput.getData().getAppIntro());
+                            Log.e("APP_INTRO",loginOutput.getData().getAppIntro()+"");
+
                             preferenceEditor.putBoolean(Constants.IS_LOGGED_IN, true);
 
                             preferenceEditor.commit();
 
                             //Going Home activity
-                            startActivity(new Intent(getActivity(), AppIntroActivity.class));
-                            getActivity().finish();
 
+                            if (loginOutput.getData().getAppIntro()== null) {
+                                startActivity(new Intent(getActivity(), AppIntroActivity.class));
+                                getActivity().finish();
+                            }
+                            else if (loginOutput.getData().getAppIntro().equals("false")) {
+                                startActivity(new Intent(getActivity(), AppIntroActivity.class));
+                                getActivity().finish();
+                            }
+                            else {
 
+                                startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
+                                getActivity().finish();
 
+                               /* //Preference Editor
+                                preferenceEditor.putBoolean(Constants.IS_APPINTRO_OVER, true);
+                                preferenceEditor.commit();
 
+                                boolean isProductAdded = marketPreference.getBoolean(Constants.IS_PRODUCT_ADDED, false);
+
+                                if (isProductAdded)
+                                {
+                                    //Calling Home activity
+                                    startActivity(new Intent(getActivity(), HomeActivity.class));
+                                    getActivity().finish();
+                                    *//*Intent intent=new Intent(getActivity(),HomeActivity.class);
+                                    intent.putExtra("Login","ProductAvailable");
+                                    startActivity(intent);*//*
+                                }
+                                else
+                                {
+                                    //Calling Home Add product activity
+                                    startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
+                                    getActivity().finish();
+                                }*/
+                            }
                         }
                         else
                         {
