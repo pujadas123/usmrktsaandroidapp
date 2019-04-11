@@ -278,7 +278,7 @@
     <string name="add_products_error">Add Product</string>
     <string name="error_no_data_myproduct">Tap on \"Add Product\" to add your preferred products.</string>
     <string name="error_no_data_active_leads">Tap on \"Add\" link above to enter new leads.</string>
-    <string name="error_no_data_ready_leads">Check back to learn when your lead is Ready for Conversion to "Customer" status.</string>
+    <string name="error_no_data_ready_leads">Check back to learn when your lead is Ready for Conversion to \"Customer\" status.</string>
     <string name="error_no_data_converted_leads">Check back to view the list of converted leads.</string>
     <string name="error_no_data_new_campaigns">Product Campaigns Coming Soon!</string>
     <string name="error_no_data_existing_campaigns">No existing campaigns available</string>

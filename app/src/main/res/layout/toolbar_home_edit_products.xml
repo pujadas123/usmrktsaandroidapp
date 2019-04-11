@@ -50,6 +50,7 @@
                 android:id="@+id/iv_homeProducts_toolBar_add"
                 android:layout_width="@dimen/space_24"
                 android:layout_height="@dimen/space_24"
+                android:padding="@dimen/space_2"
                 android:src="@drawable/ic_add_primary"
                 android:contentDescription="@string/add_icon"
                 />
