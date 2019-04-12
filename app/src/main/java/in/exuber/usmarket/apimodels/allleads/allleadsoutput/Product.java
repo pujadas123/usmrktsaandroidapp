@@ -17,7 +17,7 @@ public class Product {
     private Object company;
     @SerializedName("productName")
     @Expose
-    private Object productName;
+    private String productName;
     @SerializedName("intro")
     @Expose
     private Object intro;
@@ -118,11 +118,11 @@ public class Product {
         this.company = company;
     }
 
-    public Object getProductName() {
+    public String getProductName() {
         return productName;
     }
 
-    public void setProductName(Object productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
     }
 

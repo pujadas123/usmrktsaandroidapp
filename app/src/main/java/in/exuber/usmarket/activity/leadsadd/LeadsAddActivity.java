@@ -99,9 +99,6 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     //Declaring variables
     private List<ProductUserOutput> productOutputList;
 
-    //Adapter
-    private ProductHomeListAdapter productHomeListAdapter;
-
     ArrayList<String> productNameList=new ArrayList<>();
     ArrayList<String> productIdList=new ArrayList<>();
 
@@ -272,8 +269,6 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         call.enqueue(new Callback<List<ProductUserOutput>>() {
             @Override
             public void onResponse(Call<List<ProductUserOutput>> call, Response<List<ProductUserOutput>> response) {
-
-
 
                 //Checking for response code
                 if (response.code() == 200 ) {

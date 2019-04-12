@@ -481,6 +481,7 @@
                 android:text="@string/Categories"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/text_12"
+                android:layout_marginTop="@dimen/space_10"
                 />
 
             <MultiAutoCompleteTextView
@@ -489,8 +490,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView1"
                 android:layout_marginTop="10dp"
-                android:gravity="top"
-                android:textSize="@dimen/text_14"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_12"
                 android:padding="@dimen/space_12"
                 android:minHeight="@dimen/space_48"
                 android:background="@drawable/squarebordergrey_whitebackground"
@@ -510,7 +511,7 @@
             <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Categories"
+                android:text="@string/Products"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/text_12"
                 android:layout_marginTop="@dimen/space_10"
@@ -522,12 +523,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView1"
                 android:layout_marginTop="10dp"
-                android:gravity="top"
-                android:textSize="@dimen/text_14"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_12"
                 android:padding="@dimen/space_12"
                 android:minHeight="@dimen/space_48"
                 android:background="@drawable/squarebordergrey_whitebackground"
-                android:hint="@string/categories_placeholder"
+                android:hint="@string/products_placeholder"
                 android:textColor="@color/colorText" />
 
 

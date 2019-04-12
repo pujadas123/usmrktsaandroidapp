@@ -104,8 +104,6 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
     //Declaring variables
     private List<ProductUserOutput> productOutputList;
 
-    //Adapter
-    private ProductHomeListAdapter productHomeListAdapter;
 
     ArrayList<String> productNameList=new ArrayList<>();
     ArrayList<String> productIdList=new ArrayList<>();
@@ -212,14 +210,6 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         //Calling Service
         callGetProductService();
-
-
-        categories.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(LeadsEditActivity.this,
-                android.R.layout.select_dialog_item, productNameList);
-        categories.setThreshold(1);
-        categories.setAdapter(arrayAdapter2);
-
 
         //Getting passed data
         Bundle passedBundle = getIntent().getExtras();
@@ -364,8 +354,8 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         if (allLeadsOutput.getProductList() != null) {
             String productTagString = "";
 
-            for (int index = 0; index < allLeadsOutput.getProductList().size(); index++) {
-                String productName = String.valueOf(allLeadsOutput.getProductList().get(index).getProduct().getProductName());
+            for (int i = 0; i < allLeadsOutput.getProductList().size(); i++) {
+                String productName = allLeadsOutput.getProductList().get(i).getProduct().getProductName();
 
                 if (productTagString.isEmpty()) {
                     productTagString = productName;
@@ -381,8 +371,12 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         //Setting onclick
         leadSourceClick.setOnClickListener(this);
 
-
-
+        //Adding data to multiautocomplete textview...........
+        categories.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(LeadsEditActivity.this,
+                android.R.layout.select_dialog_item, productNameList);
+        categories.setThreshold(1);
+        categories.setAdapter(arrayAdapter2);
 
     }
 
@@ -423,8 +417,6 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onResponse(Call<List<ProductUserOutput>> call, Response<List<ProductUserOutput>> response) {
 
-
-
                 //Checking for response code
                 if (response.code() == 200 ) {
 
@@ -440,13 +432,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
                             Log.e("NameIdList",productIdList.get(i));
                         }
                     }
-
-
-
-
-
                 }
-
             }
 
             @Override
