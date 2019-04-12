@@ -187,10 +187,13 @@
     <string name="lead_source_placeholder">Select Lead Source</string>
     <string name="add_contact">Add contact</string>
     <string name="interest">Interests</string>
-    <string name="CategoriesandProducts">Categories and Products</string>
-    <string name="interests_placeholder">Enter Categories and Product Names separated by commas (,).</string>
+    <string name="Categories">Categories</string>
+    <string name="Products">Products</string>
+    <string name="categories_placeholder">Enter Categories separated by commas (,).</string>
+    <string name="products_placeholder">Enter Product Names separated by commas (,).</string>
     <string name="error_user_name_empty">Please enter username</string>
-    <string name="error_interests_empty">Please enter interests</string>
+    <string name="error_category_empty">Please Enter Interest Products</string>
+    <string name="error_interests_empty">Please Enter Interest Categories</string>
     <string name="error_lead_source_empty">Please select lead source</string>
     <string name="error_add_contact_empty">Please add atleast one contact</string>
 

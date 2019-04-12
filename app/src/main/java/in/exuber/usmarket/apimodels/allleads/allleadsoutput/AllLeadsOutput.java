@@ -123,7 +123,7 @@ public class AllLeadsOutput {
     private List<CategoryList> categoryList = null;
     @SerializedName("productList")
     @Expose
-    private List<Object> productList = null;
+    private List<ProductList> productList = null;
     @SerializedName("totalLeads")
     @Expose
     private Integer totalLeads;
@@ -169,7 +169,6 @@ public class AllLeadsOutput {
     @SerializedName("countryCode")
     @Expose
     private String countryCode;
-
 
 
     public Integer getId() {
@@ -476,11 +475,11 @@ public class AllLeadsOutput {
         this.categoryList = categoryList;
     }
 
-    public List<Object> getProductList() {
+    public List<ProductList> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Object> productList) {
+    public void setProductList(List<ProductList> productList) {
         this.productList = productList;
     }
 

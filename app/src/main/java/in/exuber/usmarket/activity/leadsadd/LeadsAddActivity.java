@@ -21,11 +21,13 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.rilixtech.CountryCodePicker;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
+import in.exuber.usmarket.adapter.ProductHomeListAdapter;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.AddLeadInput;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.AssignedTo;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.Category;
@@ -33,9 +35,12 @@ import in.exuber.usmarket.apimodels.addlead.addleadinput.CategoryList;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.CreatedBy;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.LeadOwner;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.LeadSource;
+import in.exuber.usmarket.apimodels.addlead.addleadinput.Product;
+import in.exuber.usmarket.apimodels.addlead.addleadinput.ProductList;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.Source;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.UserId;
 import in.exuber.usmarket.apimodels.login.loginoutput.LoginOutput;
+import in.exuber.usmarket.apimodels.productuser.productuseroutput.ProductUserOutput;
 import in.exuber.usmarket.dialog.AddLeadsLeadSourceFilterDialog;
 import in.exuber.usmarket.utils.Api;
 import in.exuber.usmarket.utils.Config;
@@ -63,7 +68,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
 
     private EditText firstName, lastName, otherDetails, referralName;
-    private TextView firstNameError, lastNameError, leadSourceError, otherDetailsError, interestError, referralError, phoneNumberError, emailError;
+    private TextView firstNameError, lastNameError, leadSourceError, otherDetailsError, interestError, categoriesError, referralError, phoneNumberError, emailError;
     private LinearLayout otherDetailsLayout,referralLayout;
 
     private EditText contactFacebook, contactInstagram, contactTwitter,contactWebsite, contactEmail, contactPhone;
@@ -87,8 +92,21 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     //Declaring variables
     private int selectedLeadSourcePosition = -1;
 
-    private MultiAutoCompleteTextView interests;
+    private MultiAutoCompleteTextView interests, categories;
     private String[] catogoryInputList = {"Investment", "Real Estate"};
+
+
+    //Declaring variables
+    private List<ProductUserOutput> productOutputList;
+
+    //Adapter
+    private ProductHomeListAdapter productHomeListAdapter;
+
+    ArrayList<String> productNameList=new ArrayList<>();
+    ArrayList<String> productIdList=new ArrayList<>();
+
+    ArrayList<String>SelecetedPName=new ArrayList<>();
+    ArrayList<String>SelecetedPId=new ArrayList<>();
 
 
     @Override
@@ -110,6 +128,9 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         progressDialog.setCancelable(true);
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
+
+        //Initialising variables
+        productOutputList = new ArrayList<>();
 
         //Setting Toolbar
         Toolbar toolbar = findViewById(R.id.main_toolBar);
@@ -133,6 +154,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         lastName = findViewById(R.id.et_addLeads_lastName);
         otherDetails = findViewById(R.id.et_addLeads_otherDetails);
         referralName = findViewById(R.id.et_addLeads_referralName);
+        categories = findViewById(R.id.et_addLeads_categories);
         interests = findViewById(R.id.et_addLeads_interests);
 
 
@@ -150,6 +172,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         leadSourceError = findViewById(R.id.tv_addLeads_leadSourceError);
         otherDetailsError = findViewById(R.id.tv_addLeads_otherDetailsError);
         interestError = findViewById(R.id.tv_addLeads_interestsError);
+        categoriesError = findViewById(R.id.tv_addLeads_categoriesError);
         referralError = findViewById(R.id.tv_addLeads_referralNameError);
         phoneNumberError = findViewById(R.id.tv_addLeads_phoneNumberError);
         emailError = findViewById(R.id.tv_addLeads_emailError);
@@ -174,6 +197,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         leadSourceError.setVisibility(View.GONE);
         otherDetailsError.setVisibility(View.GONE);
         interestError.setVisibility(View.GONE);
+        categoriesError.setVisibility(View.GONE);
         referralError.setVisibility(View.GONE);
         phoneNumberError.setVisibility(View.GONE);
         emailError.setVisibility(View.GONE);
@@ -189,9 +213,15 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         leadSourceClick.setOnClickListener(this);
 
 
+        //Calling Service
+        callGetProductService();
 
 
-
+        categories.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(LeadsAddActivity.this,
+                android.R.layout.select_dialog_item, productNameList);
+        categories.setThreshold(1);
+        categories.setAdapter(arrayAdapter2);
 
 
     }
@@ -221,6 +251,58 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+
+    //Service - Getting Product
+    private void callGetProductService() {
+
+
+        String accessTokenId = marketPreference.getString(Constants.LOGIN_ACCESSTOKEN_ID, null);
+        final String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
+        String roleId = marketPreference.getString(Constants.LOGIN_ROLE_ID, null);
+
+        builder = getHttpClient();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(builder.build()).build();
+        final Api api = retrofit.create(Api.class);
+
+        Call<List<ProductUserOutput>> call = (Call<List<ProductUserOutput>>) api.getProductByUserId(accessTokenId,
+                userId,
+                roleId,
+                Constants.SERVICE_GET_PRODUCT_LIST_BY_USERID,
+                userId);
+        call.enqueue(new Callback<List<ProductUserOutput>>() {
+            @Override
+            public void onResponse(Call<List<ProductUserOutput>> call, Response<List<ProductUserOutput>> response) {
+
+
+
+                //Checking for response code
+                if (response.code() == 200 ) {
+
+
+                    productOutputList = response.body();
+
+                    if (productOutputList.size()!=0){
+                        for (int i=0;i<productOutputList.size();i++){
+                            productNameList.add(productOutputList.get(i).getProductId().getProductName());
+                            productIdList.add(productOutputList.get(i).getProductId().getProductId());
+
+                            Log.e("NameList",productNameList.get(i));
+                            Log.e("NameIdList",productIdList.get(i));
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ProductUserOutput>> call, Throwable t) {
+
+                Log.e("Failure",t.toString());
+            }
+        });
+    }
+
+
+
     @Override
     public void onClick(View view) {
 
@@ -247,6 +329,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
                 leadSourceError.setVisibility(View.GONE);
                 otherDetailsError.setVisibility(View.GONE);
                 interestError.setVisibility(View.GONE);
+                categoriesError.setVisibility(View.GONE);
                 phoneNumberError.setVisibility(View.GONE);
                 emailError.setVisibility(View.GONE);
 
@@ -254,15 +337,16 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
                 String lastNameText = lastName.getText().toString().trim();
                 String otherDetailsText = otherDetails.getText().toString().trim();
                 String referralText = referralName.getText().toString().trim();
+                String categoriesText = categories.getText().toString().trim();
                 String interestsText = interests.getText().toString().trim();
                 String contactPhoneText = contactPhone.getText().toString().trim();
                 String contactEmailText = contactEmail.getText().toString().trim();
 
-                boolean validFlag = validateTextFields(firstNameText,lastNameText,otherDetailsText,interestsText,contactPhoneText,contactEmailText);
+                boolean validFlag = validateTextFields(firstNameText,lastNameText,otherDetailsText,categoriesText,interestsText,contactPhoneText,contactEmailText);
 
                 if (validFlag)
                 {
-                    addLeads(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
+                    addLeads(firstNameText,lastNameText,otherDetailsText,referralText,categoriesText,interestsText);
 
                 }
 
@@ -321,12 +405,21 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //Func - Validating text fields
-    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText, String interestsText, String contactPhoneText, String contactEmailText) {
+    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText, String interestsText,  String categoriesText, String contactPhoneText, String contactEmailText) {
 
         boolean validFlag = true;
 
         //Registering validation
         phoneCodePicker.registerPhoneNumberTextView(contactPhone);
+
+        if (categoriesText.isEmpty()) {
+
+            categoriesError.setText(getString(R.string.error_category_empty));
+            categoriesError.setVisibility(View.VISIBLE);
+            categories.requestFocus();
+            validFlag = false;
+
+        }
 
         if (interestsText.isEmpty()) {
 
@@ -425,14 +518,14 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //Func - Add Leads
-    private void addLeads(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText) {
+    private void addLeads(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String categoriesText, String interestsText) {
 
         boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
         if (isInternetPresent) {
 
 
-            callAddLeadsService(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
+            callAddLeadsService(firstNameText,lastNameText,otherDetailsText,referralText,categoriesText,interestsText);
         }
         else
         {
@@ -444,7 +537,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //Service - Add Leads
-    private void callAddLeadsService(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText) {
+    private void callAddLeadsService(String firstNameText, String lastNameText, String otherDetailsText, String referralText,String categoriesText, String interestsText) {
 
         //Showing loading
         progressDialog.show();
@@ -600,6 +693,44 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         if (categoryListUpload.size()>0)
         {
             addLeadInput.setCategoryList(categoryListUpload);
+        }
+
+        List<ProductList> productListUpload = new ArrayList<>();
+        String[] parts2 = categoriesText.split(",");
+        for (int index=0;index<parts2.length;index++){
+            SelecetedPName.add(parts2[index].trim());
+
+
+            Log.e("Selected",SelecetedPName.get(index));
+        }
+
+        for (int j=0;j<SelecetedPName.size();j++){
+            for (int k=0; k<productOutputList.size();k++){
+                if (SelecetedPName.get(j).equals(productOutputList.get(k).getProductId().getProductName()))
+                {
+                    SelecetedPId.add(productOutputList.get(k).getProductId().getProductId());
+
+                }
+            }
+        }
+
+
+
+
+        for (int m=0;m<SelecetedPId.size();m++){
+            ProductList productList=new ProductList();
+            Product product=new Product();
+            product.setProductId(SelecetedPId.get(m));
+            productList.setProduct(product);
+            productListUpload.add(productList);
+        }
+
+
+
+
+        if (productListUpload.size()>0)
+        {
+            addLeadInput.setProductList(productListUpload);
         }
 
         builder = getHttpClient();

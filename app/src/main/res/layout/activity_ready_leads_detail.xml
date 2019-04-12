@@ -263,7 +263,7 @@
             <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CategoriesandProducts"
+                android:text="@string/Categories"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/text_12"
                 />

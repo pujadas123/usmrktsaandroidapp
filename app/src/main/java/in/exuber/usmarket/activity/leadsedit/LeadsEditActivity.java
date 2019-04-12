@@ -27,6 +27,10 @@ import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.activeleadsdetails.LeadsDetailActivity;
+import in.exuber.usmarket.activity.leadsadd.LeadsAddActivity;
+import in.exuber.usmarket.adapter.ProductHomeListAdapter;
+import in.exuber.usmarket.apimodels.addlead.addleadinput.Product;
+import in.exuber.usmarket.apimodels.addlead.addleadinput.ProductList;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.AssignedTo;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.Category;
@@ -39,6 +43,7 @@ import in.exuber.usmarket.apimodels.editlead.editleadinput.Source;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.UpdatedBy;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.UserId;
 import in.exuber.usmarket.apimodels.login.loginoutput.LoginOutput;
+import in.exuber.usmarket.apimodels.productuser.productuseroutput.ProductUserOutput;
 import in.exuber.usmarket.dialog.EditLeadsLeadSourceFilterDialog;
 import in.exuber.usmarket.utils.Api;
 import in.exuber.usmarket.utils.Config;
@@ -66,7 +71,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
 
     private EditText firstName, lastName, otherDetails, referralName;
-    private TextView firstNameError, lastNameError, leadSourceError, otherDetailsError, referralError, interestError, phoneNumberError, emailError;
+    private TextView firstNameError, lastNameError, leadSourceError, otherDetailsError, referralError, interestError, categoriesError, phoneNumberError, emailError;
     private LinearLayout otherDetailsLayout, referralLayout;
 
     private LinearLayout leadSourceClick;
@@ -93,8 +98,20 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
     private int selectedLeadSourcePosition = -1;
 
 
-    private MultiAutoCompleteTextView interests;
+    private MultiAutoCompleteTextView interests, categories;
     private String[] catogoryInputList = {"Investment", "Real Estate"};
+
+    //Declaring variables
+    private List<ProductUserOutput> productOutputList;
+
+    //Adapter
+    private ProductHomeListAdapter productHomeListAdapter;
+
+    ArrayList<String> productNameList=new ArrayList<>();
+    ArrayList<String> productIdList=new ArrayList<>();
+
+    ArrayList<String>SelecetedPName=new ArrayList<>();
+    ArrayList<String>SelecetedPId=new ArrayList<>();
 
 
     @Override
@@ -110,6 +127,9 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         //Initialising connection detector
         connectionDetector = new ConnectionDetector(this);
+
+        //Initialising variables
+        productOutputList = new ArrayList<>();
 
         //Initialising progress dialog
         progressDialog = new ProgressDialog(this);
@@ -139,6 +159,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         otherDetails = findViewById(R.id.et_editLeads_otherDetails);
         referralName = findViewById(R.id.et_addLeads_referralName);
         interests = findViewById(R.id.et_editLeads_interests);
+        categories = findViewById(R.id.et_editLeads_categories);
 
         otherDetailsLayout = findViewById(R.id.ll_editLeads_otherDetailsLayout);
         referralLayout=findViewById(R.id.ll_editLeads_ReferralLayout);
@@ -149,6 +170,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         otherDetailsError = findViewById(R.id.tv_editLeads_otherDetailsError);
         referralError=findViewById(R.id.tv_editLeads_ReferralNameError);
         interestError = findViewById(R.id.tv_editLeads_interestsError);
+        categoriesError = findViewById(R.id.tv_editLeads_categoriesError);
         phoneNumberError = findViewById(R.id.tv_editLeads_phoneNumberError);
         emailError = findViewById(R.id.tv_editLeads_emailError);
 
@@ -172,6 +194,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         otherDetailsLayout.setVisibility(View.GONE);
         referralLayout.setVisibility(View.GONE);
         interestError.setVisibility(View.GONE);
+        categoriesError.setVisibility(View.GONE);
         phoneNumberError.setVisibility(View.GONE);
         emailError.setVisibility(View.GONE);
 
@@ -186,6 +209,16 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         //Registering validation
         phoneCodePicker.registerPhoneNumberTextView(contactPhone);
 
+
+        //Calling Service
+        callGetProductService();
+
+
+        categories.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(LeadsEditActivity.this,
+                android.R.layout.select_dialog_item, productNameList);
+        categories.setThreshold(1);
+        categories.setAdapter(arrayAdapter2);
 
 
         //Getting passed data
@@ -328,6 +361,23 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             interests.setText(categoryTagString);
         }
 
+        if (allLeadsOutput.getProductList() != null) {
+            String productTagString = "";
+
+            for (int index = 0; index < allLeadsOutput.getProductList().size(); index++) {
+                String productName = String.valueOf(allLeadsOutput.getProductList().get(index).getProduct().getProductName());
+
+                if (productTagString.isEmpty()) {
+                    productTagString = productName;
+                } else {
+                    productTagString = productTagString + "," + productName;
+                }
+
+            }
+
+            categories.setText(productTagString);
+        }
+
         //Setting onclick
         leadSourceClick.setOnClickListener(this);
 
@@ -351,6 +401,66 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         return (super.onOptionsItemSelected(menuItem));
     }
 
+
+    //Service - Getting Product
+    private void callGetProductService() {
+
+
+        String accessTokenId = marketPreference.getString(Constants.LOGIN_ACCESSTOKEN_ID, null);
+        final String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
+        String roleId = marketPreference.getString(Constants.LOGIN_ROLE_ID, null);
+
+        builder = getHttpClient();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(builder.build()).build();
+        final Api api = retrofit.create(Api.class);
+
+        Call<List<ProductUserOutput>> call = (Call<List<ProductUserOutput>>) api.getProductByUserId(accessTokenId,
+                userId,
+                roleId,
+                Constants.SERVICE_GET_PRODUCT_LIST_BY_USERID,
+                userId);
+        call.enqueue(new Callback<List<ProductUserOutput>>() {
+            @Override
+            public void onResponse(Call<List<ProductUserOutput>> call, Response<List<ProductUserOutput>> response) {
+
+
+
+                //Checking for response code
+                if (response.code() == 200 ) {
+
+
+                    productOutputList = response.body();
+
+                    if (productOutputList.size()!=0){
+                        for (int i=0;i<productOutputList.size();i++){
+                            productNameList.add(productOutputList.get(i).getProductId().getProductName());
+                            productIdList.add(productOutputList.get(i).getProductId().getProductId());
+
+                            Log.e("NameList",productNameList.get(i));
+                            Log.e("NameIdList",productIdList.get(i));
+                        }
+                    }
+
+
+
+
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ProductUserOutput>> call, Throwable t) {
+
+                Log.e("Failure",t.toString());
+            }
+
+
+        });
+
+
+
+    }
 
 
     @Override
@@ -385,6 +495,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
                 lastNameError.setVisibility(View.GONE);
                 leadSourceError.setVisibility(View.GONE);
                 interestError.setVisibility(View.GONE);
+                categoriesError.setVisibility(View.GONE);
                 phoneNumberError.setVisibility(View.GONE);
                 emailError.setVisibility(View.GONE);
 
@@ -393,14 +504,15 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
                 String otherDetailsText = otherDetails.getText().toString().trim();
                 String referralText = referralName.getText().toString().trim();
                 String interestsText = interests.getText().toString().trim();
+                String categoriesText = categories.getText().toString().trim();
                 String contactPhoneText = contactPhone.getText().toString().trim();
                 String contactEmailText = contactEmail.getText().toString().trim();
 
-                boolean validFlag = validateTextFields(firstNameText,lastNameText,otherDetailsText,interestsText,contactPhoneText,contactEmailText);
+                boolean validFlag = validateTextFields(firstNameText,lastNameText,otherDetailsText,interestsText,categoriesText,contactPhoneText,contactEmailText);
 
                 if (validFlag)
                 {
-                    editLeads(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
+                    editLeads(firstNameText,lastNameText,otherDetailsText,referralText,interestsText,categoriesText);
 
                 }
 
@@ -453,12 +565,21 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
     }
 
     //Func - Validating text fields
-    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText, String interestsText, String contactPhoneText, String contactEmailText) {
+    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText, String interestsText, String categoriesText, String contactPhoneText, String contactEmailText) {
 
         boolean validFlag = true;
 
         //Registering validation
         phoneCodePicker.registerPhoneNumberTextView(contactPhone);
+
+        if (categoriesText.isEmpty()) {
+
+            categoriesError.setText(getString(R.string.error_category_empty));
+            categoriesError.setVisibility(View.VISIBLE);
+            categories.requestFocus();
+            validFlag = false;
+
+        }
 
         if (interestsText.isEmpty()) {
 
@@ -555,13 +676,13 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
     }
 
     //Func - Edit Leads
-    private void editLeads(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText) {
+    private void editLeads(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText, String categoryText) {
 
         boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
         if (isInternetPresent) {
 
-            callEditLeadsService(firstNameText,lastNameText,otherDetailsText,referralText,interestsText);
+            callEditLeadsService(firstNameText,lastNameText,otherDetailsText,referralText,interestsText,categoryText);
 
         }
         else
@@ -574,7 +695,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
     }
 
     //Service - Edit Leads
-    private void callEditLeadsService(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText) {
+    private void callEditLeadsService(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String interestsText, String categoryText) {
 
         //Showing loading
         progressDialog.show();
@@ -740,6 +861,39 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             editLeadInput.setCategoryList(categoryListUpload);
         }
 
+
+
+        List<ProductList> productListUpload = new ArrayList<>();
+        String[] parts2 = categoryText.split(",");
+        for (int index=0;index<parts2.length;index++){
+            SelecetedPName.add(parts2[index].trim());
+
+
+            Log.e("Selected",SelecetedPName.get(index));
+        }
+
+        for (int j=0;j<SelecetedPName.size();j++){
+            for (int k=0; k<productOutputList.size();k++){
+                if (SelecetedPName.get(j).equals(productOutputList.get(k).getProductId().getProductName()))
+                {
+                    SelecetedPId.add(productOutputList.get(k).getProductId().getProductId());
+
+                }
+            }
+        }
+
+        for (int m=0;m<SelecetedPId.size();m++){
+            ProductList productList=new ProductList();
+            Product product=new Product();
+            product.setProductId(SelecetedPId.get(m));
+            productList.setProduct(product);
+            productListUpload.add(productList);
+        }
+
+        if (productListUpload.size()>0)
+        {
+            editLeadInput.setProductList(productListUpload);
+        }
 
 
 

@@ -43,6 +43,9 @@ public class AddLeadInput {
     @SerializedName("categoryList")
     @Expose
     private List<CategoryList> categoryList = null;
+    @SerializedName("productList")
+    @Expose
+    private List<ProductList> productList = null;
     @SerializedName("source")
     @Expose
     private Source source;
@@ -155,6 +158,14 @@ public class AddLeadInput {
         this.categoryList = categoryList;
     }
 
+    public List<ProductList> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<ProductList> productList) {
+        this.productList = productList;
+    }
+
     public Source getSource() {
         return source;
     }
@@ -194,5 +205,4 @@ public class AddLeadInput {
     public void setUserId(UserId userId) {
         this.userId = userId;
     }
-
 }

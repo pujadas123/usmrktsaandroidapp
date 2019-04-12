@@ -5,6 +5,8 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import in.exuber.usmarket.apimodels.addlead.addleadinput.ProductList;
+
 public class EditLeadInput {
 
     @SerializedName("id")
@@ -52,6 +54,9 @@ public class EditLeadInput {
     @SerializedName("categoryList")
     @Expose
     private List<CategoryList> categoryList = null;
+    @SerializedName("productList")
+    @Expose
+    private List<ProductList> productList = null;
     @SerializedName("assignedTo")
     @Expose
     private AssignedTo assignedTo;
@@ -188,6 +193,14 @@ public class EditLeadInput {
         this.categoryList = categoryList;
     }
 
+    public List<ProductList> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<ProductList> productList) {
+        this.productList = productList;
+    }
+
     public AssignedTo getAssignedTo() {
         return assignedTo;
     }
@@ -227,7 +240,4 @@ public class EditLeadInput {
     public void setUpdatedBy(UpdatedBy updatedBy) {
         this.updatedBy = updatedBy;
     }
-
-
-
 }
