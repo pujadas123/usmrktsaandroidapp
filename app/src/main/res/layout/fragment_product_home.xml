@@ -69,14 +69,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:paddingLeft="@dimen/space_16"
+                        android:paddingRight="@dimen/space_16"
+                        android:paddingTop="@dimen/space_12">
 
                         <SearchView
                             android:id="@+id/et_homeProduct_search"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:minHeight="@dimen/space_48"
-                            android:layout_marginTop="@dimen/space_6"
                             android:background="@drawable/squareborderwhite_whitebackground"
                             android:queryBackground="@color/colorWhite"
                             android:queryHint="@string/search_placeholder"
@@ -90,7 +91,7 @@
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/rv_homeProduct_productList"
                             android:layout_width="match_parent"
-                            android:layout_marginTop="@dimen/space_24"
+                            android:layout_marginTop="@dimen/space_5"
                             android:layout_height="match_parent"
                             android:scrollbars="none" />
 

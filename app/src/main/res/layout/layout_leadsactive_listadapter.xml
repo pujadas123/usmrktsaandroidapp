@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/space_8"
+    android:layout_marginTop="@dimen/space_12"
+    android:layout_marginLeft="@dimen/space_12"
+    android:layout_marginRight="@dimen/space_12"
     android:padding="@dimen/space_24"
     android:id="@+id/rl_leadsActiveListAdapter_parentLayout"
     android:background="@color/colorWhite">

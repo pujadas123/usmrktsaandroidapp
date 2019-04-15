@@ -35,7 +35,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     private LinearLayout leadSourceLayout;
     private TextView leadName, leadSource;
 
-    RecyclerView recyclerList_interestProductList;
+    RecyclerView recyclerList_Active_interestProductList;
     ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
 
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
@@ -82,10 +82,10 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         //Product=findViewById(R.id.Product);
 
-        recyclerList_interestProductList=findViewById(R.id.recyclerList_interestProductList);
+        recyclerList_Active_interestProductList=findViewById(R.id.recyclerList_ActiveLeads_interestProductList);
 
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
-        recyclerList_interestProductList.setLayoutManager(layoutManager);
+        recyclerList_Active_interestProductList.setLayoutManager(layoutManager);
 
 
         ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
@@ -323,7 +323,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         //Setting adapter
         acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput.getProductList());
-        recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
+        recyclerList_Active_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
         acticeLeadsInterestProductAdapter.notifyDataSetChanged();
 
 

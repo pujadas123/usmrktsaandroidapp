@@ -82,7 +82,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="@dimen/space_5"
                     android:padding="@dimen/space_3"
-                    app:fontSize="@dimen/space_16"
+                    app:fontSize="@dimen/space_14"
                     app:itemsColor="@color/colorPrimary"
                     android:layout_margin="@dimen/space_10" />
 

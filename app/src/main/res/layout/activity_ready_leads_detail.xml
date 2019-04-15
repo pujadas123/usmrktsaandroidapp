@@ -298,15 +298,22 @@
                     android:textSize="@dimen/text_14"
 
                     />
-
-
-
             </LinearLayout>
 
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Products"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_12"
+                android:layout_marginTop="@dimen/space_10"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerList_ReadyLeads_interestProductList"
+                >
 
-
-
-
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 

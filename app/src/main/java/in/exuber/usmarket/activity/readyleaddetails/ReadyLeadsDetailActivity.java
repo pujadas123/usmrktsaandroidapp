@@ -3,6 +3,7 @@ package in.exuber.usmarket.activity.readyleaddetails;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,7 +16,10 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import in.exuber.usmarket.R;
+import in.exuber.usmarket.activity.activeleadsdetails.LeadsDetailActivity;
+import in.exuber.usmarket.adapter.ActiveLeadsInterestProductAdapter;
 import in.exuber.usmarket.adapter.LeadContactListAdapter;
+import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.apimodels.readyleads.readyleadsoutput.ReadyLeadsOutput;
 import in.exuber.usmarket.models.LeadsActivieCategoryOutput;
 import in.exuber.usmarket.models.leads.LeadsOutput;
@@ -41,6 +45,12 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
     //Declaring variables
     private ReadyLeadsOutput readyLeadsOutput;
 
+    //Declaring variables
+    private AllLeadsOutput allLeadsOutput;
+
+    RecyclerView recyclerList_Ready_interestProductList;
+    ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +70,12 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Initialising views
+
+        recyclerList_Ready_interestProductList=findViewById(R.id.recyclerList_ReadyLeads_interestProductList);
+
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
+        recyclerList_Ready_interestProductList.setLayoutManager(layoutManager);
+
         leadsDetailActivityContainer = findViewById(R.id.activity_ready_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
@@ -86,6 +102,7 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         contactPhone = findViewById(R.id.tv_readyLeadsDetail_contactPhone);
 
 
+
         //Getting passed data
         Bundle passedBundle = getIntent().getExtras();
         String leadItemString = passedBundle.getString(Constants.INTENT_KEY_SELECTED_LEAD);
@@ -94,6 +111,10 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         //Converting string to Object
         Gson gson = new Gson();
         readyLeadsOutput = gson.fromJson(leadItemString, ReadyLeadsOutput.class);
+
+        //Converting string to Object
+        Gson gson2 = new Gson();
+        allLeadsOutput = gson2.fromJson(leadItemString, AllLeadsOutput.class);
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.lead_details_caps));
@@ -270,6 +291,12 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
 
 
         }
+
+
+        //Setting adapter
+        acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(ReadyLeadsDetailActivity.this,allLeadsOutput.getProductList());
+        recyclerList_Ready_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
+        acticeLeadsInterestProductAdapter.notifyDataSetChanged();
 
 
     }

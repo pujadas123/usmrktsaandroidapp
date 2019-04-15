@@ -19,7 +19,7 @@
             android:layout_marginStart="@dimen/space_12"
             android:layout_marginLeft="@dimen/space_12"
             android:gravity="center"
-            android:padding="@dimen/space_12"
+            android:padding="@dimen/space_10"
             android:background="@drawable/rect_whitebackground"
             android:layout_gravity="right">
 
@@ -48,7 +48,7 @@
             android:orientation="horizontal"
             android:layout_marginStart="@dimen/space_12"
             android:layout_marginLeft="@dimen/space_12"
-            android:padding="@dimen/space_12"
+            android:padding="@dimen/space_10"
             android:background="@drawable/rect_whitebackground"
             android:gravity="center"
             android:layout_gravity="right">
