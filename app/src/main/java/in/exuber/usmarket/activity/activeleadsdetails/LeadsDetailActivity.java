@@ -95,7 +95,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         //Setting adapter
         acticeLeadsInterestProductAdapter = new ActiceLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput);
         recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
-        acticeLeadsInterestProductAdapter.notifyDataSetChanged();
+        //acticeLeadsInterestProductAdapter.notifyDataSetChanged();
 
         /*acticeLeadsInterestProductAdapter=new ActiceLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput);
         recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);*/
