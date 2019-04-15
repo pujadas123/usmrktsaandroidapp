@@ -300,11 +300,27 @@
                     />
             </LinearLayout>
 
+           <!-- <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Product"
+                android:padding="@dimen/space_20"
+                android:textSize="@dimen/text_14"
+                android:layout_margin="@dimen/space_10"
+                />-->
+
+            <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Products"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/text_12"
+                android:layout_marginTop="@dimen/space_10"/>
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/recyclerList_interestProductList"
-                android:layout_marginTop="@dimen/space_10">
+                >
 
             </android.support.v7.widget.RecyclerView>
 

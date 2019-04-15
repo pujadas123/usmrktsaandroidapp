@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -21,8 +20,7 @@ import com.google.gson.Gson;
 
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.leadsedit.LeadsEditActivity;
-import in.exuber.usmarket.adapter.ActiceLeadsInterestProductAdapter;
-import in.exuber.usmarket.adapter.LeadContactListAdapter;
+import in.exuber.usmarket.adapter.ActiveLeadsInterestProductAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.utils.Constants;
 
@@ -38,7 +36,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     private TextView leadName, leadSource;
 
     RecyclerView recyclerList_interestProductList;
-    ActiceLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
+    ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
 
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
     private TextView contactFaceBook, contactInstagram, contactTwitter, contactWebsite, contactEmail,contactPhone;
@@ -54,6 +52,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     public static Activity leadsDetailActivityActivityInstance;
 
 
+    TextView Product;
 
 
     @Override
@@ -81,24 +80,13 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         leadsDetailActivityContainer = findViewById(R.id.activity_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
-        recyclerList_interestProductList=findViewById(R.id.recyclerList_interestProductList);
+        //Product=findViewById(R.id.Product);
 
         recyclerList_interestProductList=findViewById(R.id.recyclerList_interestProductList);
-        recyclerList_interestProductList.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManagerKeyword = new LinearLayoutManager(this);
-        linearLayoutManagerKeyword.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerList_interestProductList.setLayoutManager(linearLayoutManagerKeyword);
 
-        /*RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
-        recyclerList_interestProductList.setLayoutManager(layoutManager);*/
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
+        recyclerList_interestProductList.setLayoutManager(layoutManager);
 
-        //Setting adapter
-        acticeLeadsInterestProductAdapter = new ActiceLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput);
-        recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
-        acticeLeadsInterestProductAdapter.notifyDataSetChanged();
-
-        /*acticeLeadsInterestProductAdapter=new ActiceLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput);
-        recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);*/
 
         ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
         toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
@@ -314,16 +302,29 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         }
 
-        if (allLeadsOutput.getProductList() != null)
+        /*if (allLeadsOutput.getProductList() != null)
         {
+            String productTagString = "";
             String ProductName = null;
             for (int index = 0; index<allLeadsOutput.getProductList().size(); index++) {
                 ProductName = allLeadsOutput.getProductList().get(index).getProduct().getProductName();
                 Log.e("LeadDetailsName",ProductName+"");
+
+                if (productTagString.isEmpty()) {
+                    productTagString = ProductName;
+                } else {
+                    productTagString = productTagString + ", " + ProductName;
+                }
+                Product.setText(productTagString+"");
             }
 
 
-        }
+        }*/
+
+        //Setting adapter
+        acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput.getProductList());
+        recyclerList_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
+        acticeLeadsInterestProductAdapter.notifyDataSetChanged();
 
 
 
