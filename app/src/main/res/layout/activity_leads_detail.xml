@@ -264,7 +264,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Categories"
                 android:textColor="@color/colorText"
-                android:textSize="@dimen/text_12" />
+                android:textSize="@dimen/text_12"
+                android:layout_marginTop="@dimen/space_10"/>
 
 
             <LinearLayout
@@ -297,10 +298,15 @@
                     android:textSize="@dimen/text_14"
 
                     />
-
-
-
             </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerList_interestProductList"
+                android:layout_marginTop="@dimen/space_10">
+
+            </android.support.v7.widget.RecyclerView>
 
 
         </LinearLayout>
