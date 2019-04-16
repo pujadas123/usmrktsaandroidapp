@@ -703,7 +703,25 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
             for (int k=0; k<productOutputList.size();k++){
                 if (SelecetedPName.get(j).equals(productOutputList.get(k).getProductId().getProductName()))
                 {
-                    SelecetedPId.add(productOutputList.get(k).getProductId().getProductId());
+                    if (SelecetedPId.size()!=0) {
+                        int flag  =0;
+                        for (int p = 0; p < SelecetedPId.size(); p++) {
+                            if (productOutputList.get(k).getProductId().getProductId().equals(SelecetedPId.get(p))) {
+                                flag=0;
+                                break;
+
+                            } else {
+                                flag=1;
+                            }
+                        }
+                        if (flag==1)
+                        {
+                            SelecetedPId.add(productOutputList.get(k).getProductId().getProductId());
+                        }
+                    }
+                    else {
+                        SelecetedPId.add(productOutputList.get(k).getProductId().getProductId());
+                    }
 
                 }
             }

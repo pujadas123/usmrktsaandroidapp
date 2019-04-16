@@ -27,6 +27,8 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.appintro.AppIntroActivity;
+import in.exuber.usmarket.activity.home.HomeActivity;
+import in.exuber.usmarket.activity.homeaddproducts.HomeAddProductsActivity;
 import in.exuber.usmarket.utils.ConnectionDetector;
 import in.exuber.usmarket.utils.Constants;
 
@@ -83,7 +85,27 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
         //Setting onclick
         skipClick.setOnClickListener(this);
 
+        if (marketPreference.getString("appIntroDone",null).equals("false")) {
+            startActivity(new Intent(getActivity(), AppIntroActivity.class));
+            getActivity().finish();
+        }
+        else {
 
+            boolean isProductAdded = marketPreference.getBoolean(Constants.IS_PRODUCT_ADDED, false);
+
+            if (isProductAdded)
+            {
+                //Calling Home activity
+                startActivity(new Intent(getActivity(), HomeActivity.class));
+                getActivity().finish();
+            }
+            else
+            {
+                //Calling Home Add product activity
+                startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
+                getActivity().finish();
+            }
+        }
 
         return appIntroOneView;
     }
