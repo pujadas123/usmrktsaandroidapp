@@ -38,7 +38,8 @@
     <RelativeLayout
         android:layout_above="@+id/ll_appIntroFourFragment_getStartedClick"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
         <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
             android:id="@+id/tv_appIntroFourFragment_sliderHeader"
