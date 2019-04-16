@@ -278,10 +278,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:layout_margin="@dimen/space_10"
+                    android:layout_margin="@dimen/space_5"
                     android:textColor="@color/colorText"
                     android:text="@string/real_estate"
-                    android:padding="@dimen/space_20"
+                    android:padding="@dimen/space_16"
                     android:textSize="@dimen/text_14"
 
                     />
@@ -291,10 +291,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:layout_margin="@dimen/space_10"
+                    android:layout_margin="@dimen/space_5"
                     android:textColor="@color/colorText"
                     android:text="@string/investment"
-                    android:padding="@dimen/space_20"
+                    android:padding="@dimen/space_16"
                     android:textSize="@dimen/text_14"
 
                     />
@@ -320,6 +320,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/recyclerList_ActiveLeads_interestProductList"
+
                 >
 
             </android.support.v7.widget.RecyclerView>
