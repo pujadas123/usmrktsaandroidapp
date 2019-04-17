@@ -64,7 +64,7 @@
         <ImageView
             android:layout_below="@+id/tv_appIntroFourFragment_sliderHeader"
             android:layout_above="@+id/tv_appIntroFourFragment_sliderText"
-            android:layout_width="@dimen/space_230"
+            android:layout_width="300dp"
             android:layout_margin="@dimen/space_24"
             android:layout_height="wrap_content"
             android:src="@drawable/appintro_slider_commission"

@@ -32,10 +32,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
                         <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -50,22 +56,19 @@
                             android:layout_marginLeft="@dimen/space_2"
                             android:textColor="#1F1F1F"
                             android:textSize="@dimen/text_12"/>
+                        </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="right|end"
-                            android:layout_marginLeft="130dp">
+                            android:layout_gravity="right|end">
                             <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:text="Total"
                                 android:textSize="@dimen/text_12"/>
                             <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:id="@+id/txt_TotalPrice"
                                 android:layout_marginLeft="@dimen/space_2"
                                 android:textColor="#1F1F1F"

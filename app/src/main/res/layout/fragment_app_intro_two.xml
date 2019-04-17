@@ -48,7 +48,7 @@
         <ImageView
             android:layout_below="@+id/tv_appIntroTwoFragment_sliderHeader"
             android:layout_above="@+id/tv_appIntroTwoFragment_sliderText"
-            android:layout_width="270dp"
+            android:layout_width="300dp"
             android:layout_margin="@dimen/space_24"
             android:layout_height="wrap_content"
             android:src="@drawable/appintro_slider_campaign"
