@@ -144,6 +144,8 @@ public class SharedCampaignDetailActivity extends AppCompatActivity implements V
         Gson gson = new Gson();
         sharedcampaignOutput = gson.fromJson(campaignItemString, SharedCampaignOutput.class);
 
+        campaignName.setText(sharedcampaignOutput.getCampaignId().getCompaignName());
+        Log.e("CampName",sharedcampaignOutput.getCampaignId().getCompaignName());
         campaignCategory.setText(sharedcampaignOutput.getCampaignId().getCategory().getName());
         campaignProduct.setText(sharedcampaignOutput.getCampaignId().getProduct().getProductName());
         campaignLanguage.setText(sharedcampaignOutput.getCampaignId().getLanguage().getName());

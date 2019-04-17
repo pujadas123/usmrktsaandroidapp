@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_16"
-                    android:textColor="@color/colorGrey"
+                    android:textColor="@color/colorText"
                     android:textSize="@dimen/text_16" />
 
                 <View
@@ -75,7 +75,7 @@
                         android:layout_marginEnd="@dimen/space_5"
                         android:layout_marginRight="@dimen/space_5"
                         android:text="@string/commission_colon"
-                        android:textColor="@color/colorGrey"
+                        android:textColor="@color/colorText"
                         android:textSize="@dimen/text_12" />
 
                     <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
