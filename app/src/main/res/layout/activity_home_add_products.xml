@@ -69,7 +69,8 @@
                             android:text="@string/add_product_list"
                             android:textSize="@dimen/text_16"
                             android:layout_marginTop="@dimen/space_12"
-                            android:layout_marginBottom="@dimen/space_10"/>
+                            android:layout_marginBottom="@dimen/space_10"
+                            android:textColor="@color/colorText"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -143,7 +144,8 @@
                             android:layout_height="wrap_content"
                             android:text="@string/add_product"
                             android:textSize="@dimen/text_16"
-                            android:layout_marginTop="@dimen/space_12"/>
+                            android:layout_marginTop="@dimen/space_12"
+                            android:textColor="@color/colorText"/>
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/rv_homeAddProducts_productList"

@@ -504,7 +504,7 @@
                 android:textColor="#000000" />
 
             <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
-                android:id="@+id/tv_addLeads_interestsError"
+                android:id="@+id/tv_addLeads_categoriesError"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_3"
@@ -539,7 +539,7 @@
 
 
             <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
-                android:id="@+id/tv_addLeads_categoriesError"
+                android:id="@+id/tv_addLeads_interestsError"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_3"

@@ -409,7 +409,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
         if (categoriesText.isEmpty()) {
 
-            categoriesError.setText(getString(R.string.error_category_empty));
+            categoriesError.setText(getString(R.string.error_interests_empty));
             categoriesError.setVisibility(View.VISIBLE);
             categories.requestFocus();
             validFlag = false;
@@ -418,7 +418,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
         if (interestsText.isEmpty()) {
 
-            interestError.setText(getString(R.string.error_interests_empty));
+            interestError.setText(getString(R.string.error_category_empty));
             interestError.setVisibility(View.VISIBLE);
             interests.requestFocus();
             validFlag = false;
