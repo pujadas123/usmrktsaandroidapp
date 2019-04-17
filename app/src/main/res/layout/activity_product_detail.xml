@@ -119,7 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_356"
                     android:layout_marginTop="@dimen/space_16"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:contentDescription="@string/product_thumbnail"/>
 
                 <RelativeLayout
@@ -220,7 +220,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_356"
                     android:layout_marginTop="@dimen/space_16"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:contentDescription="@string/product_thumbnail"/>
 
                 <RelativeLayout
@@ -321,7 +321,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_356"
                     android:layout_marginTop="@dimen/space_16"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:contentDescription="@string/product_thumbnail"/>
 
                 <RelativeLayout
@@ -421,7 +421,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_356"
                     android:layout_marginTop="@dimen/space_16"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:contentDescription="@string/product_thumbnail"/>
 
                 <RelativeLayout

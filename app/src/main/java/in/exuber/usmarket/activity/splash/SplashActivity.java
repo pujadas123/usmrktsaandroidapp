@@ -89,12 +89,29 @@ public class SplashActivity extends AppCompatActivity {
     {
 
         boolean isLoggedIn = marketPreference.getBoolean(Constants.IS_LOGGED_IN, false);
-
+        Log.e("Login", String.valueOf(isLoggedIn));
         if (isLoggedIn)
         {
-            boolean isAppIntroOver = marketPreference.getBoolean(Constants.IS_APPINTRO_OVER, false);
 
-            if (isAppIntroOver) {
+            if (marketPreference.getString("appIntroDone",null)== null) {
+                startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
+                finish();
+            }
+            else if (marketPreference.getString("appIntroDone",null).equals("false")) {
+                startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
+                finish();
+            }
+            else {
+
+                startActivity(new Intent(SplashActivity.this, HomeAddProductsActivity.class));
+                finish();
+            }
+
+           /* boolean isAppIntroOver = marketPreference.getBoolean(Constants.IS_APPINTRO_OVER, false);
+            Log.e("Appintro", String.valueOf(isAppIntroOver));
+            if (isAppIntroOver) {*/
+
+
 
                 boolean isProductAdded = marketPreference.getBoolean(Constants.IS_PRODUCT_ADDED, false);
 
@@ -137,13 +154,13 @@ public class SplashActivity extends AppCompatActivity {
 
 
 
-            }
+           /* }
             else
             {
                 //Calling App Intro activity
                 startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
                 finish();
-            }
+            }*/
 
         }
         else

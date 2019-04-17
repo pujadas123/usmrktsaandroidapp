@@ -23,6 +23,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -571,7 +572,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         }
         else
         {
-            productPrice.setText(getString(R.string.dollar_sign)+productUserOutput.getProductId().getPrice()+".00");
+            double amount = Double.parseDouble(productUserOutput.getProductId().getPrice());
+            DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+            productPrice.setText(formatter.format(amount));
             productPrice.setVisibility(View.VISIBLE);
         }
 
@@ -756,7 +759,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         }
         else
         {
-            productPrice.setText(getString(R.string.dollar_sign)+productOutput.getPrice()+".00");
+            double amount = Double.parseDouble(productOutput.getPrice());
+            DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+            productPrice.setText(formatter.format(amount));
             productPrice.setVisibility(View.VISIBLE);
         }
 

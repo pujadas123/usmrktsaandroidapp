@@ -85,27 +85,15 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
         //Setting onclick
         skipClick.setOnClickListener(this);
 
-        if (marketPreference.getString("appIntroDone",null).equals("false")) {
+        /*if (marketPreference.getString("appIntroDone",null).equals("false")) {
             startActivity(new Intent(getActivity(), AppIntroActivity.class));
             getActivity().finish();
         }
         else {
 
-            boolean isProductAdded = marketPreference.getBoolean(Constants.IS_PRODUCT_ADDED, false);
-
-            if (isProductAdded)
-            {
-                //Calling Home activity
-                startActivity(new Intent(getActivity(), HomeActivity.class));
-                getActivity().finish();
-            }
-            else
-            {
-                //Calling Home Add product activity
-                startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
-                getActivity().finish();
-            }
-        }
+            startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
+            getActivity().finish();
+        }*/
 
         return appIntroOneView;
     }

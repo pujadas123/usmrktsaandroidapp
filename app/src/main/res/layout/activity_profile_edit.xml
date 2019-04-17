@@ -424,7 +424,7 @@
                     android:minHeight="@dimen/space_48"
                     android:layout_marginTop="@dimen/space_6"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:padding="@dimen/space_12"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/text_14" />
@@ -455,7 +455,7 @@
                     android:minHeight="@dimen/space_48"
                     android:layout_marginTop="@dimen/space_6"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:padding="@dimen/space_12"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/text_14" />
@@ -487,7 +487,7 @@
                     android:minHeight="@dimen/space_48"
                     android:layout_marginTop="@dimen/space_6"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:padding="@dimen/space_12"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/text_14" />
@@ -518,7 +518,7 @@
                     android:minHeight="@dimen/space_48"
                     android:layout_marginTop="@dimen/space_6"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:padding="@dimen/space_12"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/text_14" />
@@ -549,7 +549,7 @@
                     android:minHeight="@dimen/space_48"
                     android:layout_marginTop="@dimen/space_6"
                     android:background="@drawable/squarebordergrey_whitebackground"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:padding="@dimen/space_12"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/text_14" />
