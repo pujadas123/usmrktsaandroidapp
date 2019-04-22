@@ -251,6 +251,8 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
         Log.e("Code",marketPreference.getString("code", ""));
         try {
             phoneCodePicker.setCountryForPhoneCode(Integer.parseInt(marketPreference.getString("phoneNoCode", "")));
+
+            //phoneCodePicker.set
         }
         catch (Exception e)
         {
@@ -281,12 +283,12 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
         }*/
 
         radiogrp.clearCheck();
-        if (marketPreference.getString("prefLanguage", "").equals("English")){
+        if (marketPreference.getString("prefLanguage", "").equals("1")){
             radiogrp.check(R.id.cb_profileEdit_languageEnglish);
             //englishLanguageSelect.setSelected(true);
             Log.e("Language","1");
         }
-        if (marketPreference.getString("prefLanguage", "").equals("Spanish")){
+        if (marketPreference.getString("prefLanguage", "").equals("2")){
             radiogrp.check(R.id.cb_profileEdit_languageSpanish);
             //spanishLanguageSelect.setChecked(true);
             Log.e("Language","2");
@@ -418,6 +420,7 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
 
 
 
+
             jObject.put("password", password.getText().toString().trim());
             Log.e("updatedByPassword",password.getText().toString().trim());
 
@@ -446,17 +449,17 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
             String lang = null;
             if (isEnglishSelected)
             {
-                lang = "English";
+                lang = "1";
             }
             if (isSpanishSelected)
             {
                 if (isEnglishSelected)
                 {
-                    lang = lang+",Spanish";
+                    lang = lang+",2";
                 }
                 else
                 {
-                    lang = "Spanish";
+                    lang = "2";
                 }
 
             }

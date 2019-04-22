@@ -14,7 +14,7 @@
         android:id="@+id/iv_addProductHomeListAdapter_productThumbnail"
         android:layout_width="@dimen/space_96"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:contentDescription="@string/product_thumbnail"/>
 
     <RelativeLayout

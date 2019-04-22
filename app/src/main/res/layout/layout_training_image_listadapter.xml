@@ -12,7 +12,7 @@
         android:id="@+id/iv_trainingListAdapter_image_trainingImage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_356"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:contentDescription="@string/training_image"/>
 
 

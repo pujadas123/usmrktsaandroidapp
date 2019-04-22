@@ -114,6 +114,8 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
     private boolean isAgreementSelected = false;
     private boolean isCitizenSelected = false;
 
+    String selectedLangId;
+
 
     public SignupFragment() {
         // Required empty public constructor
@@ -438,9 +440,12 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         //Setting onclick
         registerClick.setOnClickListener(this);
 
+
         return signupView;
 
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -847,14 +852,17 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
 
         if (isEnglishSelected)
         {
-            signupInput.setPrefLanguage("English");
+            signupInput.setPrefLanguage("1");
+            selectedLangId="1";
         }
 
         if (isSpanishSelected)
         {
-            signupInput.setPrefLanguage("Spanish");
+            signupInput.setPrefLanguage("2");
+            selectedLangId="2";
         }
 
+        Log.e("SelectedLanguageID",selectedLangId+"");
 
         signupInput.setAddress1(addressOneText);
         signupInput.setAddress2(addressTwoText);
@@ -948,6 +956,8 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
+
 
     //Retrofit log
     public OkHttpClient.Builder getHttpClient() {
