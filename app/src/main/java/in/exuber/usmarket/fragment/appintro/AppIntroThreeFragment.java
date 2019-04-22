@@ -89,7 +89,7 @@ public class AppIntroThreeFragment extends Fragment implements View.OnClickListe
 
             case R.id.tv_appIntroThreeFragment_skipClick:
 
-                ((AppIntroActivity)getActivity()).appIntroFinished();
+
 
                 boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
@@ -154,6 +154,8 @@ public class AppIntroThreeFragment extends Fragment implements View.OnClickListe
                 Log.v("AppOne_Response", Response);
 
                 Log.v("Status code", statusCode+"");
+
+                ((AppIntroActivity)getActivity()).appIntroFinished();
 
 
             }

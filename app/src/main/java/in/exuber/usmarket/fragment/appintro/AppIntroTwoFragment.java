@@ -92,7 +92,7 @@ public class AppIntroTwoFragment extends Fragment implements View.OnClickListene
         {
             case R.id.tv_appIntroTwoFragment_skipClick:
 
-                ((AppIntroActivity)getActivity()).appIntroFinished();
+
                 boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
                 if (isInternetPresent) {
@@ -158,6 +158,7 @@ public class AppIntroTwoFragment extends Fragment implements View.OnClickListene
 
                 Log.v("Status code", statusCode+"");
 
+                ((AppIntroActivity)getActivity()).appIntroFinished();
 
             }
 

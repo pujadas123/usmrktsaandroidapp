@@ -92,7 +92,7 @@ public class AppIntroFourFragment extends Fragment implements View.OnClickListen
         {
             case R.id.ll_appIntroFourFragment_getStartedClick:
 
-                ((AppIntroActivity)getActivity()).appIntroFinished();
+
 
                 boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
@@ -157,6 +157,8 @@ public class AppIntroFourFragment extends Fragment implements View.OnClickListen
                 Log.v("AppOne_Response", Response);
 
                 Log.v("Status code", statusCode+"");
+
+                ((AppIntroActivity)getActivity()).appIntroFinished();
 
 
             }

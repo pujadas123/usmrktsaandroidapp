@@ -105,7 +105,7 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
         {
             case R.id.tv_appIntroOneFragment_skipClick:
 
-                ((AppIntroActivity)getActivity()).appIntroFinished();
+
 
                 boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
@@ -170,6 +170,7 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
 
                 Log.v("Status code", statusCode+"");
 
+                ((AppIntroActivity)getActivity()).appIntroFinished();
 
             }
 

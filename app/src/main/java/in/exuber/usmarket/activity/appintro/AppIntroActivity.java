@@ -115,7 +115,7 @@ public class AppIntroActivity extends AppCompatActivity {
         //Preference Editor
         SharedPreferences.Editor preferenceEditor = marketPreference.edit();
 
-        preferenceEditor.putBoolean(Constants.IS_APPINTRO_OVER, true);
+        preferenceEditor.putString("appIntroDone", "true");
         preferenceEditor.commit();
 
 

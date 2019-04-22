@@ -103,16 +103,6 @@ public class SplashActivity extends AppCompatActivity {
             }
             else {
 
-                startActivity(new Intent(SplashActivity.this, HomeAddProductsActivity.class));
-                finish();
-            }
-
-           /* boolean isAppIntroOver = marketPreference.getBoolean(Constants.IS_APPINTRO_OVER, false);
-            Log.e("Appintro", String.valueOf(isAppIntroOver));
-            if (isAppIntroOver) {*/
-
-
-
                 boolean isProductAdded = marketPreference.getBoolean(Constants.IS_PRODUCT_ADDED, false);
 
                 if (isProductAdded)
@@ -150,6 +140,17 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(new Intent(SplashActivity.this, HomeAddProductsActivity.class));
                     finish();
                 }
+
+
+            }
+
+           /* boolean isAppIntroOver = marketPreference.getBoolean(Constants.IS_APPINTRO_OVER, false);
+            Log.e("Appintro", String.valueOf(isAppIntroOver));
+            if (isAppIntroOver) {*/
+
+
+
+
 
 
 
