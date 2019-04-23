@@ -602,6 +602,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             preferenceEditor.putString("appIntroDone",loginOutput.getData().getAppIntro());
                             Log.e("APP_INTRO",loginOutput.getData().getAppIntro()+"");
 
+                            preferenceEditor.putString("flagCodeName",loginOutput.getData().getFlagCode());
+                            Log.e("FLAG_CODE_NAME",loginOutput.getData().getFlagCode()+"");
+
                             preferenceEditor.putBoolean(Constants.IS_LOGGED_IN, true);
 
                             preferenceEditor.commit();

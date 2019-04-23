@@ -846,6 +846,8 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         signupInput.setName(firstNameText);
         signupInput.setLastName(lastNameText);
         signupInput.setEmail(emailText);
+        signupInput.setFlagCode(phoneCodePicker.getSelectedCountryNameCode());
+        Log.e("FlagCodeName",phoneCodePicker.getSelectedCountryNameCode());
         signupInput.setCode(phoneCodePicker.getSelectedCountryCodeWithPlus());
         signupInput.setPhoneNo(phoneNumberText);
         signupInput.setPassword(passwordText);

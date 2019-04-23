@@ -252,7 +252,7 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
         try {
             phoneCodePicker.setCountryForPhoneCode(Integer.parseInt(marketPreference.getString("phoneNoCode", "")));
 
-            //phoneCodePicker.set
+            phoneCodePicker.setCountryForNameCode(marketPreference.getString("flagCodeName", ""));
         }
         catch (Exception e)
         {
@@ -412,6 +412,9 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
             jObject.put("email", email.getText().toString().trim());
             Log.e("EmailID",email.getText().toString().trim());
 
+            jObject.put("flagCode", phoneCodePicker.getSelectedCountryNameCode());
+            Log.e("Flag_Code_Name",phoneCodePicker.getSelectedCountryNameCode());
+
             jObject.put("phoneNo", phoneNumber.getText().toString().trim());
             Log.e("Phone_No",phoneNumber.getText().toString().trim());
 
@@ -530,6 +533,8 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
                         preferenceEditor.putString("userLastName",job.getString("lastName"));
 
                         preferenceEditor.putString("email", job.getString("email"));
+
+                        preferenceEditor.putString("flagCodeName",job.getString("flagCode"));
 
                         preferenceEditor.putString("phoneNo",job.getString("phoneNo"));
 

@@ -21,6 +21,9 @@ public class SignupInput {
     @SerializedName("phoneNo")
     @Expose
     private String phoneNo;
+    @SerializedName("flagCode")
+    @Expose
+    private String flagCode;
     @SerializedName("prefLanguage")
     @Expose
     private String prefLanguage;
@@ -96,6 +99,14 @@ public class SignupInput {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    public String getFlagCode() {
+        return flagCode;
+    }
+
+    public void setFlagCode(String flagCode) {
+        this.flagCode = flagCode;
     }
 
     public String getPrefLanguage() {
@@ -193,5 +204,4 @@ public class SignupInput {
     public void setUsResident(String usResident) {
         this.usResident = usResident;
     }
-
 }

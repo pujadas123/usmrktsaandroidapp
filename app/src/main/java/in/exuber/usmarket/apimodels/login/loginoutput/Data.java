@@ -348,6 +348,9 @@ public class Data {
     @SerializedName("appIntro")
     @Expose
     private String appIntro;
+    @SerializedName("flagCode")
+    @Expose
+    private String flagCode;
 
     public Integer getId() {
         return id;
@@ -1259,5 +1262,13 @@ public class Data {
 
     public void setAppIntro(String appIntro) {
         this.appIntro = appIntro;
+    }
+
+    public String getFlagCode() {
+        return flagCode;
+    }
+
+    public void setFlagCode(String flagCode) {
+        this.flagCode = flagCode;
     }
 }
