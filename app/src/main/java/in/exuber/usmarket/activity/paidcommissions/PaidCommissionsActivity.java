@@ -64,7 +64,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
     RecyclerView recycList_PaidCommision;
 
     TextView txt_date,txt_TotalPrice,txt_Filter;
-    LinearLayout ll_Previous,ll_Next;
+    LinearLayout txt_total,ll_Previous,ll_Next;
 
     ProgressDialog pd;
 
@@ -134,6 +134,8 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
         linearLayoutManagerProducts.setOrientation(LinearLayoutManager.VERTICAL);
         recycList_PaidCommision.setLayoutManager(linearLayoutManagerProducts);
 
+        txt_total=findViewById(R.id.txt_total);
+
         txt_date=findViewById(R.id.txt_date);
         txt_TotalPrice=findViewById(R.id.txt_TotalPrice);
         txt_Filter=findViewById(R.id.txt_Filter);
@@ -145,10 +147,10 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
         String dateString = sdf.format(date);
         txt_date.setText(dateString);
 
-        ll_Previous=findViewById(R.id.ll_Previous);
+        /*ll_Previous=findViewById(R.id.ll_Previous);
         ll_Previous.setOnClickListener(this);
         ll_Next=findViewById(R.id.ll_Next);
-        ll_Next.setOnClickListener(this);
+        ll_Next.setOnClickListener(this);*/
 
         et_paidCommission_search=findViewById(R.id.et_paidCommission_search);
         et_paidCommission_search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -173,7 +175,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
     }
 
-    private void generatePage(){
+    /*private void generatePage(){
 
         ArrayList<PaidCommissionOutput> paidCommissionOutputs2 = new ArrayList<>();
         ll_Next.setVisibility(View.VISIBLE);
@@ -200,7 +202,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
         recycList_PaidCommision.setAdapter(paidCommissionListAdapter);
         paidCommissionListAdapter.notifyDataSetChanged();
 
-    }
+    }*/
 
 
 
@@ -262,7 +264,18 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                             int paid=jsonobject.getInt("paid");
                             int totalAmount=jsonobject.getInt("totalAmount");
 
-                            txt_TotalPrice.setText("$" + totalAmount + ".00");
+                            if (totalAmount == 0)
+                            {
+                                txt_total.setVisibility(View.GONE);
+                            }
+                            else
+                            {
+                                txt_TotalPrice.setText("$" + totalAmount + ".00");
+
+                                txt_total.setVisibility(View.VISIBLE);
+                            }
+
+                            //txt_TotalPrice.setText("$" + totalAmount + ".00");
 
 
 
@@ -278,10 +291,9 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                         if (paidCommissionOutputs.size() != 0)
                         {
                             //Setting adapter
-                            /*paidCommissionListAdapter = new PaidCommissionListAdapter(PaidCommissionsActivity.this,paidCommissionOutputs);
+                            paidCommissionListAdapter = new PaidCommissionListAdapter(PaidCommissionsActivity.this,paidCommissionOutputs);
                             recycList_PaidCommision.setAdapter(paidCommissionListAdapter);
-                            paidCommissionListAdapter.notifyDataSetChanged();*/
-                            generatePage();
+                            paidCommissionListAdapter.notifyDataSetChanged();
                             pd.dismiss();
                         }
                         else
@@ -348,7 +360,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                 fileList();
                 break;
 
-            case R.id.ll_Previous:
+            /*case R.id.ll_Previous:
                 if (currentpage >0)
                 {
                     currentpage = currentpage -1;
@@ -359,7 +371,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
             case R.id.ll_Next:
                 currentpage = currentpage+1;
                 generatePage();
-                break;
+                break;*/
         }
     }
 }
