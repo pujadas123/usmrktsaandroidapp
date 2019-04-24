@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ll_paidCommission_Parent"
     android:orientation="vertical"
     tools:context=".activity.paidcommissions.PaidCommissionsActivity">
 
     <include layout="@layout/toolbar_main" />
 
     <FrameLayout
-        android:id="@+id/fl_home_frameLayout"
+        android:id="@+id/fl_paidcommission_frameLayout"
         android:layout_above="@+id/bb_home_bottomBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,7 +62,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/txt_total"
-                            android:layout_gravity="right|end">
+                            android:layout_gravity="right|end"
+                            android:visibility="gone"
+                            >
                             <in.exuber.usmarket.fonts.Barlow.BarlowMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

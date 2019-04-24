@@ -281,8 +281,22 @@ public class ProfileHomeFragment extends Fragment implements View.OnClickListene
 
                 //Hiding Keyboard
                 hideKeyBoard(getActivity());
-                Intent intentcommissions=new Intent(getActivity(), PaidCommissionsActivity.class);
-                startActivity(intentcommissions);
+                boolean isInternetPresent = connectionDetector.isConnectingToInternet();
+
+                if (isInternetPresent) {
+
+                    Intent intentcommissions=new Intent(getActivity(), PaidCommissionsActivity.class);
+                    startActivity(intentcommissions);
+
+                }
+                else
+                {
+                    Snackbar snackbar = Snackbar
+                            .make(profileHomeFragmentContainer, R.string.error_internet, Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
+
 
                 break;
 

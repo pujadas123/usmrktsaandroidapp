@@ -3,6 +3,7 @@ package in.exuber.usmarket.activity.paidcommissions;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -44,12 +46,16 @@ import in.exuber.usmarket.activity.filters.FiltersActivity;
 import in.exuber.usmarket.activity.paymentinfo.Payment_Info_Activity;
 import in.exuber.usmarket.adapter.FaqListAdapter;
 import in.exuber.usmarket.adapter.PaidCommissionListAdapter;
+import in.exuber.usmarket.apimodels.campaign.campaignoutput.CampaignOutput;
 import in.exuber.usmarket.models.faq.FaqOutput;
 import in.exuber.usmarket.models.paidcommision.PaidCommissionOutput;
 import in.exuber.usmarket.utils.ConnectionDetector;
 import in.exuber.usmarket.utils.Constants;
 
 public class PaidCommissionsActivity extends AppCompatActivity implements View.OnClickListener {
+
+    LinearLayout ll_paidCommission_Parent;
+    FrameLayout fl_paidcommission_frameLayout;
 
     private TextView toolbarHeader;
     private SearchView et_paidCommission_search;
@@ -117,6 +123,9 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
         //Initialising variables
         paidCommissionOutputs = new ArrayList<>();
+
+        ll_paidCommission_Parent=findViewById(R.id.ll_paidCommission_Parent);
+        fl_paidcommission_frameLayout=findViewById(R.id.fl_paidcommission_frameLayout);
 
 
         TOTAL_NUM_ITEMS=paidCommissionOutputs.size();
@@ -205,9 +214,30 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
     }*/
 
 
+    //Func - Share Campaign
+    public void setAdapterData() {
+
+        boolean isInternetPresent = connectionDetector.isConnectingToInternet();
+
+        if (isInternetPresent) {
+
+            //Calling Service
+            callPaidCommissionService();
+
+        }
+        else
+        {
+            Snackbar snackbar = Snackbar
+                    .make(ll_paidCommission_Parent, R.string.error_internet, Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+    }
+
+
 
     //Func - Set Adapter Data
-    private void setAdapterData() {
+    private void callPaidCommissionService() {
 
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.setTimeout(60*1000);
@@ -270,7 +300,9 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                             }
                             else
                             {
-                                txt_TotalPrice.setText("$" + totalAmount + ".00");
+                                double amount = Double.parseDouble(String.valueOf(totalAmount));
+                                DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+                                txt_TotalPrice.setText(formatter.format(amount));
 
                                 txt_total.setVisibility(View.VISIBLE);
                             }
@@ -284,8 +316,6 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                             Log.d("TotalCommission", String.valueOf(totalAmount));
                             Log.d("Commission", String.valueOf(paid));
 
-                            preferenceEditor.commit();
-
                         }
 
                         if (paidCommissionOutputs.size() != 0)
@@ -298,12 +328,13 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                         }
                         else
                         {
-                            Toast.makeText(PaidCommissionsActivity.this, "No Comission Available", Toast.LENGTH_SHORT).show();
-                            finish();
+                            Log.e("Paidcommission","CommissionMSG");
                             pd.dismiss();
+                            Snackbar snackbar = Snackbar
+                                    .make(ll_paidCommission_Parent, R.string.paid_commission, Snackbar.LENGTH_LONG);
+
+                            snackbar.show();
                         }
-
-
                     }
 
                     catch (JSONException e) {
@@ -311,10 +342,16 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
                     }
 
                 }
-                else {
-
+                //If status code is not 200
+                else
+                {
                     pd.dismiss();
-                    Toast.makeText(PaidCommissionsActivity.this, "Not Successfull", Toast.LENGTH_SHORT).show();
+
+                    Snackbar snackbar = Snackbar
+                            .make(ll_paidCommission_Parent, R.string.error_response_code + statusCode, Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+
                 }
 
             }

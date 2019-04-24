@@ -319,6 +319,7 @@
     <string name="payment_info_caps">PAYMENT INFO</string>
     <string name="error_no_data_notification">No notifications available</string>
     <string name="notification_header">Notification #</string>
+    <string name="paid_commission">Paid Commissions Coming Soon!</string>
 
 
 </resources>

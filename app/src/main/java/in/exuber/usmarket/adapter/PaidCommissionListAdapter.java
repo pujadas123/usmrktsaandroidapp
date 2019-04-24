@@ -11,6 +11,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,10 @@ public class PaidCommissionListAdapter extends RecyclerView.Adapter<PaidCommissi
         //viewHolder.txt_IdSl.setText((i+1)+"");
         viewHolder.txt_IdSl.setText("PD" + filteredpaidCommissionOutputArrayList.get(i).getProductId());
         viewHolder.txt_ProductName.setText(filteredpaidCommissionOutputArrayList.get(i).getProductName());
-        viewHolder.txt_Commission.setText("$" + filteredpaidCommissionOutputArrayList.get(i).getPaid()+".00");
+
+        double amount = Double.parseDouble(String.valueOf(filteredpaidCommissionOutputArrayList.get(i).getPaid()));
+        DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+        viewHolder.txt_Commission.setText(formatter.format(amount));
     }
 
     @Override
