@@ -325,6 +325,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
             {
                 try {
                     phoneCodePicker.setCountryForPhoneCode(Integer.parseInt(allLeadsOutput.getCountryCode()));
+                    phoneCodePicker.setCountryForNameCode(allLeadsOutput.getFlagCode());
                 }
                 catch (Exception e)
                 {
@@ -710,6 +711,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         editLeadInput.setTwitter(contactTwitterText);
         editLeadInput.setWebsite(contactWebsiteText);
         editLeadInput.setEmail(contactEmailText);
+        editLeadInput.setFlagCode(phoneCodePicker.getSelectedCountryNameCode());
         editLeadInput.setPhoneNo(contactPhoneText);
 
         if (contactPhoneText.isEmpty())

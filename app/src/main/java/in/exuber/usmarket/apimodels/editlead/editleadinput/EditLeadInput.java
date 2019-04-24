@@ -21,6 +21,9 @@ public class EditLeadInput {
     @SerializedName("lastName")
     @Expose
     private String lastName;
+    @SerializedName("flagCode")
+    @Expose
+    private String flagCode;
     @SerializedName("phoneNo")
     @Expose
     private String phoneNo;
@@ -103,6 +106,14 @@ public class EditLeadInput {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFlagCode() {
+        return flagCode;
+    }
+
+    public void setFlagCode(String flagCode) {
+        this.flagCode = flagCode;
     }
 
     public String getPhoneNo() {

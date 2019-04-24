@@ -31,6 +31,9 @@ public class AddLeadInput {
     @SerializedName("website")
     @Expose
     private String website;
+    @SerializedName("flagCode")
+    @Expose
+    private String flagCode;
     @SerializedName("phoneNo")
     @Expose
     private String phoneNo;
@@ -124,6 +127,14 @@ public class AddLeadInput {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public String getFlagCode() {
+        return flagCode;
+    }
+
+    public void setFlagCode(String flagCode) {
+        this.flagCode = flagCode;
     }
 
     public String getPhoneNo() {

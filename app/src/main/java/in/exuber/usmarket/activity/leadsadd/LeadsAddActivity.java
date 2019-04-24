@@ -559,6 +559,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         addLeadInput.setTwitter(contactTwitterText);
         addLeadInput.setWebsite(contactWebsiteText);
         addLeadInput.setEmail(contactEmailText);
+        addLeadInput.setFlagCode(phoneCodePicker.getSelectedCountryNameCode());
         addLeadInput.setPhoneNo(contactPhoneText);
 
         if (contactPhoneText.isEmpty())

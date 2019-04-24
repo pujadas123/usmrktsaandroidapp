@@ -34,6 +34,9 @@ public class AllLeadsOutput {
     @SerializedName("password")
     @Expose
     private Object password;
+    @SerializedName("flagCode")
+    @Expose
+    private String flagCode;
     @SerializedName("phoneNo")
     @Expose
     private String phoneNo;
@@ -241,6 +244,14 @@ public class AllLeadsOutput {
 
     public void setPassword(Object password) {
         this.password = password;
+    }
+
+    public String getFlagCode() {
+        return flagCode;
+    }
+
+    public void setFlagCode(String flagCode) {
+        this.flagCode = flagCode;
     }
 
     public String getPhoneNo() {
