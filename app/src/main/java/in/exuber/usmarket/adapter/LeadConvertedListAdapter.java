@@ -50,13 +50,13 @@ public class LeadConvertedListAdapter extends RecyclerView.Adapter<LeadConverted
         //Setting values
         holder.leadName.setText(convertedLeadsOutputList.get(position).getName()+" "+convertedLeadsOutputList.get(position).getLastName());
 
-        if(convertedLeadsOutputList.get(position).getLeadSource() == null)
+        if(convertedLeadsOutputList.get(position).getPhoneNo() == null)
         {
             holder.leadSourceLayout.setVisibility(View.GONE);
         }
         else
         {
-            holder.leadSource.setText(convertedLeadsOutputList.get(position).getLeadSource().getName());
+            holder.leadSource.setText(convertedLeadsOutputList.get(position).getCountryCode() + " " +convertedLeadsOutputList.get(position).getPhoneNo());
 
             holder.leadSourceLayout.setVisibility(View.VISIBLE);
         }

@@ -5,7 +5,7 @@
     android:layout_marginTop="@dimen/space_12"
     android:layout_marginLeft="@dimen/space_12"
     android:layout_marginRight="@dimen/space_12"
-    android:padding="@dimen/space_24"
+    android:padding="@dimen/space_20"
     android:id="@+id/rl_leadsReadyListAdapter_parentLayout"
     android:background="@color/colorWhite">
 
@@ -41,7 +41,7 @@
             android:id="@+id/ll_leadsReadyListAdapter_leadSourceLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_marginTop="@dimen/space_5"
             android:orientation="horizontal">
 
@@ -49,10 +49,8 @@
                 android:id="@+id/iv_leadsReadyListAdapter_leadSourceIcon"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:background="@drawable/icon_facebook"
-                android:textSize="@dimen/text_12"
-                android:visibility="gone"
-                android:textColor="@color/colorGrey" />
+                android:visibility="visible"
+                android:background="@drawable/ic_phone_grey"/>
 
             <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                 android:id="@+id/tv_leadsReadyListAdapter_leadSource"

@@ -59,13 +59,13 @@ public class LeadReadyListAdapter extends RecyclerView.Adapter<LeadReadyListAdap
         //Setting values
         holder.leadName.setText(readyLeadsOutputList.get(position).getName()+" "+readyLeadsOutputList.get(position).getLastName());
 
-        if (readyLeadsOutputList.get(position).getLeadSource() == null)
+        if (readyLeadsOutputList.get(position).getPhoneNo() == null)
         {
             holder.leadSource.setVisibility(View.GONE);
         }
         else
         {
-            holder.leadSource.setText(readyLeadsOutputList.get(position).getLeadSource().getName());
+            holder.leadSource.setText(readyLeadsOutputList.get(position).getCountryCode() + " " +readyLeadsOutputList.get(position).getPhoneNo());
 
             holder.leadSource.setVisibility(View.VISIBLE);
         }

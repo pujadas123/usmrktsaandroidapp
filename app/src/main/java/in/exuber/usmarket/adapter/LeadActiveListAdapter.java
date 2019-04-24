@@ -54,13 +54,13 @@ public class LeadActiveListAdapter extends RecyclerView.Adapter<LeadActiveListAd
         //Setting values
         holder.leadName.setText(allLeadsOutputList.get(position).getName()+" "+allLeadsOutputList.get(position).getLastName());
 
-        if (allLeadsOutputList.get(position).getLeadSource() == null)
+        if (allLeadsOutputList.get(position).getPhoneNo() == null)
         {
             holder.leadSourceLayout.setVisibility(View.GONE);
         }
         else
         {
-            holder.leadSource.setText(allLeadsOutputList.get(position).getLeadSource().getName());
+            holder.leadSource.setText(allLeadsOutputList.get(position).getCountryCode() + " " +allLeadsOutputList.get(position).getPhoneNo());
 
             holder.leadSourceLayout.setVisibility(View.VISIBLE);
         }
