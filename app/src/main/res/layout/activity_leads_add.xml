@@ -484,7 +484,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Categories"
                 android:textColor="@color/colorText"
-                android:textSize="@dimen/text_12"
+                android:textSize="@dimen/text_14"
                 android:layout_marginTop="@dimen/space_10"
                 />
 
@@ -518,7 +518,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Products"
                 android:textColor="@color/colorText"
-                android:textSize="@dimen/text_12"
+                android:textSize="@dimen/text_14"
                 android:layout_marginTop="@dimen/space_10"
                 />
 
