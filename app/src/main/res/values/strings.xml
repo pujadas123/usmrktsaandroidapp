@@ -292,6 +292,7 @@
     <string name="error_no_data_products">No products available</string>
     <string name="error_no_data_campaigns">Product Campaigns Coming Soon!</string>
     <string name="error_no_data_training">Product Training Material Coming Soon!</string>
+    <string name="error_no_data_campaign_training">Campaign Training Material Coming Soon!</string>
     <string name="error_no_data_sharelog_campaign">Your Social Network Log is empty. Share campaigns now with your leads!</string>
     <string name="permission_request">Please allow permission in app settings</string>
     <string name="go_settings">Go settings</string>

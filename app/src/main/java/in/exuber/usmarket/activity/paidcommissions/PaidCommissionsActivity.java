@@ -126,6 +126,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
         ll_paidCommission_Parent=findViewById(R.id.ll_paidCommission_Parent);
         fl_paidcommission_frameLayout=findViewById(R.id.fl_paidcommission_frameLayout);
+        fl_paidcommission_frameLayout.setVisibility(View.GONE);
 
 
         TOTAL_NUM_ITEMS=paidCommissionOutputs.size();
@@ -281,66 +282,69 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
                 if (statusCode==200) {
 
-                    try {
+                    if (Response.equals("")) {
+                        fl_paidcommission_frameLayout.setVisibility(View.GONE);
+                        Log.e("Paidcommission", "CommissionMSG");
+                        pd.dismiss();
+                       /* Snackbar snackbar = Snackbar
+                                .make(ll_paidCommission_Parent, R.string.paid_commission, Snackbar.LENGTH_LONG);
 
-                        JSONArray faqjsonArray=new JSONArray(Response);
-                        for (int i = 0; i < faqjsonArray.length(); i++) {
-                            JSONObject jsonobject = faqjsonArray.getJSONObject(i);
+                        snackbar.show();*/
+                    } else {
+                        fl_paidcommission_frameLayout.setVisibility(View.VISIBLE);
+                        try {
 
-                            JSONObject productObject=jsonobject.getJSONObject("productId");
+                            JSONArray faqjsonArray = new JSONArray(Response);
+                            for (int i = 0; i < faqjsonArray.length(); i++) {
+                                JSONObject jsonobject = faqjsonArray.getJSONObject(i);
 
-                            String productId=productObject.getString("id");
-                            String productName=productObject.getString("productName");
-                            int paid=jsonobject.getInt("paid");
-                            int totalAmount=jsonobject.getInt("totalAmount");
+                                JSONObject productObject = jsonobject.getJSONObject("productId");
 
-                            if (totalAmount == 0)
-                            {
-                                txt_total.setVisibility(View.GONE);
+                                String productId = productObject.getString("id");
+                                String productName = productObject.getString("productName");
+                                int paid = jsonobject.getInt("paid");
+                                int totalAmount = jsonobject.getInt("totalAmount");
+
+                                if (totalAmount == 0) {
+                                    txt_total.setVisibility(View.GONE);
+                                } else {
+                                    double amount = Double.parseDouble(String.valueOf(totalAmount));
+                                    DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
+                                    txt_TotalPrice.setText(formatter.format(amount));
+
+                                    txt_total.setVisibility(View.VISIBLE);
+                                }
+
+                                //txt_TotalPrice.setText("$" + totalAmount + ".00");
+
+
+                                paidCommissionOutputs.add(new PaidCommissionOutput(productId, productName, paid, totalAmount));
+
+                                Log.d("TotalCommission", String.valueOf(totalAmount));
+                                Log.d("Commission", String.valueOf(paid));
+
                             }
-                            else
-                            {
-                                double amount = Double.parseDouble(String.valueOf(totalAmount));
-                                DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
-                                txt_TotalPrice.setText(formatter.format(amount));
 
-                                txt_total.setVisibility(View.VISIBLE);
+                            Log.e("PAidMsg", String.valueOf(paidCommissionOutputs.size()));
+                            if (paidCommissionOutputs.size() != 0) {
+                                //Setting adapter
+                                paidCommissionListAdapter = new PaidCommissionListAdapter(PaidCommissionsActivity.this, paidCommissionOutputs);
+                                recycList_PaidCommision.setAdapter(paidCommissionListAdapter);
+                                paidCommissionListAdapter.notifyDataSetChanged();
+                                pd.dismiss();
+                            } else {
+                                Log.e("Paidcommission", "CommissionMSG");
+                                pd.dismiss();
+                                Snackbar snackbar = Snackbar
+                                        .make(ll_paidCommission_Parent, R.string.paid_commission, Snackbar.LENGTH_LONG);
+
+                                snackbar.show();
                             }
-
-                            //txt_TotalPrice.setText("$" + totalAmount + ".00");
-
-
-
-                            paidCommissionOutputs.add(new PaidCommissionOutput(productId,productName,paid,totalAmount));
-
-                            Log.d("TotalCommission", String.valueOf(totalAmount));
-                            Log.d("Commission", String.valueOf(paid));
-
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
 
-                        if (paidCommissionOutputs.size() != 0)
-                        {
-                            //Setting adapter
-                            paidCommissionListAdapter = new PaidCommissionListAdapter(PaidCommissionsActivity.this,paidCommissionOutputs);
-                            recycList_PaidCommision.setAdapter(paidCommissionListAdapter);
-                            paidCommissionListAdapter.notifyDataSetChanged();
-                            pd.dismiss();
-                        }
-                        else
-                        {
-                            Log.e("Paidcommission","CommissionMSG");
-                            pd.dismiss();
-                            Snackbar snackbar = Snackbar
-                                    .make(ll_paidCommission_Parent, R.string.paid_commission, Snackbar.LENGTH_LONG);
-
-                            snackbar.show();
-                        }
                     }
-
-                    catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
                 }
                 //If status code is not 200
                 else

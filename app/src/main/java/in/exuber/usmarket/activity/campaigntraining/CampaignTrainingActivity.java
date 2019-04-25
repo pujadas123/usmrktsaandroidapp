@@ -429,7 +429,7 @@ public class CampaignTrainingActivity extends AppCompatActivity implements View.
                         errorDisplay.setVisibility(View.VISIBLE);
 
                         errorDisplayIcon.setImageResource(R.drawable.ic_error_training);
-                        errorDisplayText.setText(getString( R.string.error_no_data_training));
+                        errorDisplayText.setText(getString( R.string.error_no_data_campaign_training));
                         errorDisplayTryClick.setVisibility(View.GONE);
 
 
@@ -480,7 +480,7 @@ public class CampaignTrainingActivity extends AppCompatActivity implements View.
                     errorDisplay.setVisibility(View.VISIBLE);
 
                     errorDisplayIcon.setImageResource(R.drawable.ic_error_training);
-                    errorDisplayText.setText(getString( R.string.error_no_data_training));
+                    errorDisplayText.setText(getString( R.string.error_no_data_campaign_training));
                     errorDisplayTryClick.setVisibility(View.GONE);
 
                 }

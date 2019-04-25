@@ -604,6 +604,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                             preferenceEditor.putString("flagCodeName",loginOutput.getData().getFlagCode());
                             Log.e("FLAG_CODE_NAME",loginOutput.getData().getFlagCode()+"");
+                            Log.e("LANGUAGE_NAME",loginOutput.getData().getPrefLanguage()+"");
 
                             preferenceEditor.putBoolean(Constants.IS_LOGGED_IN, true);
 

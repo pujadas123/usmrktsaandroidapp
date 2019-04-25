@@ -41,16 +41,16 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="@dimen/text_16"
+            android:layout_marginBottom="87dp"
             android:textColor="@color/colorText"
             android:text="@string/slider_text_one"/>
 
         <ImageView
             android:layout_below="@+id/tv_appIntroThreeFragment_sliderHeader"
             android:layout_above="@+id/tv_appIntroThreeFragment_sliderText"
-            android:layout_width="280dp"
-            android:layout_height="280dp"
-            android:layout_marginTop="@dimen/space_30"
-            android:layout_marginBottom="50dp"
+            android:layout_width="@dimen/space_300"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_24"
             android:src="@drawable/appintro_slider_lead"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/slider_image_one"/>
