@@ -56,9 +56,9 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
     private LinearLayout campaignProductDetailContainer;
     private TextView toolbarHeader;
 
-    LinearLayout ll_commission;
-    View ll_view;
     private TextView productName, productCategory, productPrice, productCommission, productDescription;
+    private LinearLayout productCommissionLayout;
+    private View productCommissionView;
 
     private LinearLayout thumbnailOneLayout, thumbnailTwoLayout, thumbnailThreeLayout, thumbnailFourLayout;
     private ImageView thumbnailOne, thumbnailTwo, thumbnailThree, thumbnailFour;
@@ -120,6 +120,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising variables
@@ -129,14 +130,13 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         campaignProductDetailContainer = findViewById(R.id.activity_campaign_product_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
-        ll_commission=findViewById(R.id.ll_commission);
-        ll_view=findViewById(R.id.ll_view);
-
         productName = findViewById(R.id.tv_campaignProductDetail_productName);
         productCategory = findViewById(R.id.tv_campaignProductDetail_productCategory);
         productPrice = findViewById(R.id.tv_campaignProductDetail_productPrice);
         productCommission = findViewById(R.id.tv_campaignProductDetail_productCommision);
         productDescription = findViewById(R.id.tv_campaignProductDetail_productDescription);
+        productCommissionLayout = findViewById(R.id.ll_campaignProductDetail_productCommisionLayout);
+        productCommissionView = findViewById(R.id.view_campaignProductDetail_productCommissionView);
 
         thumbnailOneLayout = findViewById(R.id.ll_campaignProduct_detailsThumbnail_oneLayout);
         thumbnailTwoLayout = findViewById(R.id.ll_campaignProduct_detailsThumbnail_twoLayout);
@@ -151,7 +151,6 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
 
         videoLayout = findViewById(R.id.ll_campaignProduct_detailsVideo_videoLayout);
         videoPlayClick = findViewById(R.id.ll_campaignProduct_detailsVideo_playVideoClick);
-
 
 
         facebookShareClickImageOne = findViewById(R.id.iv_campaignProduct_detailsThumbnail_facebookShareClickOne);
@@ -442,7 +441,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
 
         //Setting values
         productName.setText(campaignOutput.getProduct().getProductName());
-        Log.e("PName",campaignOutput.getProduct().getProductName());
+        Log.e("P-Name",campaignOutput.getProduct().getProductName());
 
         if (campaignOutput.getCategory() == null)
         {
@@ -452,11 +451,10 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         {
             productCategory.setText(campaignOutput.getCategory().getName());
             productCategory.setVisibility(View.VISIBLE);
-            Log.e("PCategory",campaignOutput.getCategory().getName());
+            Log.e("P-Category",campaignOutput.getCategory().getName());
         }
 
-        /*productPrice.setText(getString(R.string.dollar_sign)+campaignOutput.getProduct().getPrice()+".00");
-        productCommission.setText(campaignOutput.getProduct().getCommission()+getString(R.string.commission_tail));*/
+
 
         if (campaignOutput.getProduct().getPrice() == null){
             productPrice.setVisibility(View.GONE);
@@ -467,19 +465,23 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
             DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
             productPrice.setText(formatter.format(amount));
             productPrice.setVisibility(View.VISIBLE);
-            Log.e("P_Price",campaignOutput.getProduct().getPrice());
+            Log.e("P-Price",campaignOutput.getProduct().getPrice());
         }
 
         if (campaignOutput.getProduct().getCommission() == null){
-            ll_commission.setVisibility(View.GONE);
-            ll_view.setVisibility(View.GONE);
+
+            productCommissionLayout.setVisibility(View.GONE);
+            productCommissionView.setVisibility(View.GONE);
         }
         else
         {
+            Log.e("P-Commission",campaignOutput.getProduct().getCommission());
+
             productCommission.setText(campaignOutput.getProduct().getCommission()+getString(R.string.commission_tail));
-            ll_commission.setVisibility(View.VISIBLE);
-            ll_view.setVisibility(View.VISIBLE);
-            Log.e("PCommission",campaignOutput.getProduct().getCommission());
+
+            productCommissionLayout.setVisibility(View.VISIBLE);
+            productCommissionView.setVisibility(View.VISIBLE);
+
         }
 
         if (campaignOutput.getProduct().getDesc() == null)
@@ -490,7 +492,7 @@ public class CampaignProductDetailActivity extends AppCompatActivity implements 
         {
             productDescription.setText(campaignOutput.getProduct().getDesc());
             productDescription.setVisibility(View.VISIBLE);
-            Log.e("PCommission",campaignOutput.getProduct().getDesc());
+            Log.e("P-Desc",campaignOutput.getProduct().getDesc());
         }
 
 

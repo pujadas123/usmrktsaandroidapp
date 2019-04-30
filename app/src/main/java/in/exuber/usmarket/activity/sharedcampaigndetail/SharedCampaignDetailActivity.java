@@ -100,6 +100,7 @@ public class SharedCampaignDetailActivity extends AppCompatActivity implements V
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         sharedCampaignDetailActivityContainer = findViewById(R.id.activity_shared_campaign_detail);

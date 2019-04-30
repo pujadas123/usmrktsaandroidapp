@@ -37,11 +37,13 @@ import in.exuber.usmarket.apimodels.addlead.addleadinput.LeadOwner;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.LeadSource;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.Product;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.ProductList;
+import in.exuber.usmarket.apimodels.addlead.addleadinput.SocialNetwork;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.Source;
 import in.exuber.usmarket.apimodels.addlead.addleadinput.UserId;
 import in.exuber.usmarket.apimodels.login.loginoutput.LoginOutput;
 import in.exuber.usmarket.apimodels.productuser.productuseroutput.ProductUserOutput;
 import in.exuber.usmarket.dialog.AddLeadsLeadSourceFilterDialog;
+import in.exuber.usmarket.dialog.AddLeadsSocialNetworkFilterDialog;
 import in.exuber.usmarket.utils.Api;
 import in.exuber.usmarket.utils.Config;
 import in.exuber.usmarket.utils.ConnectionDetector;
@@ -68,14 +70,15 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
 
     private EditText firstName, lastName, otherDetails, referralName;
-    private TextView firstNameError, lastNameError, leadSourceError, otherDetailsError, interestError, categoriesError, referralError, phoneNumberError, emailError;
-    private LinearLayout otherDetailsLayout,referralLayout;
+    private TextView firstNameError, lastNameError, leadSourceError, socialnetworkError, otherDetailsError, interestError, categoriesError, referralError, phoneNumberError, emailError;
+    private LinearLayout otherDetailsLayout,referralLayout, socialnetworkLayout;
 
     private EditText contactFacebook, contactInstagram, contactTwitter,contactWebsite, contactEmail, contactPhone;
     private CountryCodePicker phoneCodePicker;
 
-    private LinearLayout leadSourceClick;
-    private TextView leadSource;
+    private LinearLayout leadSourceClick, socialnetworkClick;
+    private TextView leadSource, socialNetwork;
+    //Spinner socialNetwork;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -91,6 +94,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
     //Declaring variables
     private int selectedLeadSourcePosition = -1;
+    private int selectedSocialNetworkPosition = -1;
 
     private MultiAutoCompleteTextView interests, categories;
     private String[] catogoryInputList = {"Investment", "Real Estate"};
@@ -104,6 +108,9 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
     ArrayList<String>SelecetedPName=new ArrayList<>();
     ArrayList<String>SelecetedPId=new ArrayList<>();
+
+    /*ArrayAdapter<CharSequence> adapter1;
+    String[] Filter1 = {"FB", "Ins", "Twit"};*/
 
 
     @Override
@@ -134,18 +141,20 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising views
         leadsAddActivityContainer = findViewById(R.id.activity_leads_add);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
-        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
-        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone=findViewById(R.id.ll_main_toolBar_actionClick);
+        toolbarHeaderDone=findViewById(R.id.iv_main_toolBar_actionText);
         ll_toolbarHeaderDone.setOnClickListener(this);
 
         otherDetailsLayout = findViewById(R.id.ll_addLeads_otherDetailsLayout);
         referralLayout=findViewById(R.id.ll_addLeads_referralLayout);
+        socialnetworkLayout=findViewById(R.id.ll_addLeads_socialnetworkLayout);
 
         firstName = findViewById(R.id.et_addLeads_firstName);
         lastName = findViewById(R.id.et_addLeads_lastName);
@@ -167,6 +176,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         firstNameError = findViewById(R.id.tv_addLeads_firstNameError);
         lastNameError = findViewById(R.id.tv_addLeads_lastNameError);
         leadSourceError = findViewById(R.id.tv_addLeads_leadSourceError);
+        socialnetworkError = findViewById(R.id.tv_addLeads_socialnetworkNameError);
         otherDetailsError = findViewById(R.id.tv_addLeads_otherDetailsError);
         interestError = findViewById(R.id.tv_addLeads_interestsError);
         categoriesError = findViewById(R.id.tv_addLeads_categoriesError);
@@ -176,7 +186,9 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
 
         leadSourceClick = findViewById(R.id.ll_addLeads_leadSourceClick);
+        socialnetworkClick=findViewById(R.id.ll_addLeads_socialnetworkClick);
         leadSource = findViewById(R.id.tv_addLeads_leadSource);
+        socialNetwork=findViewById(R.id.tv_addLeads_socialnetworkName);
 
 
         //Registering validation
@@ -187,15 +199,17 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         toolbarHeaderDone.setText(getResources().getString(R.string.done));
 
         //Hiding views
-        otherDetailsLayout.setVisibility(View.GONE);
+        socialnetworkLayout.setVisibility(View.GONE);
+        socialnetworkError.setVisibility(View.GONE);
+        referralError.setVisibility(View.GONE);
         referralLayout.setVisibility(View.GONE);
         firstNameError.setVisibility(View.GONE);
         lastNameError.setVisibility(View.GONE);
         leadSourceError.setVisibility(View.GONE);
         otherDetailsError.setVisibility(View.GONE);
+        otherDetailsLayout.setVisibility(View.GONE);
         interestError.setVisibility(View.GONE);
         categoriesError.setVisibility(View.GONE);
-        referralError.setVisibility(View.GONE);
         phoneNumberError.setVisibility(View.GONE);
         emailError.setVisibility(View.GONE);
 
@@ -208,6 +222,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
         //Setting onclick
         leadSourceClick.setOnClickListener(this);
+        socialnetworkClick.setOnClickListener(this);
 
 
         //Calling Service
@@ -220,6 +235,11 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         categories.setThreshold(1);
         categories.setAdapter(arrayAdapter2);
 
+
+        /*///Set Spinner
+        adapter1 = new ArrayAdapter<CharSequence>(this,android.R.layout.simple_spinner_item,Filter1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        socialNetwork.setAdapter(adapter1);*/
 
     }
 
@@ -312,8 +332,17 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
                 break;
 
+            case R.id.ll_addLeads_socialnetworkClick:
 
-            case R.id.ll_editLeads_toolBar_action:
+                //Calling dialog
+                FragmentManager filterManagerSocial = getFragmentManager();
+                AddLeadsSocialNetworkFilterDialog filterDialogSocial = new AddLeadsSocialNetworkFilterDialog(selectedSocialNetworkPosition);
+                filterDialogSocial.show(filterManagerSocial, "SOCIAL_FILTER_DIALOG");
+
+                break;
+
+
+            case R.id.ll_main_toolBar_actionClick:
 
                 //Hiding Keyboard
                 hideKeyBoard(LeadsAddActivity.this);
@@ -322,6 +351,7 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
                 firstNameError.setVisibility(View.GONE);
                 lastNameError.setVisibility(View.GONE);
                 leadSourceError.setVisibility(View.GONE);
+                socialnetworkError.setVisibility(View.GONE);
                 otherDetailsError.setVisibility(View.GONE);
                 interestError.setVisibility(View.GONE);
                 categoriesError.setVisibility(View.GONE);
@@ -330,18 +360,19 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
                 String firstNameText = firstName.getText().toString().trim();
                 String lastNameText = lastName.getText().toString().trim();
-                String otherDetailsText = otherDetails.getText().toString().trim();
+                String socialText = socialNetwork.getText().toString().trim();
                 String referralText = referralName.getText().toString().trim();
-                String categoriesText = categories.getText().toString().trim();
+                String otherDetailsText = otherDetails.getText().toString().trim();
                 String interestsText = interests.getText().toString().trim();
+                String categoriesText = categories.getText().toString().trim();
                 String contactPhoneText = contactPhone.getText().toString().trim();
                 String contactEmailText = contactEmail.getText().toString().trim();
 
-                boolean validFlag = validateTextFields(firstNameText,lastNameText,otherDetailsText,categoriesText,interestsText,contactPhoneText,contactEmailText);
+                boolean validFlag = validateTextFields(firstNameText,lastNameText,socialText,referralText,otherDetailsText,interestsText,categoriesText,contactPhoneText,contactEmailText);
 
                 if (validFlag)
                 {
-                    addLeads(firstNameText,lastNameText,otherDetailsText,referralText,categoriesText,interestsText);
+                    addLeads(firstNameText,lastNameText,socialText,referralText,otherDetailsText,interestsText,categoriesText);
 
                 }
 
@@ -356,7 +387,9 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     public void setLeadSource(int clickPosition, String leadSourceName) {
 
         referralLayout.setVisibility(View.GONE);
+        socialnetworkLayout.setVisibility(View.GONE);
         referralError.setVisibility(View.GONE);
+        socialnetworkError.setVisibility(View.GONE);
         otherDetailsLayout.setVisibility(View.GONE);
         otherDetailsError.setVisibility(View.GONE);
 
@@ -374,6 +407,17 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         LoginOutput loginOutput = gson.fromJson(loginResponse, LoginOutput.class);
 
 
+        if (selectedLeadSourcePosition == 0)
+        {
+            socialnetworkLayout.setVisibility(View.VISIBLE);
+            socialnetworkError.setVisibility(View.GONE);
+
+        }
+        else
+        {
+            socialnetworkLayout.setVisibility(View.GONE);
+            socialnetworkError.setVisibility(View.GONE);
+        }
         if (selectedLeadSourcePosition == 4)
         {
             referralLayout.setVisibility(View.VISIBLE);
@@ -394,13 +438,24 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
             //otherDetails.setText(loginOutput.getData().getName() + " " + loginOutput.getData().getLastName());
         }
+        else
+        {
+            otherDetailsLayout.setVisibility(View.GONE);
+            otherDetailsError.setVisibility(View.GONE);
+        }
 
 
 
     }
 
+    public void setSocialNetwork(int clickPosition, String selectedCategory) {
+
+        selectedSocialNetworkPosition = clickPosition;
+        socialNetwork.setText(selectedCategory);
+    }
+
     //Func - Validating text fields
-    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText, String interestsText,  String categoriesText, String contactPhoneText, String contactEmailText) {
+    private boolean validateTextFields(String firstNameText, String lastNameText, String otherDetailsText,String referralText,String socialText, String interestsText,  String categoriesText, String contactPhoneText, String contactEmailText) {
 
         boolean validFlag = true;
 
@@ -469,18 +524,6 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
 
 
 
-        if (selectedLeadSourcePosition == 5)
-        {
-            if (otherDetailsText.isEmpty())
-            {
-                otherDetailsError.setText(getString(R.string.error_details_empty));
-                otherDetailsError.setVisibility(View.VISIBLE);
-                otherDetails.requestFocus();
-                validFlag = false;
-            }
-
-        }
-
         if (selectedLeadSourcePosition == -1)
         {
             leadSourceError.setText(getString(R.string.error_lead_source_empty));
@@ -488,8 +531,44 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
             leadSourceClick.requestFocus();
             validFlag = false;
         }
+        else
+        {
+            if (selectedLeadSourcePosition == 0)
+            {
+                if (selectedSocialNetworkPosition == -1)
+                {
+                    socialnetworkError.setText(getString(R.string.error_social_network_empty));
+                    socialnetworkError.setVisibility(View.VISIBLE);
+                    socialnetworkClick.requestFocus();
+                    validFlag = false;
+                }
+            }
 
+            if (selectedLeadSourcePosition == 4)
+            {
+                if (referralText.isEmpty())
+                {
+                    referralError.setText(getString(R.string.error_referral_empty));
+                    referralError.setVisibility(View.VISIBLE);
+                    referralName.requestFocus();
+                    validFlag = false;
+                }
 
+            }
+
+            if (selectedLeadSourcePosition == 5)
+            {
+                if (otherDetailsText.isEmpty())
+                {
+                    otherDetailsError.setText(getString(R.string.error_details_empty));
+                    otherDetailsError.setVisibility(View.VISIBLE);
+                    otherDetails.requestFocus();
+                    validFlag = false;
+                }
+
+            }
+
+        }
 
         if (lastNameText.isEmpty()) {
 
@@ -513,14 +592,15 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //Func - Add Leads
-    private void addLeads(String firstNameText, String lastNameText, String otherDetailsText, String referralText, String categoriesText, String interestsText) {
+    private void addLeads(String firstNameText,String lastNameText,String socialText,String referralText,String otherDetailsText,
+                          String interestsText,String categoriesText) {
 
         boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
         if (isInternetPresent) {
 
 
-            callAddLeadsService(firstNameText,lastNameText,otherDetailsText,referralText,categoriesText,interestsText);
+            callAddLeadsService(firstNameText,lastNameText,socialText,referralText,otherDetailsText,interestsText,categoriesText);
         }
         else
         {
@@ -532,7 +612,8 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //Service - Add Leads
-    private void callAddLeadsService(String firstNameText, String lastNameText, String otherDetailsText, String referralText,String categoriesText, String interestsText) {
+    private void callAddLeadsService(String firstNameText,String lastNameText,String socialText,String referralText,String otherDetailsText,
+                                     String interestsText,String categoriesText) {
 
         //Showing loading
         progressDialog.show();
@@ -618,6 +699,30 @@ public class LeadsAddActivity extends AppCompatActivity implements View.OnClickL
         }
 
         addLeadInput.setLeadSource(leadSourceObject);
+
+        SocialNetwork socialNetwork = new SocialNetwork();
+        switch (selectedSocialNetworkPosition)
+        {
+            case 0:
+
+                socialNetwork.setId(Constants.SHARE_FACEBOOK_ID);
+
+                break;
+
+            case 1:
+
+                socialNetwork.setId(Constants.SHARE_INSTAGRAM_ID);
+
+                break;
+
+            case 2:
+
+                socialNetwork.setId(Constants.SHARE_TWITTER_ID);
+
+                break;
+        }
+
+        addLeadInput.setSocialNetwork(socialNetwork);
 
         Source sourceObject = new Source();
         sourceObject.setId("4");

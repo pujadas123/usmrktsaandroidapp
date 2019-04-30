@@ -163,14 +163,15 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         profileEditActivityContainer = findViewById(R.id.activity_profile_edit);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
         toolbarHeader.setText("PROFILE");
 
-        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
-        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
+        ll_toolbarHeaderDone=findViewById(R.id.ll_main_toolBar_actionClick);
+        toolbarHeaderDone=findViewById(R.id.iv_main_toolBar_actionText);
         ll_toolbarHeaderDone.setOnClickListener(this);
 
         toolbarHeaderDone.setText(getResources().getString(R.string.done));
@@ -926,7 +927,7 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
                 break;
 
 
-            case R.id.ll_editLeads_toolBar_action:
+            case R.id.ll_main_toolBar_actionClick:
 
                 //Hiding Keyboard
                 hideKeyBoard(ProfileEditActivity.this);
@@ -1037,13 +1038,10 @@ public class ProfileEditActivity extends AppCompatActivity implements View.OnCli
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
-                            Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
-                            captured_image = System.currentTimeMillis() + ".jpg";
-                            file = new File(Environment.getExternalStorageDirectory(), captured_image);
-                            captured_image = file.getAbsolutePath();
-                            Uri outputFileUri = Uri.fromFile(file);
-                            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+                            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             startActivityForResult(cameraIntent, 1);
+
+
                         }
 
                     });

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -72,10 +73,15 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
 
     private LinearLayout progressDialog;
     private LinearLayout errorDisplay;
+    private ScrollView errorDisplayExistingCampaign;
 
     private ImageView errorDisplayIcon;
     private TextView errorDisplayText;
     private TextView errorDisplayTryClick;
+
+    private ImageView errorDisplayIconExistingCampaign;
+    private TextView errorDisplayHeaderExistingCampaign;
+    private TextView errorDisplayTextExistingCampaign;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -156,11 +162,16 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
 
         progressDialog =  existingCampaignsView.findViewById(R.id.ll_custom_dialog);
         errorDisplay =  existingCampaignsView.findViewById(R.id.ll_errorMain_layout);
+        errorDisplayExistingCampaign =  existingCampaignsView.findViewById(R.id.sv_errorExistingCampaign_layout);
 
 
         errorDisplayIcon = existingCampaignsView.findViewById(R.id.iv_errorMain_errorIcon);
         errorDisplayText =  existingCampaignsView.findViewById(R.id.tv_errorMain_errorText);
         errorDisplayTryClick =  existingCampaignsView.findViewById(R.id.tv_errorMain_errorTryAgain);
+
+        errorDisplayIconExistingCampaign = existingCampaignsView.findViewById(R.id.iv_errorExistingCampaign_errorIcon);
+        errorDisplayHeaderExistingCampaign =  existingCampaignsView.findViewById(R.id.tv_errorExistingCampaign_errorHeader);
+        errorDisplayTextExistingCampaign =  existingCampaignsView.findViewById(R.id.tv_errorExistingCampaign_errorText);
 
 
         categoryClick.setText("All Categories");
@@ -283,6 +294,7 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
 
         progressDialog.setVisibility(View.GONE);
         errorDisplay.setVisibility(View.GONE);
+        errorDisplayExistingCampaign.setVisibility(View.GONE);
         campaignExistingFragmentContainer.setVisibility(View.VISIBLE);
 
 
@@ -751,6 +763,7 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
         if (isInternetPresent) {
 
             errorDisplay.setVisibility(View.GONE);
+            errorDisplayExistingCampaign.setVisibility(View.GONE);
             campaignExistingFragmentContainer.setVisibility(View.GONE);
 
             progressDialog.setVisibility(View.VISIBLE);
@@ -763,6 +776,7 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
         {
             progressDialog.setVisibility(View.GONE);
             campaignExistingFragmentContainer.setVisibility(View.GONE);
+            errorDisplayExistingCampaign.setVisibility(View.GONE);
 
             errorDisplay.setVisibility(View.VISIBLE);
 
@@ -825,12 +839,15 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
                         campaignExistingFragmentContainer.setVisibility(View.GONE);
+                        errorDisplay.setVisibility(View.GONE);
 
-                        errorDisplay.setVisibility(View.VISIBLE);
+                        errorDisplayExistingCampaign.setVisibility(View.VISIBLE);
 
-                        errorDisplayIcon.setImageResource(R.drawable.ic_error_campaign);
-                        errorDisplayText.setText(getString( R.string.error_no_data_existing_campaigns));
-                        errorDisplayTryClick.setVisibility(View.GONE);
+                        errorDisplayIconExistingCampaign.setImageResource(R.drawable.ic_error_campaign);
+                        errorDisplayHeaderExistingCampaign.setText(getString( R.string.error_no_data_existing_campaigns));
+                        errorDisplayTextExistingCampaign.setText(getString( R.string.error_description_no_data_existing_campaigns));
+
+
 
 
                     }
@@ -849,6 +866,7 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
 
                     progressDialog.setVisibility(View.GONE);
                     campaignExistingFragmentContainer.setVisibility(View.GONE);
+                    errorDisplayExistingCampaign.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);
@@ -869,18 +887,20 @@ public class CampaignExistingFragment extends Fragment implements View.OnClickLi
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
                     campaignExistingFragmentContainer.setVisibility(View.GONE);
+                    errorDisplay.setVisibility(View.GONE);
 
-                    errorDisplay.setVisibility(View.VISIBLE);
+                    errorDisplayExistingCampaign.setVisibility(View.VISIBLE);
 
-                    errorDisplayIcon.setImageResource(R.drawable.ic_error_campaign);
-                    errorDisplayText.setText(getString( R.string.error_no_data_existing_campaigns));
-                    errorDisplayTryClick.setVisibility(View.GONE);
+                    errorDisplayIconExistingCampaign.setImageResource(R.drawable.ic_error_campaign);
+                    errorDisplayHeaderExistingCampaign.setText(getString( R.string.error_no_data_existing_campaigns));
+                    errorDisplayTextExistingCampaign.setText(getString( R.string.error_description_no_data_existing_campaigns));
                 }
                 else
                 {
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
                     campaignExistingFragmentContainer.setVisibility(View.GONE);
+                    errorDisplayExistingCampaign.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);

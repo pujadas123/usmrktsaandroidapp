@@ -60,9 +60,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private LinearLayout productDetailActivityContainer;
     private TextView toolbarHeader;
 
-    LinearLayout ll_commission;
-    View ll_view;
     private TextView productName, productCategory, productPrice, productCommission, productDescription;
+    private LinearLayout productCommissionLayout;
+    private View productCommissionView;
 
     private LinearLayout thumbnailOneLayout, thumbnailTwoLayout, thumbnailThreeLayout, thumbnailFourLayout;
     private ImageView thumbnailOne, thumbnailTwo, thumbnailThree, thumbnailFour;
@@ -127,6 +127,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising variables
@@ -138,14 +139,14 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         productDetailActivityContainer = findViewById(R.id.activity_product_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
-        ll_commission=findViewById(R.id.ll_commission);
-        ll_view=findViewById(R.id.ll_view);
 
         productName = findViewById(R.id.tv_productDetail_productName);
         productCategory = findViewById(R.id.tv_productDetail_productCategory);
         productPrice = findViewById(R.id.tv_productDetail_productPrice);
         productCommission = findViewById(R.id.tv_productDetail_productCommision);
         productDescription = findViewById(R.id.tv_productDetail_productDescription);
+        productCommissionLayout = findViewById(R.id.ll_productDetail_productCommisionLayout);
+        productCommissionView = findViewById(R.id.view_productDetail_productCommissionView);
 
         thumbnailOneLayout = findViewById(R.id.ll_product_detailsThumbnail_oneLayout);
         thumbnailTwoLayout = findViewById(R.id.ll_product_detailsThumbnail_twoLayout);
@@ -564,8 +565,6 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             productCategory.setVisibility(View.VISIBLE);
         }
 
-        /*productPrice.setText(getString(R.string.dollar_sign)+productUserOutput.getProductId().getPrice()+".00");
-        productCommission.setText(productUserOutput.getProductId().getCommission()+getString(R.string.commission_tail));*/
 
         if (productUserOutput.getProductId().getPrice() == null){
             productPrice.setVisibility(View.GONE);
@@ -579,14 +578,15 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         }
 
         if (productUserOutput.getProductId().getCommission() == null){
-            ll_commission.setVisibility(View.GONE);
-            ll_view.setVisibility(View.GONE);
+
+            productCommissionLayout.setVisibility(View.GONE);
+            productCommissionView.setVisibility(View.GONE);
         }
         else
         {
             productCommission.setText(productUserOutput.getProductId().getCommission()+getString(R.string.commission_tail));
-            ll_commission.setVisibility(View.VISIBLE);
-            ll_view.setVisibility(View.VISIBLE);
+            productCommissionLayout.setVisibility(View.VISIBLE);
+            productCommissionView.setVisibility(View.VISIBLE);
         }
 
 
@@ -766,14 +766,15 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         }
 
         if (productOutput.getCommission() == null){
-            ll_commission.setVisibility(View.GONE);
-            ll_view.setVisibility(View.GONE);
+
+            productCommissionLayout.setVisibility(View.GONE);
+            productCommissionView.setVisibility(View.GONE);
         }
         else
         {
             productCommission.setText(productOutput.getCommission()+getString(R.string.commission_tail));
-            ll_commission.setVisibility(View.VISIBLE);
-            ll_view.setVisibility(View.VISIBLE);
+            productCommissionLayout.setVisibility(View.VISIBLE);
+            productCommissionView.setVisibility(View.VISIBLE);
         }
 
         if (productOutput.getDesc() == null)

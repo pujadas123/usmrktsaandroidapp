@@ -5,7 +5,6 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import in.exuber.usmarket.apimodels.addlead.addleadinput.ProductList;
 
 public class EditLeadInput {
 
@@ -36,6 +35,9 @@ public class EditLeadInput {
     @SerializedName("leadSource")
     @Expose
     private LeadSource leadSource;
+    @SerializedName("socialNetwork")
+    @Expose
+    private SocialNetwork socialNetwork;
     @SerializedName("userName")
     @Expose
     private String userName;
@@ -147,6 +149,15 @@ public class EditLeadInput {
     public void setLeadSource(LeadSource leadSource) {
         this.leadSource = leadSource;
     }
+
+    public SocialNetwork getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    public void setSocialNetwork(SocialNetwork socialNetwork) {
+        this.socialNetwork = socialNetwork;
+    }
+
 
     public String getUserName() {
         return userName;

@@ -23,14 +23,27 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.concurrent.TimeUnit;
+
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.appintro.AppIntroActivity;
 import in.exuber.usmarket.activity.home.HomeActivity;
 import in.exuber.usmarket.activity.homeaddproducts.HomeAddProductsActivity;
+import in.exuber.usmarket.apimodels.upadateappintro.updateappintroinput.UpdateAppIntroInput;
+import in.exuber.usmarket.utils.Api;
+import in.exuber.usmarket.utils.Config;
 import in.exuber.usmarket.utils.ConnectionDetector;
 import in.exuber.usmarket.utils.Constants;
+import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -43,17 +56,21 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
     private Context context;
 
     //Declaring views
+    private LinearLayout appIntroOneFragmentContainer;
     private TextView skipClick;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
 
-    LinearLayout ll_AppintroOneParent;
 
-    ProgressDialog pd;
+    //Progress dialog
+    private ProgressDialog progressDialog;
 
     //Connection detector class
     private ConnectionDetector connectionDetector;
+
+    //Declaring Retrofit log
+    private static OkHttpClient.Builder builder;
 
     public AppIntroOneFragment() {
         // Required empty public constructor
@@ -78,22 +95,20 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
         //Initialising shared preferences
         marketPreference =  getActivity().getSharedPreferences(Constants.PREFERENCE_NAME,MODE_PRIVATE);
 
+        //Initialising progress dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(getString(R.string.loader_caption));
+        progressDialog.setCancelable(true);
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+
         //Initialising views
-        ll_AppintroOneParent=appIntroOneView.findViewById(R.id.ll_AppintroOneParent);
+        appIntroOneFragmentContainer = appIntroOneView.findViewById(R.id.fragment_app_intro_one);
         skipClick = appIntroOneView.findViewById(R.id.tv_appIntroOneFragment_skipClick);
 
         //Setting onclick
         skipClick.setOnClickListener(this);
 
-        /*if (marketPreference.getString("appIntroDone",null).equals("false")) {
-            startActivity(new Intent(getActivity(), AppIntroActivity.class));
-            getActivity().finish();
-        }
-        else {
-
-            startActivity(new Intent(getActivity(), HomeAddProductsActivity.class));
-            getActivity().finish();
-        }*/
 
         return appIntroOneView;
     }
@@ -106,81 +121,116 @@ public class AppIntroOneFragment extends Fragment implements View.OnClickListene
             case R.id.tv_appIntroOneFragment_skipClick:
 
 
-
-                boolean isInternetPresent = connectionDetector.isConnectingToInternet();
-
-                if (isInternetPresent) {
-
-
-                    callUpdateAppintroService();
-                }
-                else
-                {
-                    Snackbar snackbar = Snackbar
-                            .make(ll_AppintroOneParent, R.string.error_internet, Snackbar.LENGTH_LONG);
-
-                    snackbar.show();
-                }
+                //Update App Intro
+                updateAppIntro();
 
                 break;
         }
     }
 
-    private void callUpdateAppintroService() {
+    //Func - Update App Intro
+    private void updateAppIntro() {
 
-        final String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
+        boolean isInternetPresent = connectionDetector.isConnectingToInternet();
 
-        JSONObject jObject = new JSONObject();
-        try {
+        if (isInternetPresent) {
 
-            jObject.put("userId", userId);
-            jObject.put("appIntro", "true");
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+            callUpdateAppIntroService();
+        }
+        else
+        {
+            Snackbar snackbar = Snackbar
+                    .make(appIntroOneFragmentContainer, R.string.error_internet, Snackbar.LENGTH_LONG);
+
+            snackbar.show();
         }
 
-
-        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-        StringEntity entity = null;
-        try {
-            entity = new StringEntity(jObject.toString());
-            Log.d("Object", String.valueOf(jObject));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        asyncHttpClient.put(null, Constants.APP_APPINTRO_SEEN, entity, "application/json", new AsyncHttpResponseHandler() {
-            @Override
-            public void onStart() {
-                super.onStart();
-
-                pd=new ProgressDialog(getActivity());
-                pd.setMessage("Please Wait...");
-                pd.setCancelable(true);
-                pd.setIndeterminate(false);
-                pd.setCancelable(false);
-                pd.show();
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                final String Response = new String(responseBody);
-                Log.v("AppOne_Response", Response);
-
-                Log.v("Status code", statusCode+"");
-
-                ((AppIntroActivity)getActivity()).appIntroFinished();
-
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Log.e("Error", String.valueOf(error));
-                Log.e("ErrorStatus", String.valueOf(statusCode));
-                pd.dismiss();
-
-            }
-        });
     }
+
+    //Service - Update App Intro
+    private void callUpdateAppIntroService() {
+
+        //Showing loading
+        progressDialog.show();
+
+        String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
+
+        UpdateAppIntroInput updateAppIntroInput = new UpdateAppIntroInput(userId,"true");
+
+        //Showing loading
+        progressDialog.show();
+
+
+        builder = getHttpClient();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(builder.build()).build();
+        final Api api = retrofit.create(Api.class);
+
+        Call<ResponseBody> call = (Call<ResponseBody>) api.updateAppIntro(updateAppIntroInput);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                //Checking for response code
+                if (response.code() == 200 ) {
+
+
+                    //Dismiss loading
+                    progressDialog.dismiss();
+
+                    ((AppIntroActivity)getActivity()).appIntroFinished();
+
+
+                }
+                //If status code is not 200
+                else
+                {
+                    //Dismiss loading
+                    progressDialog.dismiss();
+
+                    Snackbar snackbar = Snackbar
+                            .make(appIntroOneFragmentContainer, getString(R.string.error_response_code) + response.code(), Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                //Dismiss loading
+                progressDialog.dismiss();
+
+                Log.e("Failure",t.toString());
+
+                Snackbar snackbar = Snackbar
+                        .make(appIntroOneFragmentContainer, R.string.error_server, Snackbar.LENGTH_LONG);
+
+                snackbar.show();
+
+            }
+
+        });
+
+    }
+
+    //Retrofit log
+    public OkHttpClient.Builder getHttpClient() {
+
+        if (builder == null) {
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            OkHttpClient.Builder client = new OkHttpClient.Builder();
+            client.addInterceptor(loggingInterceptor);
+            client.writeTimeout(600000, TimeUnit.MILLISECONDS);
+            client.readTimeout(600000, TimeUnit.MILLISECONDS);
+            client.connectTimeout(600000, TimeUnit.MILLISECONDS);
+            return client;
+        }
+        return builder;
+    }
+
+
+
+
 }

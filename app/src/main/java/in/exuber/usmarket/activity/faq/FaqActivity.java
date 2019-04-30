@@ -50,6 +50,7 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
     private LinearLayout progressDialog;
     private LinearLayout errorDisplay;
 
+
     private ImageView errorDisplayIcon;
     private TextView errorDisplayText;
     private TextView errorDisplayTryClick;
@@ -90,6 +91,7 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising variables
@@ -117,6 +119,8 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
         errorDisplayIcon = findViewById(R.id.iv_errorMain_errorIcon);
         errorDisplayText =  findViewById(R.id.tv_errorMain_errorText);
         errorDisplayTryClick =  findViewById(R.id.tv_errorMain_errorTryAgain);
+
+
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.faq_caps));

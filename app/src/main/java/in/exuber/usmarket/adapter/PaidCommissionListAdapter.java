@@ -1,7 +1,6 @@
 package in.exuber.usmarket.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,44 +15,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.exuber.usmarket.R;
-import in.exuber.usmarket.apimodels.sharedcampaign.sharedcampaignoutput.SharedCampaignOutput;
-import in.exuber.usmarket.models.faq.FaqOutput;
-import in.exuber.usmarket.models.paidcommision.PaidCommissionOutput;
-import in.exuber.usmarket.models.products.ProductsOutput;
+import in.exuber.usmarket.apimodels.paidcommision.PaidCommissionOutput;
 
 public class PaidCommissionListAdapter extends RecyclerView.Adapter<PaidCommissionListAdapter.ViewHolder>implements Filterable {
 
     //Declaring variables
     private Context context;
-    private ArrayList<PaidCommissionOutput> paidCommissionOutputArrayList;
-    private ArrayList<PaidCommissionOutput> filteredpaidCommissionOutputArrayList;
+    private List<PaidCommissionOutput> paidCommissionOutputList;
+    private List<PaidCommissionOutput> filteredPaidCommissionOutputList;
 
-    public PaidCommissionListAdapter(Context context, ArrayList<PaidCommissionOutput> paidCommissionOutputArrayList) {
+    public PaidCommissionListAdapter(Context context, List<PaidCommissionOutput> paidCommissionOutputList) {
+
         this.context = context;
-        this.paidCommissionOutputArrayList = paidCommissionOutputArrayList;
-        this.filteredpaidCommissionOutputArrayList=paidCommissionOutputArrayList;
+        this.paidCommissionOutputList = paidCommissionOutputList;
+        this.filteredPaidCommissionOutputList = paidCommissionOutputList;
     }
 
     @Override
     public PaidCommissionListAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.single_row_paidcommission, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_paidcommission_listadapter, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PaidCommissionListAdapter.ViewHolder viewHolder, int i) {
-        //viewHolder.txt_IdSl.setText((i+1)+"");
-        viewHolder.txt_IdSl.setText("PD" + filteredpaidCommissionOutputArrayList.get(i).getProductId());
-        viewHolder.txt_ProductName.setText(filteredpaidCommissionOutputArrayList.get(i).getProductName());
+    public void onBindViewHolder(PaidCommissionListAdapter.ViewHolder viewHolder, int position) {
 
-        double amount = Double.parseDouble(String.valueOf(filteredpaidCommissionOutputArrayList.get(i).getPaid()));
+        viewHolder.productId.setText("PD" + filteredPaidCommissionOutputList.get(position).getProductId().getId());
+        viewHolder.productName.setText(filteredPaidCommissionOutputList.get(position).getProductId().getProductName());
+
+        double amount = Double.parseDouble(String.valueOf(filteredPaidCommissionOutputList.get(position).getPaid()));
         DecimalFormat formatter = new DecimalFormat("$#,###,###.00");
-        viewHolder.txt_Commission.setText(formatter.format(amount));
+        viewHolder.productCommission.setText(formatter.format(amount));
     }
 
     @Override
     public int getItemCount() {
-        return filteredpaidCommissionOutputArrayList.size();
+        return filteredPaidCommissionOutputList.size();
     }
 
     @Override
@@ -66,30 +63,34 @@ public class PaidCommissionListAdapter extends RecyclerView.Adapter<PaidCommissi
                 String charString = charSequence.toString();
 
                 if (charString.isEmpty()) {
-                    filteredpaidCommissionOutputArrayList = paidCommissionOutputArrayList;
-                } else {
-                    ArrayList<PaidCommissionOutput> filteredList = new ArrayList<>();
-                    for (PaidCommissionOutput row : paidCommissionOutputArrayList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        String commision= String.valueOf(row.getPaid());
-                        Log.e("Adapter_COMMISSION",commision);
-                        if (row.getProductId().toLowerCase().contains(charString.toLowerCase()) || row.getProductName().toLowerCase().contains(charString.toLowerCase()) || commision.contains(charString)) {
+                    filteredPaidCommissionOutputList = paidCommissionOutputList;
+
+                } else {
+
+                    ArrayList<PaidCommissionOutput> filteredList = new ArrayList<>();
+
+                    for (PaidCommissionOutput row : paidCommissionOutputList) {
+
+                        String commisionSearch = String.valueOf(row.getPaid());
+                        String productIdSearch = String.valueOf(row.getProductId().getId());
+
+
+                        if (productIdSearch.toLowerCase().contains(charString.toLowerCase()) || row.getProductId().getProductName().toLowerCase().contains(charString.toLowerCase()) || commisionSearch.contains(charString)) {
                             filteredList.add(row);
                         }
                     }
 
-                    filteredpaidCommissionOutputArrayList = filteredList;
+                    filteredPaidCommissionOutputList = filteredList;
                 }
 
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = filteredpaidCommissionOutputArrayList;
+                filterResults.values = filteredPaidCommissionOutputList;
                 return filterResults;
             }
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                filteredpaidCommissionOutputArrayList = (ArrayList<PaidCommissionOutput>) filterResults.values;
+                filteredPaidCommissionOutputList = (ArrayList<PaidCommissionOutput>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
@@ -97,14 +98,16 @@ public class PaidCommissionListAdapter extends RecyclerView.Adapter<PaidCommissi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txt_IdSl, txt_ProductName,txt_Commission;
+        //Declaring views
+        TextView productId, productName, productCommission;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txt_IdSl=itemView.findViewById(R.id.txt_IdSl);
-            txt_ProductName=itemView.findViewById(R.id.txt_ProductName);
-            txt_Commission=itemView.findViewById(R.id.txt_Commission);
+            //Initailising views
+            productId = itemView.findViewById(R.id.tv_paidCommissionListAdapter_productId);
+            productName = itemView.findViewById(R.id.tv_paidCommissionListAdapter_productName);
+            productCommission = itemView.findViewById(R.id.tv_paidCommissionListAdapter_commission);
         }
     }
 }

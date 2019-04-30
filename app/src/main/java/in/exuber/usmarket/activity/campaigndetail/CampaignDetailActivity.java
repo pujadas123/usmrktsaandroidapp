@@ -129,6 +129,7 @@ public class CampaignDetailActivity extends AppCompatActivity implements View.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         campaignDetailActivityContainer = findViewById(R.id.activity_campaign_detail);
@@ -329,8 +330,6 @@ public class CampaignDetailActivity extends AppCompatActivity implements View.On
 
 
 
-
-
                 //Preparing Intent
                 Intent campaignTrainingIntent = new Intent(CampaignDetailActivity.this, CampaignTrainingActivity.class);
 
@@ -351,7 +350,6 @@ public class CampaignDetailActivity extends AppCompatActivity implements View.On
             case R.id.iv_campaignDetails_facebookShareClick:
 
                 shareCampaign(Constants.SHARE_FACEBOOK_ID);
-
 
 
                 break;
@@ -915,11 +913,6 @@ public class CampaignDetailActivity extends AppCompatActivity implements View.On
         }
         return builder;
     }
-
-
-
-
-
 
 
 

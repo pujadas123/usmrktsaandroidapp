@@ -55,6 +55,9 @@ public class AllLeadsOutput {
     @SerializedName("leadSource")
     @Expose
     private LeadSource leadSource;
+    @SerializedName("socialNetwork")
+    @Expose
+    private SocialNetwork socialNetwork;
     @SerializedName("contactInfo")
     @Expose
     private Object contactInfo;
@@ -300,6 +303,14 @@ public class AllLeadsOutput {
 
     public void setLeadSource(LeadSource leadSource) {
         this.leadSource = leadSource;
+    }
+
+    public SocialNetwork getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    public void setSocialNetwork(SocialNetwork socialNetwork) {
+        this.socialNetwork = socialNetwork;
     }
 
     public Object getContactInfo() {

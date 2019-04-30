@@ -3,6 +3,7 @@ package in.exuber.usmarket.fragment.leads;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
+import in.exuber.usmarket.activity.leadsadd.LeadsAddActivity;
 import in.exuber.usmarket.adapter.LeadConvertedListAdapter;
 import in.exuber.usmarket.apimodels.convertedleads.convertedleadsoutput.ConvertedLeadsOutput;
 import in.exuber.usmarket.utils.Api;
@@ -56,10 +59,16 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
     private LinearLayout progressDialog;
     private LinearLayout errorDisplay;
+    private ScrollView errorDisplayConvertedLeads;
 
     private ImageView errorDisplayIcon;
     private TextView errorDisplayText;
     private TextView errorDisplayTryClick;
+
+    private ImageView errorDisplayIconConvertedLeads;
+    private TextView errorDisplayHeaderConvertedLeads;
+    private TextView errorDisplayTextConvertedLeads;
+    private TextView errorDisplayAddLeadClickConvertedLeads;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -121,11 +130,17 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
         progressDialog =  convertedLeadsView.findViewById(R.id.ll_custom_dialog);
         errorDisplay =  convertedLeadsView.findViewById(R.id.ll_errorMain_layout);
+        errorDisplayConvertedLeads =  convertedLeadsView.findViewById(R.id.sv_errorConvertedLeads_layout);
 
 
         errorDisplayIcon = convertedLeadsView.findViewById(R.id.iv_errorMain_errorIcon);
         errorDisplayText =  convertedLeadsView.findViewById(R.id.tv_errorMain_errorText);
         errorDisplayTryClick =  convertedLeadsView.findViewById(R.id.tv_errorMain_errorTryAgain);
+
+        errorDisplayIconConvertedLeads = convertedLeadsView.findViewById(R.id.iv_errorConvertedLeads_errorIcon);
+        errorDisplayHeaderConvertedLeads =  convertedLeadsView.findViewById(R.id.tv_errorConvertedLeads_errorHeader);
+        errorDisplayTextConvertedLeads =  convertedLeadsView.findViewById(R.id.tv_errorConvertedLeads_errorText);
+        errorDisplayAddLeadClickConvertedLeads =  convertedLeadsView.findViewById(R.id.tv_errorConvertedLeads_addLeadClick);
 
         //Get Converted Leads
         getConvertedLeads();
@@ -145,6 +160,7 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
         //Setting onclick
         errorDisplayTryClick.setOnClickListener(this);
+        errorDisplayAddLeadClickConvertedLeads.setOnClickListener(this);
 
         return convertedLeadsView;
     }
@@ -194,6 +210,16 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
 
                 break;
+
+            case R.id.tv_errorConvertedLeads_addLeadClick:
+
+                //Hiding Keyboard
+                hideKeyBoard(getActivity());
+
+                //Calling Add leads Activity
+                startActivity(new Intent(getActivity(), LeadsAddActivity.class));
+
+                break;
         }
 
 
@@ -213,6 +239,7 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
             //Hiding views
             errorDisplay.setVisibility(View.GONE);
             convertedLeadsList.setVisibility(View.GONE);
+            errorDisplayConvertedLeads.setVisibility(View.GONE);
 
             progressDialog.setVisibility(View.VISIBLE);
 
@@ -225,6 +252,7 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
             //Hiding views
             progressDialog.setVisibility(View.GONE);
             convertedLeadsList.setVisibility(View.GONE);
+            errorDisplayConvertedLeads.setVisibility(View.GONE);
 
             errorDisplay.setVisibility(View.VISIBLE);
 
@@ -266,13 +294,16 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
                     {
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
+                        errorDisplay.setVisibility(View.GONE);
                         convertedLeadsList.setVisibility(View.GONE);
 
-                        errorDisplay.setVisibility(View.VISIBLE);
+                        errorDisplayConvertedLeads.setVisibility(View.VISIBLE);
 
-                        errorDisplayIcon.setImageResource(R.drawable.ic_error_leads);
-                        errorDisplayText.setText(getString( R.string.error_no_data_converted_leads));
-                        errorDisplayTryClick.setVisibility(View.GONE);
+                        errorDisplayIconConvertedLeads.setImageResource(R.drawable.ic_error_leads);
+                        errorDisplayHeaderConvertedLeads.setText(getString( R.string.error_no_data_converted_leads));
+                        errorDisplayTextConvertedLeads.setText(getString( R.string.error_description_no_data_converted_leads));
+
+
 
 
                     }
@@ -281,6 +312,7 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
                         errorDisplay.setVisibility(View.GONE);
+                        errorDisplayConvertedLeads.setVisibility(View.GONE);
 
                         convertedLeadsList.setVisibility(View.VISIBLE);
 
@@ -305,6 +337,7 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
                     progressDialog.setVisibility(View.GONE);
                     convertedLeadsList.setVisibility(View.GONE);
+                    errorDisplayConvertedLeads.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);
@@ -326,19 +359,21 @@ public class LeadsConvertedFragment extends Fragment implements View.OnClickList
 
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
+                    errorDisplay.setVisibility(View.GONE);
                     convertedLeadsList.setVisibility(View.GONE);
 
-                    errorDisplay.setVisibility(View.VISIBLE);
+                    errorDisplayConvertedLeads.setVisibility(View.VISIBLE);
 
-                    errorDisplayIcon.setImageResource(R.drawable.ic_error_leads);
-                    errorDisplayText.setText(getString( R.string.error_no_data_converted_leads));
-                    errorDisplayTryClick.setVisibility(View.GONE);
+                    errorDisplayIconConvertedLeads.setImageResource(R.drawable.ic_error_leads);
+                    errorDisplayHeaderConvertedLeads.setText(getString( R.string.error_no_data_converted_leads));
+                    errorDisplayTextConvertedLeads.setText(getString( R.string.error_description_no_data_converted_leads));
                 }
                 else
                 {
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
                     convertedLeadsList.setVisibility(View.GONE);
+                    errorDisplayConvertedLeads.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);

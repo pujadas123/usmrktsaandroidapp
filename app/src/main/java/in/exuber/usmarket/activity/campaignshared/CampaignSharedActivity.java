@@ -115,6 +115,7 @@ public class CampaignSharedActivity extends AppCompatActivity implements View.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising views
@@ -169,7 +170,6 @@ public class CampaignSharedActivity extends AppCompatActivity implements View.On
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.shared_campaigns_caps));
 
-        categoryClick.setText("All Categories");
         categoryClick.setText("All Categories");
         languageText.setText("ALL");
 
@@ -278,12 +278,15 @@ public class CampaignSharedActivity extends AppCompatActivity implements View.On
         if (clickPosition == 0)
         {
             languageText.setText("ALL");
+
         } else if (clickPosition == 1)
         {
             languageText.setText("EN");
+
         } else if (clickPosition == 2)
         {
             languageText.setText("SP");
+
         } else if (clickPosition == 3)
         {
             languageText.setText("FR");

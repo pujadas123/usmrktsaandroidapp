@@ -111,15 +111,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         submitClick.setOnClickListener(this);
     }
 
-    /*public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
 
-        }
-        return (super.onOptionsItemSelected(menuItem));
-    }*/
 
 
     @Override

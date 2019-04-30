@@ -124,6 +124,7 @@ public class ProductCampaignDetailActivity extends AppCompatActivity implements 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising variables
         productOutput = new ProductOutput();

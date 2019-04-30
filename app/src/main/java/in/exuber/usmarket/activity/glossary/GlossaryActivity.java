@@ -103,6 +103,7 @@ public class GlossaryActivity extends AppCompatActivity implements SearchView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
 
         //Initialising variables
@@ -302,7 +303,7 @@ public class GlossaryActivity extends AppCompatActivity implements SearchView.On
 
                         errorDisplay.setVisibility(View.VISIBLE);
 
-                        errorDisplayIcon.setImageResource(R.drawable.ic_error_glossary);
+                        errorDisplayIcon.setImageResource(R.drawable.ic_glossary_primary);
                         errorDisplayText.setText(getString( R.string.error_no_data_glossary));
                         errorDisplayTryClick.setVisibility(View.GONE);
 
@@ -373,7 +374,7 @@ public class GlossaryActivity extends AppCompatActivity implements SearchView.On
 
                     errorDisplay.setVisibility(View.VISIBLE);
 
-                    errorDisplayIcon.setImageResource(R.drawable.ic_error_glossary);
+                    errorDisplayIcon.setImageResource(R.drawable.ic_glossary_primary);
                     errorDisplayText.setText(getString( R.string.error_no_data_glossary));
                     errorDisplayTryClick.setVisibility(View.GONE);
 

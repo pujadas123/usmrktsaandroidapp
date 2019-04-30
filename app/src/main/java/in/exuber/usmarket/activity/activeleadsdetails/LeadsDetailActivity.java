@@ -28,15 +28,12 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
     //Declaring views
     private LinearLayout leadsDetailActivityContainer;
-    private TextView toolbarHeader, toolbarHeaderDone;
+    private TextView toolbarHeader, toolbarActionText;
 
-    LinearLayout ll_toolbarHeaderDone;
+    private LinearLayout toolbarActionClick;
 
     private LinearLayout leadSourceLayout;
     private TextView leadName, leadSource;
-
-    RecyclerView recyclerList_Active_interestProductList;
-    ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
 
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
     private TextView contactFaceBook, contactInstagram, contactTwitter, contactWebsite, contactEmail,contactPhone;
@@ -50,6 +47,9 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     private AllLeadsOutput allLeadsOutput;
 
     public static Activity leadsDetailActivityActivityInstance;
+
+    RecyclerView recyclerList_Active_interestProductList;
+    ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
 
 
     TextView Product;
@@ -75,22 +75,19 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         leadsDetailActivityContainer = findViewById(R.id.activity_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
-
-        //Product=findViewById(R.id.Product);
+        toolbarActionClick = findViewById(R.id.ll_main_toolBar_actionClick);
+        toolbarActionText = findViewById(R.id.iv_main_toolBar_actionText);
 
         recyclerList_Active_interestProductList=findViewById(R.id.recyclerList_ActiveLeads_interestProductList);
 
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
         recyclerList_Active_interestProductList.setLayoutManager(layoutManager);
 
-
-        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
-        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
-        ll_toolbarHeaderDone.setOnClickListener(this);
 
         leadName = findViewById(R.id.tv_leadsDetail_leadName);
         leadSourceLayout = findViewById(R.id.ll_leadsDetail_leadSourceLayout);
@@ -126,7 +123,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         //Setting toolbar header
         toolbarHeader.setText(getResources().getString(R.string.lead_details_caps));
-        toolbarHeaderDone.setText(getResources().getString(R.string.edit));
+        toolbarActionText.setText(getResources().getString(R.string.edit));
 
         leadName.setText(allLeadsOutput.getName()+" "+allLeadsOutput.getLastName());
 
@@ -302,24 +299,6 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         }
 
-        /*if (allLeadsOutput.getProductList() != null)
-        {
-            String productTagString = "";
-            String ProductName = null;
-            for (int index = 0; index<allLeadsOutput.getProductList().size(); index++) {
-                ProductName = allLeadsOutput.getProductList().get(index).getProduct().getProductName();
-                Log.e("LeadDetailsName",ProductName+"");
-
-                if (productTagString.isEmpty()) {
-                    productTagString = ProductName;
-                } else {
-                    productTagString = productTagString + ", " + ProductName;
-                }
-                Product.setText(productTagString+"");
-            }
-
-
-        }*/
 
         //Setting adapter
         acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput.getProductList());
@@ -327,14 +306,14 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         acticeLeadsInterestProductAdapter.notifyDataSetChanged();
 
 
+        //Setting onclick
+        toolbarActionClick.setOnClickListener(this);
+
+
 
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_edit, menu);
-        return true;
-    }*/
+
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -359,7 +338,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.ll_editLeads_toolBar_action:
+            case R.id.ll_main_toolBar_actionClick:
 
                 Gson gson = new Gson();
 

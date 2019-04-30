@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ll_AppintroOneParent"
+    android:id="@+id/fragment_app_intro_one"
     android:orientation="vertical"
     android:background="@color/colorWhite"
     android:padding="@dimen/space_32"

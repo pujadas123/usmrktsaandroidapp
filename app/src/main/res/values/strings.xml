@@ -64,6 +64,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="english">English</string>
     <string name="ReferralName">Referral Name</string>
+    <string name="SocialNetworkName">Social Network Name</string>
     <string name="full_name">Full Name</string>
 
     <string name="preferred_language">Preferred Language</string>
@@ -75,6 +76,7 @@
     <string name="phone_number_placeholder">Enter Phone Number</string>
     <string name="confirm_password_placeholder">Confirm Password</string>
     <string name="referral_name_placeholder">Enter Referral Name</string>
+    <string name="socialnetwork_name_placeholder">Select Social Network</string>
     ////
     <string name="address1_placeholder">Enter Street Address 1</string>
     <string name="address2_placeholder">Enter Street Address 2</string>
@@ -195,6 +197,7 @@
     <string name="error_category_empty">Please Enter Interest Products</string>
     <string name="error_interests_empty">Please Enter Interest Categories</string>
     <string name="error_lead_source_empty">Please select lead source</string>
+    <string name="error_social_network_empty">Please select social network</string>
     <string name="error_add_contact_empty">Please add atleast one contact</string>
 
 
@@ -279,12 +282,9 @@
     <string name="error_icon">ERROR ICON</string>
     <string name="try_again">Try Again</string>
     <string name="add_products_error">Add Product</string>
-    <string name="error_no_data_myproduct">Tap on \"Add Product\" to add your preferred products.</string>
-    <string name="error_no_data_active_leads">Tap on \"Add\" link above to enter new leads.</string>
-    <string name="error_no_data_ready_leads">Check back to learn when your lead is Ready for Conversion to \"Customer\" status.</string>
-    <string name="error_no_data_converted_leads">Check back to view the list of converted leads.</string>
-    <string name="error_no_data_new_campaigns">Product Campaigns Coming Soon!</string>
-    <string name="error_no_data_existing_campaigns">No existing campaigns available</string>
+
+
+
     <string name="error_no_data_shared_campaigns">Share campaigns with your leads now to increase your commission opportunities!</string>
     <string name="error_no_data_new_campaigns_category">No new campaigns available in selected filter</string>
     <string name="error_no_data_existing_campaigns_category">No existing campaigns available in selected filter</string>
@@ -321,6 +321,27 @@
     <string name="error_no_data_notification">No notifications available</string>
     <string name="notification_header">Notification #</string>
     <string name="paid_commission">Paid Commissions Coming Soon!</string>
-
+    <string name="error_description_no_data_new_campaigns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="error_no_data_new_campaigns">You don\'t have any Campaign!</string>
+    <string name="error_no_data_existing_campaigns">You don\'t have any Campaign!</string>
+    <string name="error_description_no_data_existing_campaigns">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="add_lead_error">Add Lead</string>
+    <string name="error_no_data_active_leads">You don\'t have any Lead!</string>
+    <string name="error_description_no_data_active_leads">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="error_no_data_ready_leads">You don\'t have any Lead!</string>
+    <string name="error_description_no_data_ready_leads">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="error_no_data_converted_leads">You don\'t have any Lead!</string>
+    <string name="error_description_no_data_converted_leads">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="error_no_data_myproduct">You don\'t have any Product!</string>
+    <string name="error_description_no_data_myproduct">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="as_of">As of</string>
+    <string name="total">Total</string>
+    <string name="paid_commission_header_row_one">ID SL</string>
+    <string name="paid_commission_header_row_two">Product Name</string>
+    <string name="paid_commission_header_row_three">Commission</string>
+    <string name="error_no_data_paid_commissions">You don\'t have any paid commissions</string>
+    <string name="not_available">Not Available</string>
+    <string name="error_no_product">Product not available!</string>
+    <string name="error_referral_empty">Please Enter Referral Name</string>
 
 </resources>

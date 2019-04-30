@@ -121,6 +121,7 @@ public class CampaignTrainingActivity extends AppCompatActivity implements View.
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising variables
         campaignTrainingOutputList = new ArrayList<>();

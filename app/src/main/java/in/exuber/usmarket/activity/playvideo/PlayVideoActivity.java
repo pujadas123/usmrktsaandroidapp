@@ -37,6 +37,7 @@ public class PlayVideoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+
         //Geting data from intent
         Bundle passedBundle = getIntent().getExtras();
         String videoUrl = passedBundle.getString(Constants.INTENT_KEY_SELECTED_VIDEO_URL);

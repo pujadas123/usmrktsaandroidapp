@@ -21,6 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <include
+            layout="@layout/layout_error_campaign_new"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/fragment_campaign_new"
             android:layout_width="match_parent"

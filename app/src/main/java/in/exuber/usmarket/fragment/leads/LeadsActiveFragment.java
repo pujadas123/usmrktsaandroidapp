@@ -3,6 +3,7 @@ package in.exuber.usmarket.fragment.leads;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
+import in.exuber.usmarket.activity.leadsadd.LeadsAddActivity;
 import in.exuber.usmarket.adapter.LeadActiveListAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.utils.Api;
@@ -55,10 +58,16 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
     private LinearLayout progressDialog;
     private LinearLayout errorDisplay;
+    private ScrollView errorDisplayActiveLeads;
 
     private ImageView errorDisplayIcon;
     private TextView errorDisplayText;
     private TextView errorDisplayTryClick;
+
+    private ImageView errorDisplayIconActiveLeads;
+    private TextView errorDisplayHeaderActiveLeads;
+    private TextView errorDisplayTextActiveLeads;
+    private TextView errorDisplayAddLeadClickActiveLeads;
 
 
     //Sharedpreferences
@@ -124,11 +133,17 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
         progressDialog =  activeLeadsView.findViewById(R.id.ll_custom_dialog);
         errorDisplay =  activeLeadsView.findViewById(R.id.ll_errorMain_layout);
+        errorDisplayActiveLeads =  activeLeadsView.findViewById(R.id.sv_errorActiveLeads_layout);
 
 
         errorDisplayIcon = activeLeadsView.findViewById(R.id.iv_errorMain_errorIcon);
         errorDisplayText =  activeLeadsView.findViewById(R.id.tv_errorMain_errorText);
         errorDisplayTryClick =  activeLeadsView.findViewById(R.id.tv_errorMain_errorTryAgain);
+
+        errorDisplayIconActiveLeads = activeLeadsView.findViewById(R.id.iv_errorActiveLeads_errorIcon);
+        errorDisplayHeaderActiveLeads =  activeLeadsView.findViewById(R.id.tv_errorActiveLeads_errorHeader);
+        errorDisplayTextActiveLeads =  activeLeadsView.findViewById(R.id.tv_errorActiveLeads_errorText);
+        errorDisplayAddLeadClickActiveLeads =  activeLeadsView.findViewById(R.id.tv_errorActiveLeads_addLeadClick);
 
 
         //Get All Leads
@@ -148,6 +163,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
         //Setting onclick
         errorDisplayTryClick.setOnClickListener(this);
+        errorDisplayAddLeadClickActiveLeads.setOnClickListener(this);
 
         return  activeLeadsView;
     }
@@ -197,6 +213,16 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
 
                 break;
+
+            case R.id.tv_errorActiveLeads_addLeadClick:
+
+                //Hiding Keyboard
+                hideKeyBoard(getActivity());
+
+                //Calling Add leads Activity
+                startActivity(new Intent(getActivity(), LeadsAddActivity.class));
+
+                break;
         }
 
 
@@ -216,6 +242,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
             //Hiding views
             errorDisplay.setVisibility(View.GONE);
             activeLeadsList.setVisibility(View.GONE);
+            errorDisplayActiveLeads.setVisibility(View.GONE);
 
             progressDialog.setVisibility(View.VISIBLE);
 
@@ -229,6 +256,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
             //Hiding views
             progressDialog.setVisibility(View.GONE);
             activeLeadsList.setVisibility(View.GONE);
+            errorDisplayActiveLeads.setVisibility(View.GONE);
 
             errorDisplay.setVisibility(View.VISIBLE);
 
@@ -272,13 +300,16 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
                     {
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
+                        errorDisplay.setVisibility(View.GONE);
                         activeLeadsList.setVisibility(View.GONE);
 
-                        errorDisplay.setVisibility(View.VISIBLE);
+                        errorDisplayActiveLeads.setVisibility(View.VISIBLE);
 
-                        errorDisplayIcon.setImageResource(R.drawable.ic_error_leads);
-                        errorDisplayText.setText(getString( R.string.error_no_data_active_leads));
-                        errorDisplayTryClick.setVisibility(View.GONE);
+                        errorDisplayIconActiveLeads.setImageResource(R.drawable.ic_error_leads);
+                        errorDisplayHeaderActiveLeads.setText(getString( R.string.error_no_data_active_leads));
+                        errorDisplayTextActiveLeads.setText(getString( R.string.error_description_no_data_active_leads));
+
+
 
                     }
                     else {
@@ -287,6 +318,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
                         errorDisplay.setVisibility(View.GONE);
+                        errorDisplayActiveLeads.setVisibility(View.GONE);
 
                         activeLeadsList.setVisibility(View.VISIBLE);
 
@@ -308,6 +340,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
                     progressDialog.setVisibility(View.GONE);
                     activeLeadsList.setVisibility(View.GONE);
+                    errorDisplayActiveLeads.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);
@@ -328,13 +361,15 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
 
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
+                    errorDisplay.setVisibility(View.GONE);
                     activeLeadsList.setVisibility(View.GONE);
 
-                    errorDisplay.setVisibility(View.VISIBLE);
+                    errorDisplayActiveLeads.setVisibility(View.VISIBLE);
 
-                    errorDisplayIcon.setImageResource(R.drawable.ic_error_leads);
-                    errorDisplayText.setText(getString( R.string.error_no_data_active_leads));
-                    errorDisplayTryClick.setVisibility(View.GONE);
+                    errorDisplayIconActiveLeads.setImageResource(R.drawable.ic_error_leads);
+                    errorDisplayHeaderActiveLeads.setText(getString( R.string.error_no_data_active_leads));
+                    errorDisplayTextActiveLeads.setText(getString( R.string.error_description_no_data_active_leads));
+
 
 
                 }
@@ -344,6 +379,7 @@ public class LeadsActiveFragment extends Fragment implements View.OnClickListene
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
                     activeLeadsList.setVisibility(View.GONE);
+                    errorDisplayActiveLeads.setVisibility(View.GONE);
 
 
                     errorDisplay.setVisibility(View.VISIBLE);

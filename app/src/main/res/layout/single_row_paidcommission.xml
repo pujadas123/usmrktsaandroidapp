@@ -16,7 +16,6 @@
         android:layout_marginLeft="@dimen/space_16"
         android:layout_marginTop="@dimen/space_10"
         android:layout_marginBottom="@dimen/space_10"
-        android:layout_weight="1"
         android:orientation="horizontal">
         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
             android:layout_width="wrap_content"
@@ -24,23 +23,27 @@
             android:id="@+id/txt_IdSl"
             android:textSize="@dimen/text_12"
             android:gravity="center"
+            android:text="PD1071"
             android:textColor="#999999"/>
         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_ProductName"
             android:textSize="@dimen/text_12"
-            android:gravity="center"
+            android:layout_marginLeft="@dimen/space_20"
+            android:gravity="left"
             android:layout_weight="1"
+            android:text="Deco Landmark (EB-5)"
             android:textColor="#999999"/>
         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_Commission"
+            android:layout_marginRight="@dimen/space_20"
             android:textSize="@dimen/text_12"
-            android:gravity="center"
+            android:gravity="right"
             android:layout_marginLeft="@dimen/space_16"
-            android:layout_weight="1"
+            android:text="26000"
             android:textColor="#999999"/>
     </LinearLayout>
 

@@ -63,9 +63,9 @@
                     android:background="@color/colorLightGrey" />
 
                 <LinearLayout
+                    android:id="@+id/ll_productDetail_productCommisionLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ll_commission"
                     android:layout_marginTop="@dimen/space_5"
                     android:orientation="horizontal">
 
@@ -88,9 +88,9 @@
                 </LinearLayout>
 
                 <View
+                    android:id="@+id/view_productDetail_productCommissionView"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_1"
-                    android:id="@+id/ll_view"
                     android:layout_marginTop="@dimen/space_5"
                     android:background="@color/colorLightGrey" />
 

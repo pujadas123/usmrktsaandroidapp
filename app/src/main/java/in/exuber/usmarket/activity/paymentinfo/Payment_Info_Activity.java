@@ -1,14 +1,12 @@
 package in.exuber.usmarket.activity.paymentinfo;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,36 +15,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.rilixtech.CountryCodePicker;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.entity.StringEntity;
-import cz.msebera.android.httpclient.message.BasicHeader;
-import cz.msebera.android.httpclient.protocol.HTTP;
 import in.exuber.usmarket.R;
-import in.exuber.usmarket.activity.faq.FaqActivity;
-import in.exuber.usmarket.activity.home.HomeActivity;
-import in.exuber.usmarket.adapter.FaqListAdapter;
 import in.exuber.usmarket.apimodels.editpaymentinfo.editpaymentinfoinput.CreatedBy;
 import in.exuber.usmarket.apimodels.editpaymentinfo.editpaymentinfoinput.EditPaymentInfoInput;
-import in.exuber.usmarket.apimodels.faq.faqoutput.FAQOutput;
 import in.exuber.usmarket.apimodels.paymentinfo.paymentinfooutput.PaymentInfoOutput;
-import in.exuber.usmarket.models.faq.FaqOutput;
-import in.exuber.usmarket.models.paymentinfogetmodel.PaymentInfoGetOutputList;
 import in.exuber.usmarket.utils.Api;
 import in.exuber.usmarket.utils.Config;
 import in.exuber.usmarket.utils.ConnectionDetector;
@@ -68,9 +46,9 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
     //Declaring views
     private LinearLayout paymentInfoActivityContainer;
     private ScrollView paymentInfoLayout;
-    private TextView toolbarHeader, toolbarHeaderDone;
+    private TextView toolbarHeader, toolbarActionText;
 
-    LinearLayout ll_toolbarHeaderDone;
+    private LinearLayout toolbarActionClick;
 
     private EditText firstName, lastName, email, addressOne, addressTwo, aptUnit, city, state, postalCode;
     private EditText routingNumber, accountNumber, SWIFTCode, fullName, paypalEmail;
@@ -106,8 +84,6 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,7 +93,7 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //Initialising shared preferences
-        marketPreference =  Payment_Info_Activity.this.getSharedPreferences(Constants.PREFERENCE_NAME,MODE_PRIVATE);
+        marketPreference =  getSharedPreferences(Constants.PREFERENCE_NAME,MODE_PRIVATE);
 
         //Initialising connection detector
         connectionDetector = new ConnectionDetector(this);
@@ -138,17 +114,17 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         paymentInfoActivityContainer = findViewById(R.id.activity_payment_info);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
         paymentInfoLayout = findViewById(R.id.sv_paymentInfo_paymentInfoLayout);
 
-        ll_toolbarHeaderDone=findViewById(R.id.ll_editLeads_toolBar_action);
-        toolbarHeaderDone=findViewById(R.id.iv_editLeads_toolBar_done);
-        ll_toolbarHeaderDone.setOnClickListener(this);
+        toolbarActionClick = findViewById(R.id.ll_main_toolBar_actionClick);
+        toolbarActionText = findViewById(R.id.iv_main_toolBar_actionText);
 
-        toolbarHeaderDone.setText(getResources().getString(R.string.done));
+
 
         progressDialog =  findViewById(R.id.ll_custom_dialog);
         errorDisplay =  findViewById(R.id.ll_errorMain_layout);
@@ -211,6 +187,7 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
 
         //Setting toolbar header
         toolbarHeader.setText(getString(R.string.payment_info_caps));
+        toolbarActionText.setText(getResources().getString(R.string.done));
 
         firstName.requestFocus();
 
@@ -219,14 +196,11 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
 
         //setting onclick
         errorDisplayTryClick.setOnClickListener(this);
+        toolbarActionClick.setOnClickListener(this);
 
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_done, menu);
-        return true;
-    }*/
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -255,7 +229,7 @@ public class Payment_Info_Activity extends AppCompatActivity implements View.OnC
                 break;
 
 
-            case R.id.ll_editLeads_toolBar_action:
+            case R.id.ll_main_toolBar_actionClick:
 
                 //Hiding Keyboard
                 hideKeyBoard(Payment_Info_Activity.this);

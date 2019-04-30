@@ -3,6 +3,7 @@ package in.exuber.usmarket.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -99,6 +100,46 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
             }
         }
 
+
+        if (filteredProductOutputList.get(position).getProductId().getAvailable() == null)
+        {
+            holder.productNotAvailable.setVisibility(View.GONE);
+            holder.nextArrow.setVisibility(View.VISIBLE);
+
+            holder.productName.setTextColor(context.getResources().getColor(R.color.colorGrey));
+            holder.productCategory.setTextColor(context.getResources().getColor(R.color.colorGrey));
+            holder.productPrice.setTextColor(context.getResources().getColor(R.color.colorGrey));
+            holder.productCommission.setTextColor(context.getResources().getColor(R.color.colorGrey));
+
+        }
+        else
+        {
+            if (filteredProductOutputList.get(position).getProductId().getAvailable().equals("YES"))
+            {
+                holder.productNotAvailable.setVisibility(View.GONE);
+                holder.nextArrow.setVisibility(View.VISIBLE);
+
+                holder.productName.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+                holder.productCategory.setTextColor(context.getResources().getColor(R.color.colorText));
+                holder.productPrice.setTextColor(context.getResources().getColor(R.color.colorText));
+                holder.productCommission.setTextColor(context.getResources().getColor(R.color.colorText));
+            }
+            else
+            {
+                holder.productNotAvailable.setVisibility(View.VISIBLE);
+                holder.nextArrow.setVisibility(View.GONE);
+
+                holder.productName.setTextColor(context.getResources().getColor(R.color.colorGrey));
+                holder.productCategory.setTextColor(context.getResources().getColor(R.color.colorGrey));
+                holder.productPrice.setTextColor(context.getResources().getColor(R.color.colorGrey));
+                holder.productCommission.setTextColor(context.getResources().getColor(R.color.colorGrey));
+
+
+            }
+        }
+
+
+
     }
 
     @Override
@@ -171,8 +212,8 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         //Declaring views
-        private TextView productName, productCategory, productPrice, productCommission;
-        private ImageView productThumbnail;
+        private TextView productName, productCategory, productPrice, productCommission, productNotAvailable;
+        private ImageView productThumbnail, nextArrow;
 
 
 
@@ -184,9 +225,11 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
             productName = view.findViewById(R.id.tv_productHomeListAdapter_productName);
             productCategory = view.findViewById(R.id.tv_productHomeListAdapter_productCategory);
             productPrice = view.findViewById(R.id.tv_productHomeListAdapter_productPrice);
-            productCommission = view.findViewById(R.id.tv_productHomeListAdapter_productCommision);
+            productCommission = view.findViewById(R.id.tv_productHomeListAdapter_productCommission);
+            productNotAvailable = view.findViewById(R.id.iv_productHomeListAdapter_notAvailable);
 
             productThumbnail = view.findViewById(R.id.iv_productHomeListAdapter_productThumbnail);
+            nextArrow = view.findViewById(R.id.iv_productHomeListAdapter_next);
 
 
         }
@@ -197,26 +240,51 @@ public class ProductHomeListAdapter extends RecyclerView.Adapter<ProductHomeList
 
             int clickPosition = getLayoutPosition();
 
-            Gson gson = new Gson();
-            ProductUserOutput productUserOutput = filteredProductOutputList.get(clickPosition);
 
-            //Converting to string
-            String productItemString = gson.toJson(productUserOutput);
+            if (filteredProductOutputList.get(clickPosition).getProductId().getAvailable() == null)
+            {
 
-            //Preparing Intent
-            Intent productDetailsIntent = new Intent(view.getContext(), ProductDetailActivity.class);
+                Snackbar snackbar = Snackbar
+                        .make(view, R.string.error_no_product, Snackbar.LENGTH_LONG);
 
-            //Create the bundle
-            Bundle productDetailBundle = new Bundle();
+                snackbar.show();
+            }
+            else
+            {
+                if (filteredProductOutputList.get(clickPosition).getProductId().getAvailable().equals("YES")) {
 
-            //Add your data to bundle
-            productDetailBundle.putString(Constants.INTENT_KEY_SELECTED_PRODUCT,productItemString);
-            productDetailBundle.putBoolean(Constants.INTENT_KEY_IS_USER_PRODUCT,true);
+                    Gson gson = new Gson();
+                    ProductUserOutput productUserOutput = filteredProductOutputList.get(clickPosition);
 
-            //Add the bundle to the intent
-            productDetailsIntent.putExtras(productDetailBundle);
+                    //Converting to string
+                    String productItemString = gson.toJson(productUserOutput);
 
-            view.getContext().startActivity(productDetailsIntent);
+                    //Preparing Intent
+                    Intent productDetailsIntent = new Intent(view.getContext(), ProductDetailActivity.class);
+
+                    //Create the bundle
+                    Bundle productDetailBundle = new Bundle();
+
+                    //Add your data to bundle
+                    productDetailBundle.putString(Constants.INTENT_KEY_SELECTED_PRODUCT,productItemString);
+                    productDetailBundle.putBoolean(Constants.INTENT_KEY_IS_USER_PRODUCT,true);
+
+                    //Add the bundle to the intent
+                    productDetailsIntent.putExtras(productDetailBundle);
+
+                    view.getContext().startActivity(productDetailsIntent);
+                }
+                else
+                {
+                    Snackbar snackbar = Snackbar
+                            .make(view, R.string.error_no_product, Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
+
+            }
+
+
 
 
         }

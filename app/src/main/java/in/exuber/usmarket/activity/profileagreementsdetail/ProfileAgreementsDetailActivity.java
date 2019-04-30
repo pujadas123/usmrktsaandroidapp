@@ -51,6 +51,7 @@ public class ProfileAgreementsDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising views
         profileAgreementsDetailActivityContainer = findViewById(R.id.activity_profile_agreements_detail);

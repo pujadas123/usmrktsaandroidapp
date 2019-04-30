@@ -16,6 +16,9 @@ public class AddLeadInput {
     @SerializedName("leadSource")
     @Expose
     private LeadSource leadSource;
+    @SerializedName("socialNetwork")
+    @Expose
+    private SocialNetwork socialNetwork;
     @SerializedName("userName")
     @Expose
     private String userName;
@@ -87,6 +90,14 @@ public class AddLeadInput {
 
     public void setLeadSource(LeadSource leadSource) {
         this.leadSource = leadSource;
+    }
+
+    public SocialNetwork getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    public void setSocialNetwork(SocialNetwork socialNetwork) {
+        this.socialNetwork = socialNetwork;
     }
 
     public String getUserName() {

@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -67,15 +68,16 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
 
     private LinearLayout progressDialog;
     private LinearLayout errorDisplay;
-    private LinearLayout errorDisplayMyProduct;
+    private ScrollView errorDisplayMyProduct;
 
     private ImageView errorDisplayIcon;
     private TextView errorDisplayText;
     private TextView errorDisplayTryClick;
 
     private ImageView errorDisplayIconMyProduct;
+    private TextView errorDisplayHeaderMyProduct;
     private TextView errorDisplayTextMyProduct;
-    private TextView errorDisplayTryClickMyProduct;
+    private TextView errorDisplayAddProductClickMyProduct;
 
 
 
@@ -143,15 +145,16 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
 
         progressDialog =  productView.findViewById(R.id.ll_custom_dialog);
         errorDisplay =  productView.findViewById(R.id.ll_errorMain_layout);
-        errorDisplayMyProduct =  productView.findViewById(R.id.ll_errorMyProduct_layout);
+        errorDisplayMyProduct =  productView.findViewById(R.id.sv_errorMyProduct_layout);
 
         errorDisplayIcon = productView.findViewById(R.id.iv_errorMain_errorIcon);
         errorDisplayText =  productView.findViewById(R.id.tv_errorMain_errorText);
         errorDisplayTryClick =  productView.findViewById(R.id.tv_errorMain_errorTryAgain);
 
         errorDisplayIconMyProduct = productView.findViewById(R.id.iv_errorMyProduct_errorIcon);
+        errorDisplayHeaderMyProduct =  productView.findViewById(R.id.tv_errorMyProduct_errorHeader);
         errorDisplayTextMyProduct =  productView.findViewById(R.id.tv_errorMyProduct_errorText);
-        errorDisplayTryClickMyProduct =  productView.findViewById(R.id.tv_errorMyProduct_errorTryAgain);
+        errorDisplayAddProductClickMyProduct =  productView.findViewById(R.id.tv_errorMyProduct_addProductClick);
 
         searchProduct.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -195,7 +198,7 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
         toolbarEditClick.setOnClickListener(this);
         toolbarAddClick.setOnClickListener(this);
         errorDisplayTryClick.setOnClickListener(this);
-        errorDisplayTryClickMyProduct.setOnClickListener(this);
+        errorDisplayAddProductClickMyProduct.setOnClickListener(this);
 
 
         return productView;
@@ -257,7 +260,7 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
 
                 break;
 
-            case R.id.tv_errorMyProduct_errorTryAgain:
+            case R.id.tv_errorMyProduct_addProductClick:
 
                 //Hiding Keyboard
                 hideKeyBoard(getActivity());
@@ -352,14 +355,18 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
 
                         //Hiding views
                         progressDialog.setVisibility(View.GONE);
-                        productLayout.setVisibility(View.GONE);
                         errorDisplay.setVisibility(View.GONE);
+                        productLayout.setVisibility(View.GONE);
 
                         errorDisplayMyProduct.setVisibility(View.VISIBLE);
 
-                        errorDisplayTextMyProduct.setText(getString( R.string.error_no_data_myproduct));
+                        errorDisplayIconMyProduct.setImageResource(R.drawable.ic_error_product);
+                        errorDisplayHeaderMyProduct.setText(getString( R.string.error_no_data_myproduct));
+                        errorDisplayTextMyProduct.setText(getString( R.string.error_description_no_data_myproduct));
 
                         toolbarEditClick.setVisibility(View.INVISIBLE);
+
+
 
 
                     }
@@ -408,12 +415,14 @@ public class ProductHomeFragment extends Fragment implements View.OnClickListene
 
                     //Hiding views
                     progressDialog.setVisibility(View.GONE);
-                    productLayout.setVisibility(View.GONE);
                     errorDisplay.setVisibility(View.GONE);
+                    productLayout.setVisibility(View.GONE);
 
                     errorDisplayMyProduct.setVisibility(View.VISIBLE);
 
-                    errorDisplayTextMyProduct.setText(getString( R.string.error_no_data_myproduct));
+                    errorDisplayIconMyProduct.setImageResource(R.drawable.ic_error_product);
+                    errorDisplayHeaderMyProduct.setText(getString( R.string.error_no_data_myproduct));
+                    errorDisplayTextMyProduct.setText(getString( R.string.error_description_no_data_myproduct));
 
                     toolbarEditClick.setVisibility(View.INVISIBLE);
 

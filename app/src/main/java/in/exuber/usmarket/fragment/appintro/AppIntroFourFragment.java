@@ -40,8 +40,9 @@ public class AppIntroFourFragment extends Fragment implements View.OnClickListen
     private Context context;
 
     //Declaring views
+    private RelativeLayout appIntroFourFragmentContainer;
     private LinearLayout getStartedClick;
-    RelativeLayout ll_AppintroFourParent;
+
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -75,7 +76,7 @@ public class AppIntroFourFragment extends Fragment implements View.OnClickListen
         marketPreference =  getActivity().getSharedPreferences(Constants.PREFERENCE_NAME,MODE_PRIVATE);
 
         //Initialising views
-        ll_AppintroFourParent=appIntroFourView.findViewById(R.id.ll_AppintroFourParent);
+        appIntroFourFragmentContainer = appIntroFourView.findViewById(R.id.fragment_app_intro_four);
         getStartedClick = appIntroFourView.findViewById(R.id.ll_appIntroFourFragment_getStartedClick);
 
         getStartedClick.setOnClickListener(this);
@@ -92,29 +93,35 @@ public class AppIntroFourFragment extends Fragment implements View.OnClickListen
         {
             case R.id.ll_appIntroFourFragment_getStartedClick:
 
-
-
-                boolean isInternetPresent = connectionDetector.isConnectingToInternet();
-
-                if (isInternetPresent) {
-
-
-                    callUpdateAppintroService();
-                }
-                else
-                {
-                    Snackbar snackbar = Snackbar
-                            .make(ll_AppintroFourParent, R.string.error_internet, Snackbar.LENGTH_LONG);
-
-                    snackbar.show();
-                }
+                //Update App Intro
+                updateAppIntro();
 
                 break;
         }
     }
 
+    //Func - Update App Intro
+    private void updateAppIntro() {
 
-    private void callUpdateAppintroService() {
+        boolean isInternetPresent = connectionDetector.isConnectingToInternet();
+
+        if (isInternetPresent) {
+
+
+            callUpdateAppIntroService();
+        }
+        else
+        {
+            Snackbar snackbar = Snackbar
+                    .make(appIntroFourFragmentContainer, R.string.error_internet, Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+
+    }
+
+    //Service - Update App Intro
+    private void callUpdateAppIntroService() {
 
         final String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
 

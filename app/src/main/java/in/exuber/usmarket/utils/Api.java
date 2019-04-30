@@ -26,9 +26,11 @@ import in.exuber.usmarket.apimodels.sharecampaignlog.sharecampaignlogoutput.Shar
 import in.exuber.usmarket.apimodels.sharedcampaign.sharedcampaignoutput.SharedCampaignOutput;
 import in.exuber.usmarket.apimodels.shareproduct.shareproductinput.ShareProductInput;
 import in.exuber.usmarket.apimodels.signup.signupoutput.SignupInput;
+import in.exuber.usmarket.apimodels.upadateappintro.updateappintroinput.UpdateAppIntroInput;
 import in.exuber.usmarket.apimodels.updatemobileid.updatemobileidinput.UpdateMobileIdInput;
 import in.exuber.usmarket.apimodels.updatenotificationseen.updatenotificationseeninput.UpdateNotificationSeenInput;
 import in.exuber.usmarket.models.ProfilePicModel.ProfileImageModel;
+import in.exuber.usmarket.apimodels.paidcommision.PaidCommissionOutput;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -55,6 +57,10 @@ public interface Api {
     //POST - Register
     @POST("SuperAdmin/SalesAssociate/")
     Call<ResponseBody> registerUser(@Body SignupInput signupInput);
+
+    //PUT - Update App Intro
+    @PUT("SuperAdmin/AppIntro/")
+    Call<ResponseBody> updateAppIntro(@Body UpdateAppIntroInput updateAppIntroInput);
 
     //GET - Email Check
     @GET("SuperAdmin/Email/{emailId}/")
@@ -249,9 +255,9 @@ public interface Api {
     //GET - Notifications
     @GET("POAdmin/GetNotifyData/")
     Call<List<NotificationOutput>> getNotification(@Header("auth-token") String authToken,
-                                             @Header("user-id") String userId,
-                                             @Header("role-id") String roleId,
-                                             @Header("service") String service);
+                                                   @Header("user-id") String userId,
+                                                   @Header("role-id") String roleId,
+                                                   @Header("service") String service);
 
     //PUT - Notifications
     @PUT("POAdmin/Notifications/")
@@ -260,6 +266,14 @@ public interface Api {
                                               @Header("role-id") String roleId,
                                               @Header("service") String service,
                                               @Body UpdateNotificationSeenInput updateNotificationSeenInput);
+
+    //GET - Paid Commissions
+    @GET("SuperAdmin/SalesPayment/{userId}/")
+    Call<List<PaidCommissionOutput>> getPaidCommissions(@Header("auth-token") String authToken,
+                                                        @Header("user-id") String userId,
+                                                        @Header("role-id") String roleId,
+                                                        @Header("service") String service,
+                                                        @Path("userId") String userIdPath);
 
 
     @Streaming

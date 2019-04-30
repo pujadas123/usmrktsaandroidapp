@@ -129,6 +129,7 @@ public class ProductTrainingActivity extends AppCompatActivity implements View.O
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_primary);
 
         //Initialising variables
         productTrainingOutputList = new ArrayList<>();

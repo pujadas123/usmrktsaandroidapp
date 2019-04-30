@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -54,6 +55,8 @@ public class SplashActivity extends AppCompatActivity {
         //Setting logo
         setResponsiveSplashLogo();
 
+
+
         //handler for delay
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -89,7 +92,7 @@ public class SplashActivity extends AppCompatActivity {
     {
 
         boolean isLoggedIn = marketPreference.getBoolean(Constants.IS_LOGGED_IN, false);
-        Log.e("Login", String.valueOf(isLoggedIn));
+
         if (isLoggedIn)
         {
 
@@ -149,19 +152,6 @@ public class SplashActivity extends AppCompatActivity {
             if (isAppIntroOver) {*/
 
 
-
-
-
-
-
-
-           /* }
-            else
-            {
-                //Calling App Intro activity
-                startActivity(new Intent(SplashActivity.this, AppIntroActivity.class));
-                finish();
-            }*/
 
         }
         else

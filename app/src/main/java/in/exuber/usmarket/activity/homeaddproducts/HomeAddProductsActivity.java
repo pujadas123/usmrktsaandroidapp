@@ -1,5 +1,6 @@
 package in.exuber.usmarket.activity.homeaddproducts;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -58,8 +60,6 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
     private LinearLayout toolbarDoneClick;
     private RelativeLayout toolberNotificationClick;
 
-    private LinearLayout showcaseView;
-    private LinearLayout showcaseGetStartedClick;
 
     private SearchView productSearch;
     private RecyclerView productList;
@@ -100,6 +100,9 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
 
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,6 +125,7 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
 
 
 
+
         //Setting Toolbar
         Toolbar toolbar = findViewById(R.id.homeAddProduct_toolBar);
         setSupportActionBar(toolbar);
@@ -139,9 +143,6 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
         toolbarDoneClick = findViewById(R.id.ll_homeAddProduct_toolBar_doneClick);
         toolberNotificationClick=findViewById(R.id.rl_homeProfile_toolBar_notificationLayout);
 
-
-        showcaseView = findViewById(R.id.ll_homeAddProducts_showCaseView);
-        showcaseGetStartedClick = findViewById(R.id.ll_homeAddProducts_getStartedClick);
 
         parentLayout = findViewById(R.id.nsv_homeAddProducts_parentlayout);
 
@@ -173,10 +174,6 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
         errorDisplayTryClick =  findViewById(R.id.tv_errorMain_errorTryAgain);
 
 
-        //Hiding views
-        showcaseView.setVisibility(View.GONE);
-        parentLayout.setVisibility(View.GONE);
-
         addProductHomeListAdapter = new AddProductHomeListAdapter(HomeAddProductsActivity.this,productOutputList);
         productList.setAdapter(addProductHomeListAdapter);
         addProductHomeListAdapter.notifyDataSetChanged();
@@ -185,21 +182,43 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
 
         if (isShowcaseShown)
         {
-            showcaseView.setVisibility(View.GONE);
-
-            toolbarDoneClick.setVisibility(View.VISIBLE);
-            toolberNotificationClick.setVisibility(View.VISIBLE);
 
             //Getting Products
             getProduct();
         }
         else
         {
-            parentLayout.setVisibility(View.GONE);
-            showcaseView.setVisibility(View.VISIBLE);
 
-            toolbarDoneClick.setVisibility(View.INVISIBLE);
-            toolberNotificationClick.setVisibility(View.INVISIBLE);
+            final Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.dialog_select_product);
+
+            LinearLayout showcaseGetStartedClick = dialog.findViewById(R.id.ll_homeAddProducts_getStartedClick);
+
+
+            showcaseGetStartedClick.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    //Hiding Keyboard
+                    hideKeyBoard(HomeAddProductsActivity.this);
+
+                    SharedPreferences.Editor preferenceEditor = marketPreference.edit();
+
+                    //Preference Editor
+                    preferenceEditor.putBoolean(Constants.IS_SHOWCASE_SHOWN, true);
+                    preferenceEditor.commit();
+
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
+            //Getting Products
+            getProduct();
         }
 
 
@@ -236,7 +255,6 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
 
 
         //Setting onclick
-        showcaseGetStartedClick.setOnClickListener(this);
         realEstateClick.setOnClickListener(this);
         investmentClick.setOnClickListener(this);
         toolbarDoneClick.setOnClickListener(this);
@@ -269,26 +287,6 @@ public class HomeAddProductsActivity extends AppCompatActivity implements View.O
 
         switch (view.getId())
         {
-
-            case R.id.ll_homeAddProducts_getStartedClick:
-
-                //Hiding Keyboard
-                hideKeyBoard(HomeAddProductsActivity.this);
-
-                //Preference Editor
-                preferenceEditor.putBoolean(Constants.IS_SHOWCASE_SHOWN, true);
-                preferenceEditor.commit();
-
-                showcaseView.setVisibility(View.GONE);
-
-                toolbarDoneClick.setVisibility(View.VISIBLE);
-                toolberNotificationClick.setVisibility(View.VISIBLE);
-
-
-                //Getting Products
-                getProduct();
-
-                break;
 
             case R.id.ll_homeAddProducts_realEstateClick:
 

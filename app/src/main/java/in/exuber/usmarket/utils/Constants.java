@@ -108,6 +108,8 @@ public class Constants {
     public static final String SERVICE_GET_NOTIFICATIONS = "getNotify";
     public static final String SERVICE_UPDATE_NOTIFICATION_SEEN = "getNotify";
 
+    public static final String SERVICE_GET_PAID_COMMISSIONS = "getSalesPaymentBySa";
+
 
     ///Services..............
     public static String USER_ID = "user_id";
