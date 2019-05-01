@@ -106,16 +106,17 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <SearchView
                             android:id="@+id/et_paidCommissions_search"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/space_6"
                             android:background="@drawable/squareborderwhite_whitebackground"
                             android:gravity="center"
+                            android:layout_weight="1"
                             android:iconifiedByDefault="false"
                             android:inputType="text"
                             android:minHeight="@dimen/space_48"
@@ -124,6 +125,16 @@
                             android:searchIcon="@drawable/ic_search_primary"
                             android:textColor="@color/colorText"
                             android:textSize="@dimen/text_14"/>
+
+                        <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txt_paidCommissions_Filter"
+                            android:layout_marginLeft="@dimen/space_10"
+                            android:text="@string/paidCommissions_Filter"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_17"
+                            android:padding="@dimen/space_10"/>
 
                     </LinearLayout>
 

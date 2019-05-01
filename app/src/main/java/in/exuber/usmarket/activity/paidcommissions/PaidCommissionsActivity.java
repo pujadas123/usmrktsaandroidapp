@@ -1,6 +1,8 @@
 package in.exuber.usmarket.activity.paidcommissions;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
+import in.exuber.usmarket.activity.filters.FiltersActivity;
 import in.exuber.usmarket.adapter.PaidCommissionListAdapter;
 import in.exuber.usmarket.apimodels.paidcommision.PaidCommissionOutput;
 import in.exuber.usmarket.utils.Api;
@@ -52,7 +55,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
     private LinearLayout searchLayout;
     private SearchView searchView;
 
-    private TextView currentDateText, totalCommissionText;
+    private TextView currentDateText, totalCommissionText,commissionsFilter;
     private LinearLayout dataLayout;
     private RecyclerView paidCommissionList;
 
@@ -139,6 +142,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
         currentDateText = findViewById(R.id.tv_paidCommissions_currentDate);
         totalCommissionText = findViewById(R.id.tv_paidCommissions_totalCommission);
+        commissionsFilter=findViewById(R.id.txt_paidCommissions_Filter);
 
         searchView = findViewById(R.id.et_paidCommissions_search);
 
@@ -187,6 +191,7 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
         //setting onclick
         errorDisplayTryClick.setOnClickListener(this);
+        commissionsFilter.setOnClickListener(this);
 
     }
 
@@ -221,6 +226,24 @@ public class PaidCommissionsActivity extends AppCompatActivity implements View.O
 
                 break;
 
+            case R.id.txt_paidCommissions_Filter:
+
+                boolean isInternetPresent = connectionDetector.isConnectingToInternet();
+
+                if (isInternetPresent) {
+
+                    Intent intent=new Intent(PaidCommissionsActivity.this, FiltersActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Snackbar snackbar = Snackbar
+                            .make(paidCommissionsActivityContainer, R.string.error_internet, Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
+
+                break;
         }
     }
 

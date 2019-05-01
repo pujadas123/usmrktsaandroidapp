@@ -204,6 +204,8 @@
     <string name="icon_circle_full">&#xe869;</string>
     <string name="icon_circle_empty">&#xe868;</string>
 
+    <string name="paidCommissions_Filter">Filter</string>
+
 
     <string name="done">Done</string>
 

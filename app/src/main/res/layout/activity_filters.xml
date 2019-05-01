@@ -84,7 +84,6 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorWhite"
                     android:padding="10dp"
-                    android:layout_weight="1"
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -161,6 +160,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/space_10"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
@@ -177,6 +177,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/space_18"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
@@ -217,6 +218,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="45dp"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
@@ -235,6 +237,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="32dp"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -274,6 +277,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/space_18"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
@@ -290,6 +294,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/space_16"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
