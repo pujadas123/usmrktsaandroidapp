@@ -41,10 +41,12 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_realEstateClick"
                         android:orientation="horizontal">
                     <CheckBox
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chkb_realEstate"/>
                     <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -56,11 +58,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_investmentClick"
                         android:layout_marginLeft="@dimen/space_20"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_investment" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -88,11 +92,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_januaryClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_january" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -104,11 +110,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_februaryClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_february" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -120,11 +128,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_marchClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_march" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -144,11 +154,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_aprilClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_april" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -160,12 +172,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_mayClick"
                         android:paddingLeft="@dimen/space_10"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_may" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -177,12 +191,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_juneClick"
                         android:paddingLeft="@dimen/space_18"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_june" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -202,11 +218,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_julyClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_july" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -218,12 +236,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_augustClick"
                         android:paddingLeft="45dp"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_august"/>
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -236,12 +256,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_septemberClick"
                         android:layout_weight="1"
                         android:paddingLeft="32dp"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_september" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -261,11 +283,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_octoberClick"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_october" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -277,12 +301,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_novemberClick"
                         android:paddingLeft="@dimen/space_18"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_november"/>
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -294,12 +320,14 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_decemberClick"
                         android:paddingLeft="@dimen/space_16"
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_december" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -328,10 +356,12 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_thisYearClick"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_thisYear" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -343,11 +373,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_previousYearClick"
                         android:layout_marginLeft="@dimen/space_20"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_previousYear" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -359,11 +391,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/ll_historicalClick"
                         android:layout_marginLeft="@dimen/space_20"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chkb_historical" />
                         <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
