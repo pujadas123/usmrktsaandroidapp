@@ -76,6 +76,8 @@ public class Constants {
     public static final String SERVICE_GET_PRODUCT_LIST = "getProductList";
     public static final String SERVICE_GET_PRODUCT_LIST_BY_USERID = "getUserProductByUserId";
 
+    public static final String SERVICE_GET_CATEGORY_LIST = "getCategory";
+
     public static final String SERVICE_ADD_PRODUCT = "insertUserProduct";
     public static final String SERVICE_EDIT_PRODUCT = "updateUserProduct";
 

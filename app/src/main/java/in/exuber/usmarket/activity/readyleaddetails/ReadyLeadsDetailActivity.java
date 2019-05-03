@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.activeleadsdetails.LeadsDetailActivity;
+import in.exuber.usmarket.adapter.ActiveLeadsInterestCategoryAdapter;
 import in.exuber.usmarket.adapter.ActiveLeadsInterestProductAdapter;
 import in.exuber.usmarket.adapter.LeadContactListAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
@@ -37,7 +38,7 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
     private TextView contactFaceBook, contactInstagram, contactTwitter, contactWebsite, contactEmail,contactPhone;
 
-    private TextView leadInterestInvestment, leadInterestRealEstate;
+    //private TextView leadInterestInvestment, leadInterestRealEstate;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -48,8 +49,9 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
     //Declaring variables
     private AllLeadsOutput allLeadsOutput;
 
-    RecyclerView recyclerList_Ready_interestProductList;
+    RecyclerView recyclerList_Ready_interestProductList,recyclerList_ReadyLeads_interestCategoryList;
     ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
+    ActiveLeadsInterestCategoryAdapter acticeLeadsInterestCategoryAdapter;
 
 
     @Override
@@ -77,6 +79,14 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
         recyclerList_Ready_interestProductList.setLayoutManager(layoutManager);
 
+
+        recyclerList_ReadyLeads_interestCategoryList=findViewById(R.id.recyclerList_ReadyLeads_interestCategoryList);
+
+        RecyclerView.LayoutManager layoutManagerCategory=new GridLayoutManager(getApplicationContext(),2);
+        recyclerList_ReadyLeads_interestCategoryList.setLayoutManager(layoutManagerCategory);
+
+
+
         leadsDetailActivityContainer = findViewById(R.id.activity_ready_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
@@ -84,8 +94,8 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         leadSourceLayout = findViewById(R.id.ll_readyLeadsDetail_leadSourceLayout);
         leadSource = findViewById(R.id.tv_readyLeadsDetail_leadSource);
 
-        leadInterestInvestment = findViewById(R.id.tv_readyLeadsDetail_interest_investment);
-        leadInterestRealEstate = findViewById(R.id.tv_readyLeadsDetail_interest_realEstate);
+        /*leadInterestInvestment = findViewById(R.id.tv_readyLeadsDetail_interest_investment);
+        leadInterestRealEstate = findViewById(R.id.tv_readyLeadsDetail_interest_realEstate);*/
 
         contactFaceBookLayout = findViewById(R.id.ll_readyLeadsDetail_contactFacebookLayout);
         contactInstagramLayout = findViewById(R.id.ll_readyLeadsDetail_contactInstagramLayout);
@@ -249,9 +259,7 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
         }
 
 
-
-
-        if (readyLeadsOutput.getCategoryList() != null)
+        /*if (readyLeadsOutput.getCategoryList() != null)
         {
             boolean isRealEstatePresent = false;
             boolean isInvestmentPresent = false;
@@ -291,13 +299,18 @@ public class ReadyLeadsDetailActivity extends AppCompatActivity {
             }
 
 
-        }
+        }*/
 
 
-        //Setting adapter
+        //Setting adapter for Product
         acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(ReadyLeadsDetailActivity.this,allLeadsOutput.getProductList());
         recyclerList_Ready_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
         acticeLeadsInterestProductAdapter.notifyDataSetChanged();
+
+        //Setting adapter for Category
+        acticeLeadsInterestCategoryAdapter = new ActiveLeadsInterestCategoryAdapter(ReadyLeadsDetailActivity.this,allLeadsOutput.getCategoryList());
+        recyclerList_ReadyLeads_interestCategoryList.setAdapter(acticeLeadsInterestCategoryAdapter);
+        acticeLeadsInterestCategoryAdapter.notifyDataSetChanged();
 
 
     }

@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.leadsedit.LeadsEditActivity;
+import in.exuber.usmarket.adapter.ActiveLeadsInterestCategoryAdapter;
 import in.exuber.usmarket.adapter.ActiveLeadsInterestProductAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.utils.Constants;
@@ -38,7 +39,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
     private TextView contactFaceBook, contactInstagram, contactTwitter, contactWebsite, contactEmail,contactPhone;
 
-    private TextView leadInterestInvestment, leadInterestRealEstate;
+    //private TextView leadInterestInvestment, leadInterestRealEstate;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -48,8 +49,9 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
     public static Activity leadsDetailActivityActivityInstance;
 
-    RecyclerView recyclerList_Active_interestProductList;
+    RecyclerView recyclerList_Active_interestProductList,recyclerList_ActiveLeads_interestCategoryList;
     ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
+    ActiveLeadsInterestCategoryAdapter acticeLeadsInterestCategoryAdapter;
 
 
     TextView Product;
@@ -88,6 +90,11 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
         recyclerList_Active_interestProductList.setLayoutManager(layoutManager);
 
+        recyclerList_ActiveLeads_interestCategoryList=findViewById(R.id.recyclerList_ActiveLeads_interestCategoryList);
+
+        RecyclerView.LayoutManager layoutManagerCategory=new GridLayoutManager(getApplicationContext(),2);
+        recyclerList_ActiveLeads_interestCategoryList.setLayoutManager(layoutManagerCategory);
+
 
         leadName = findViewById(R.id.tv_leadsDetail_leadName);
         leadSourceLayout = findViewById(R.id.ll_leadsDetail_leadSourceLayout);
@@ -109,8 +116,8 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
         contactPhone = findViewById(R.id.tv_leadsDetail_contactPhone);
 
 
-        leadInterestInvestment = findViewById(R.id.tv_leadsDetail_interest_investment);
-        leadInterestRealEstate = findViewById(R.id.tv_leadsDetail_interest_realEstate);
+        /*leadInterestInvestment = findViewById(R.id.tv_leadsDetail_interest_investment);
+        leadInterestRealEstate = findViewById(R.id.tv_leadsDetail_interest_realEstate);*/
 
         //Getting passed data
         Bundle passedBundle = getIntent().getExtras();
@@ -254,10 +261,7 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
 
         }
 
-
-
-
-        if (allLeadsOutput.getCategoryList() != null)
+        /*if (allLeadsOutput.getCategoryList() != null)
         {
             boolean isRealEstatePresent = false;
             boolean isInvestmentPresent = false;
@@ -295,15 +299,19 @@ public class LeadsDetailActivity extends AppCompatActivity implements View.OnCli
             {
                 leadInterestInvestment.setVisibility(View.GONE);
             }
+        }*/
 
 
-        }
-
-
-        //Setting adapter
+        //Setting adapter for Product
         acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(LeadsDetailActivity.this,allLeadsOutput.getProductList());
         recyclerList_Active_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
         acticeLeadsInterestProductAdapter.notifyDataSetChanged();
+
+
+        //Setting adapter for Category
+        acticeLeadsInterestCategoryAdapter = new ActiveLeadsInterestCategoryAdapter(LeadsDetailActivity.this,allLeadsOutput.getCategoryList());
+        recyclerList_ActiveLeads_interestCategoryList.setAdapter(acticeLeadsInterestCategoryAdapter);
+        acticeLeadsInterestCategoryAdapter.notifyDataSetChanged();
 
 
         //Setting onclick

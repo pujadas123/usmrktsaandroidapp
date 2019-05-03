@@ -7,6 +7,7 @@ import in.exuber.usmarket.apimodels.addproduct.addproductinput.AddProductInput;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
 import in.exuber.usmarket.apimodels.campaign.campaignoutput.CampaignOutput;
 import in.exuber.usmarket.apimodels.campaigntraining.campaigntrainingoutput.CampaignTrainingOutput;
+import in.exuber.usmarket.apimodels.categorylist.CategoryListOutput;
 import in.exuber.usmarket.apimodels.convertedleads.convertedleadsoutput.ConvertedLeadsOutput;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.EditLeadInput;
 import in.exuber.usmarket.apimodels.editpaymentinfo.editpaymentinfoinput.EditPaymentInfoInput;
@@ -288,6 +289,13 @@ public interface Api {
     Call<ProfileImageModel> uploadImage(
             @Part MultipartBody.Part file,
             @Part("userId") RequestBody userId);
+
+    //GET - Get Category
+    @GET("POAdmin/Category/")
+    Call<List<CategoryListOutput>> getCategoryList(@Header("auth-token") String authToken,
+                                                      @Header("user-id") String userId,
+                                                      @Header("role-id") String roleId,
+                                                      @Header("service") String service);
 
 
 }

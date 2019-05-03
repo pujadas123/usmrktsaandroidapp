@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.leadsedit.LeadsEditActivity;
 import in.exuber.usmarket.activity.readyleaddetails.ReadyLeadsDetailActivity;
+import in.exuber.usmarket.adapter.ActiveLeadsInterestCategoryAdapter;
 import in.exuber.usmarket.adapter.ActiveLeadsInterestProductAdapter;
 import in.exuber.usmarket.adapter.LeadContactListAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
@@ -39,7 +40,7 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
     private LinearLayout contactFaceBookLayout, contactInstagramLayout, contactTwitterLayout, contactWebsiteLayout, contactEmailLayout,contactPhoneLayout;
     private TextView contactFaceBook, contactInstagram, contactTwitter, contactWebsite, contactEmail,contactPhone;
 
-    private TextView leadInterestInvestment, leadInterestRealEstate;
+    //private TextView leadInterestInvestment, leadInterestRealEstate;
 
     //Sharedpreferences
     private SharedPreferences marketPreference;
@@ -50,8 +51,9 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
     //Declaring variables
     private AllLeadsOutput allLeadsOutput;
 
-    RecyclerView recyclerList_Converted_interestProductList;
+    RecyclerView recyclerList_Converted_interestProductList,recyclerList_ConvertedLeads_interestCategoryList;
     ActiveLeadsInterestProductAdapter acticeLeadsInterestProductAdapter;
+    ActiveLeadsInterestCategoryAdapter acticeLeadsInterestCategoryAdapter;
 
 
     @Override
@@ -79,6 +81,12 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getApplicationContext(),2);
         recyclerList_Converted_interestProductList.setLayoutManager(layoutManager);
 
+        recyclerList_ConvertedLeads_interestCategoryList=findViewById(R.id.recyclerList_ConvertedLeads_interestCategoryList);
+
+        RecyclerView.LayoutManager layoutManagerCategory=new GridLayoutManager(getApplicationContext(),2);
+        recyclerList_ConvertedLeads_interestCategoryList.setLayoutManager(layoutManagerCategory);
+
+
         leadsDetailActivityContainer = findViewById(R.id.activity_converted_leads_detail);
         toolbarHeader = findViewById(R.id.tv_main_toolBar_headerText);
 
@@ -86,8 +94,8 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
         leadSourceLayout = findViewById(R.id.ll_convertedLeadsDetail_leadSourceLayout);
         leadSource = findViewById(R.id.tv_convertedLeadsDetail_leadSource);
 
-        leadInterestInvestment = findViewById(R.id.tv_convertedLeadsDetail_interest_investment);
-        leadInterestRealEstate = findViewById(R.id.tv_convertedLeadsDetail_interest_realEstate);
+        /*leadInterestInvestment = findViewById(R.id.tv_convertedLeadsDetail_interest_investment);
+        leadInterestRealEstate = findViewById(R.id.tv_convertedLeadsDetail_interest_realEstate);*/
 
         contactFaceBookLayout = findViewById(R.id.ll_convertedLeadsDetail_contactFacebookLayout);
         contactInstagramLayout = findViewById(R.id.ll_convertedLeadsDetail_contactInstagramLayout);
@@ -252,7 +260,7 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
 
 
 
-        if (convertedLeadsOutput.getCategoryList() != null)
+        /*if (convertedLeadsOutput.getCategoryList() != null)
         {
             boolean isRealEstatePresent = false;
             boolean isInvestmentPresent = false;
@@ -290,15 +298,19 @@ public class ConvertedLeadsDetailActivity extends AppCompatActivity {
             {
                 leadInterestInvestment.setVisibility(View.GONE);
             }
+        }*/
 
 
-        }
-
-
-        //Setting adapter
+        //Setting adapter for Product
         acticeLeadsInterestProductAdapter = new ActiveLeadsInterestProductAdapter(ConvertedLeadsDetailActivity.this,allLeadsOutput.getProductList());
         recyclerList_Converted_interestProductList.setAdapter(acticeLeadsInterestProductAdapter);
         acticeLeadsInterestProductAdapter.notifyDataSetChanged();
+
+
+        //Setting adapter for Category
+        acticeLeadsInterestCategoryAdapter = new ActiveLeadsInterestCategoryAdapter(ConvertedLeadsDetailActivity.this,allLeadsOutput.getCategoryList());
+        recyclerList_ConvertedLeads_interestCategoryList.setAdapter(acticeLeadsInterestCategoryAdapter);
+        acticeLeadsInterestCategoryAdapter.notifyDataSetChanged();
 
 
 

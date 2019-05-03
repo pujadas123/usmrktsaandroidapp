@@ -267,8 +267,16 @@
                 android:textSize="@dimen/text_12"
                 android:layout_marginTop="@dimen/space_10"/>
 
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerList_ActiveLeads_interestCategoryList"
 
-            <LinearLayout
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -298,7 +306,7 @@
                     android:textSize="@dimen/text_14"
 
                     />
-            </LinearLayout>
+            </LinearLayout>-->
 
            <!-- <in.exuber.usmarket.fonts.Barlow.BarlowRegularTextView
                 android:layout_width="match_parent"

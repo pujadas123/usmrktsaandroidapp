@@ -27,9 +27,9 @@ import java.util.concurrent.TimeUnit;
 
 import in.exuber.usmarket.R;
 import in.exuber.usmarket.activity.activeleadsdetails.LeadsDetailActivity;
-import in.exuber.usmarket.activity.leadsadd.LeadsAddActivity;
 import in.exuber.usmarket.adapter.ProductHomeListAdapter;
 import in.exuber.usmarket.apimodels.allleads.allleadsoutput.AllLeadsOutput;
+import in.exuber.usmarket.apimodels.categorylist.CategoryListOutput;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.AssignedTo;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.Category;
 import in.exuber.usmarket.apimodels.editlead.editleadinput.CategoryList;
@@ -103,17 +103,23 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
 
     private MultiAutoCompleteTextView interests, categories;
-    private String[] catogoryInputList = {"Investment", "Real Estate"};
+    //private String[] catogoryInputList = {"Investment", "Real Estate"};
 
     //Declaring variables
     private List<ProductUserOutput> productOutputList;
-
-
     ArrayList<String> productNameList=new ArrayList<>();
     ArrayList<String> productIdList=new ArrayList<>();
 
     ArrayList<String>SelecetedPName=new ArrayList<>();
     ArrayList<String>SelecetedPId=new ArrayList<>();
+
+
+    private List<CategoryListOutput> categoryOutputList;
+    ArrayList<String> categoryNameList=new ArrayList<>();
+    ArrayList<String> categoryIdList=new ArrayList<>();
+
+    ArrayList<String>SelecetedCategoryName=new ArrayList<>();
+    ArrayList<String>SelecetedCategoryId=new ArrayList<>();
 
 
     @Override
@@ -132,6 +138,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         //Initialising variables
         productOutputList = new ArrayList<>();
+        categoryOutputList = new ArrayList<>();
 
         //Initialising progress dialog
         progressDialog = new ProgressDialog(this);
@@ -207,13 +214,6 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         phoneNumberError.setVisibility(View.GONE);
         emailError.setVisibility(View.GONE);
 
-        //Autocomplete Text view
-        interests.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(LeadsEditActivity.this,
-                android.R.layout.select_dialog_item, catogoryInputList);
-
-        interests.setThreshold(1);
-        interests.setAdapter(arrayAdapter);
 
         //Registering validation
         phoneCodePicker.registerPhoneNumberTextView(contactPhone);
@@ -221,6 +221,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         //Calling Service
         callGetProductService();
+        callGetCategoryService();
 
         //Getting passed data
         Bundle passedBundle = getIntent().getExtras();
@@ -418,6 +419,15 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         leadSourceClick.setOnClickListener(this);
         socialnetworkClick.setOnClickListener(this);
 
+
+        //Autocomplete Text view
+        interests.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(LeadsEditActivity.this,
+                android.R.layout.select_dialog_item, categoryNameList);
+        interests.setThreshold(1);
+        interests.setAdapter(arrayAdapter);
+
+
         //Adding data to multiautocomplete textview...........
         categories.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(LeadsEditActivity.this,
@@ -491,8 +501,53 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         });
 
+    }
 
 
+    //Service - Getting Category
+    private void callGetCategoryService() {
+
+
+        String accessTokenId = marketPreference.getString(Constants.LOGIN_ACCESSTOKEN_ID, null);
+        final String userId = marketPreference.getString(Constants.LOGIN_USER_ID, null);
+        String roleId = marketPreference.getString(Constants.LOGIN_ROLE_ID, null);
+
+        builder = getHttpClient();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Config.BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(builder.build()).build();
+        final Api api = retrofit.create(Api.class);
+
+        Call<List<CategoryListOutput>> call = (Call<List<CategoryListOutput>>) api.getCategoryList(accessTokenId,
+                userId,
+                roleId,
+                Constants.SERVICE_GET_CATEGORY_LIST);
+        call.enqueue(new Callback<List<CategoryListOutput>>() {
+            @Override
+            public void onResponse(Call<List<CategoryListOutput>> call, Response<List<CategoryListOutput>> response) {
+
+                //Checking for response code
+                if (response.code() == 200 ) {
+
+
+                    categoryOutputList = response.body();
+
+                    if (categoryOutputList.size()!=0){
+                        for (int i=0;i<categoryOutputList.size();i++){
+                            categoryNameList.add(categoryOutputList.get(i).getName());
+                            categoryIdList.add(categoryOutputList.get(i).getId());
+
+                            Log.e("CategoryNameList",categoryNameList.get(i));
+                            Log.e("CategoryNameIdList",categoryIdList.get(i));
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CategoryListOutput>> call, Throwable t) {
+
+                Log.e("Failure",t.toString());
+            }
+        });
     }
 
 
@@ -945,7 +1000,7 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
 
         Log.e("INTERESTS",interestsText);
 
-        String[] parts = interestsText.split(",");
+        /*String[] parts = interestsText.split(",");
         boolean isRealEstateSelected = false;
         boolean isInvestmentSelected = false;
 
@@ -993,9 +1048,63 @@ public class LeadsEditActivity extends AppCompatActivity implements View.OnClick
         if (categoryListUpload.size()>0)
         {
             editLeadInput.setCategoryList(categoryListUpload);
+        }*/
+
+        //Category....
+
+        List<CategoryList> categoryListUpload = new ArrayList<>();
+        String[] parts = interestsText.split(",");
+        for (int index=0;index<parts.length;index++){
+            SelecetedCategoryName.add(parts[index].trim());
+
+
+            Log.e("Selected",SelecetedCategoryName.get(index));
+        }
+
+        for (int j=0;j<SelecetedCategoryName.size();j++){
+            for (int k=0; k<categoryOutputList.size();k++){
+                if (SelecetedCategoryName.get(j).equals(categoryOutputList.get(k).getName()))
+                {
+                    if (SelecetedCategoryId.size()!=0) {
+                        int flag  =0;
+                        for (int p = 0; p < SelecetedCategoryId.size(); p++) {
+                            if (categoryOutputList.get(k).getId().equals(SelecetedCategoryId.get(p))) {
+                                flag=0;
+                                break;
+
+                            } else {
+                                flag=1;
+                            }
+                        }
+                        if (flag==1)
+                        {
+                            SelecetedCategoryId.add(categoryOutputList.get(k).getId());
+                        }
+                    }
+                    else {
+                        SelecetedCategoryId.add(categoryOutputList.get(k).getId());
+                    }
+
+                }
+            }
+        }
+
+        for (int m=0;m<SelecetedCategoryId.size();m++){
+            CategoryList categoryList=new CategoryList();
+            Category category=new Category();
+            category.setId(SelecetedCategoryId.get(m));
+            categoryList.setCategory(category);
+            categoryListUpload.add(categoryList);
+        }
+
+        if (categoryListUpload.size()>0)
+        {
+            editLeadInput.setCategoryList(categoryListUpload);
         }
 
 
+
+        //Product......
 
         List<ProductList> productListUpload = new ArrayList<>();
         String[] parts2 = categoryText.split(",");
